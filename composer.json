@@ -1,9 +1,0 @@
-{
-	"name": "pixelworks/drdesilva",
-	"type": "project",
-	"scripts": {
-		"docker:up": "docker run -v /Users/daniel.peterson/Home/drdesilva/wp:/var/www/html -p 80:80 c10ckw0rk/wordpress",
-		"docker:down": "docker stop $(docker ps -q --filter ancestor='c10ckw0rk/wordpress')",
-		"docker:build": "docker build -t c10ckw0rk/wordpress ."
-	}
-}

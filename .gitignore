@@ -1,4 +1,4 @@
-wp
-vendor
+node_modules
 /.idea
 /dbdata
+flow-typed

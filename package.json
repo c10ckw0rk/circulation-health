@@ -1,0 +1,25 @@
+{
+	"name": "drDesilva",
+	"version": "1.0.0",
+	"scripts": {
+		"docker:up": "docker-compose up",
+		"build": "webpack",
+		"dev": "NODE_ENV=development webpack"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.0.0-beta.38",
+		"@babel/plugin-proposal-class-properties": "^7.0.0-beta.38",
+		"@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.38",
+		"@babel/plugin-transform-flow-strip-types": "^7.0.0-beta.38",
+		"@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.38",
+		"@babel/preset-env": "^7.0.0-beta.38",
+		"flow-bin": "^0.67.1",
+		"flow-typed": "^2.3.0",
+		"webpack": "^4.1.1"
+	},
+	"dependencies": {
+		"babel-loader": "^8.0.0-beta",
+		"vue": "^2.5.16",
+		"webpack-cli": "^2.0.12"
+	}
+}
