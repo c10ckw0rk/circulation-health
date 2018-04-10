@@ -1,0 +1,115 @@
+/*
+|--------------------------------------------------
+| Helper Classes
+|--------------------------------------------------
+*/
+
+// Hide for both screen readers and browsers
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+// Hide only visually, but have it available for screen readers
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+}
+
+// Extends the .visually hidden class to allow the element to be focusable when navigated to via the keyboard
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+    position: static;
+    overflow: visible;
+    clip: auto;
+    margin: 0;
+    width: auto;
+    height: auto;
+}
+
+// WebAIM's recommendation for screen reader only content
+// http://webaim.org/techniques/css/invisiblecontent/
+.screen-reader {
+    position: absolute;
+    top: auto;
+    left: -10000px;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+}
+
+.active .screen-reader.activate {
+    visibility: hidden;
+}
+
+.active .screen-reader.activated {
+    visibility: visible;
+}
+
+.screen-reader.activate {
+    visibility: visible;
+}
+
+.screen-reader.activated {
+    visibility: hidden;
+}
+
+// Hide visually and from screen readers, but maintain layout
+.invisible {
+    visibility: hidden;
+}
+
+// Clearfix
+%clearfix:before,
+%clearfix:after {
+    display: table; /* 2 */
+    content: " "; /* 1 */
+}
+
+%clearfix:after {
+    clear: both;
+}
+
+// Clearfix (IE 6/7 fallback)
+// Include this rule to trigger hasLayout and contain floats.
+%clearfix {
+    *zoom: 1;
+}
+
+// Clearfix class for general use
+.clear-fix {
+    @extend %clearfix;
+}
+
+// Text
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+//hide on desktop
+@include break-point(desktop) {
+    .hide-desktop {
+        display: none;
+    }
+}
+
+//hide on mobile
+@include break-point(mobile) {
+    .hide-mobile {
+        display: none;
+    }
+}

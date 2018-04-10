@@ -1,0 +1,150 @@
+//------------------------------------------------------------------
+//** Desc: Typography (font sizes, baseline, @font-face, etc..)
+//** Contributors: Daniel Peterson
+//** Created by Dax on 25 Jan 2016
+//------------------------------------------------------------------
+
+/*
+|--------------------------------------------------
+| Variables
+|--------------------------------------------------
+*/
+
+//baseline
+$baseline: 8px;
+$baseFontSize: $baseline * 2;
+$default-margin: $baseline * 2;
+
+//Desktop font-sizes
+$h1-font-size: 64px !default;
+$h2-font-size: 40px !default;
+$h3-font-size: 32px !default;
+$h4-font-size: 24px !default;
+$h5-font-size: 20px !default;
+$h6-font-size: 16px !default;
+
+//mobile font-sizes
+$h1-mobile-font-size: 40px !default;
+$h2-mobile-font-size: 30px !default;
+$h3-mobile-font-size: 26px !default;
+$h4-mobile-font-size: 22px !default;
+$h5-mobile-font-size: 20px !default;
+$h6-mobile-font-size: 16px !default;
+
+/*
+|--------------------------------------------------
+| Mixins
+|--------------------------------------------------
+*/
+
+@mixin font-style($font-size) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: $font-size;
+    margin: 0;
+    @content;
+}
+
+/*
+|--------------------------------------------------
+| Typography
+|--------------------------------------------------
+*/
+
+body {
+    font-family: Roboto, sans-serif;
+    font-size: baseline(2);
+    font-weight: 300;
+    color: $horizon;
+}
+
+.h1 {
+    @include font-style($h1-font-size);
+    margin-bottom: baseline(3);
+    font-weight: 700;
+    line-height: 64px;
+}
+
+.h2 {
+    @include font-style($h2-font-size);
+    margin-bottom: baseline(2);
+    font-weight: 300;
+    line-height: 56px;
+}
+
+.h3 {
+    @include font-style($h3-font-size);
+    margin-bottom: baseline(4);
+    font-weight: 300;
+    line-height: 40px;
+}
+
+.h4 {
+    @include font-style($h4-font-size);
+    margin-bottom: baseline(2);
+    font-weight: bold;
+    line-height: baseline(4);
+}
+
+.h5 {
+    @include font-style($h5-font-size);
+    margin-bottom: baseline(2);
+    font-weight: 300;
+    line-height: 32px;
+}
+
+.h6 {
+    @include font-style($h6-font-size);
+    font-weight: 300;
+    margin-bottom: baseline(2);
+    line-height: 24px;
+}
+
+//TODO: mobile font sizes
+
+p, pre, address, ul, ol, .gform_confirmation_message_1 {
+    margin: 0 0 $default-margin 0;
+    padding: 0;
+}
+
+ul, ol {
+    margin-left: $baseline * 4;
+    margin-bottom: ($baseline * 3);
+}
+
+table {
+    margin: $default-margin 0;
+    th, td {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+li ul, li ol {
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $chestnut-rose;
+    text-decoration: underline;
+}
+
+p, code, li, time, .gform_confirmation_message_1, label {
+    font-size: $baseFontSize;
+    -webkit-font-smoothing: antialiased;
+    line-height: 24px;
+    font-weight: 300;
+}
+
+time {
+    display: block;
+}
+
+li {
+    margin-bottom: $baseline;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

@@ -17,7 +17,7 @@ services:
        - db
      image: wordpress:latest
      volumes:
-        - ./theme:/var/www/html/wp-content/themes/DrDesilva
+        - ./theme:/var/www/html/wp-content/themes/circulation-health
      ports:
        - "8000:80"
      restart: always

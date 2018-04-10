@@ -1,8 +1,0 @@
-[include]
-./src/js
-
-[libs]
-./lib/flow-typed/npm
-
-[options]
-module.system=haste
