@@ -1,5 +1,15 @@
 import React from 'react';
-import { withConsumer } from '@store/Store';
+import { withConsumer } from 'js/store/Store';
+import Header from 'js/components/Header';
+import Banner from 'js/components/Banner';
+import ListTile from 'js/components/ListTile';
+import CenterTile from 'js/components/CenterTile';
+import PanelTile from 'js/components/PanelTile';
+import ProfileTile from 'js/components/ProfileTile';
+import CalendarTile from 'js/components/CalendarTile';
+import CaseStudyTile from 'js/components/CaseStudyTile';
+import Map from 'js/components/Map';
+import Subscribe from 'js/components/Subscribe';
 
 class Home extends React.Component {
 	state = {
@@ -13,20 +23,19 @@ class Home extends React.Component {
 		}
 	};
 
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.pages[0]) {
-			this.setState({ page: nextProps.pages[0] });
-		}
-	}
-
 	render() {
-		const { page } = this.state;
 		return (
 			<>
-				<h2>Homepage template</h2>
-				<h1>{page.title.rendered}</h1>
-
-				<div dangerouslySetInnerHTML={{ __html: page.excerpt.rendered }} />
+				<Header />
+				<Banner />
+				<ListTile />
+				<CenterTile />
+				<PanelTile />
+				<ProfileTile />
+				<CalendarTile />
+				<CaseStudyTile />
+				<Map />
+				<Subscribe />
 			</>
 		);
 	}

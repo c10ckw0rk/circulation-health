@@ -1,0 +1,58 @@
+@import '~scss/imports';
+
+.calendar-tile {
+	padding-top: baseline(5);
+	padding-bottom: baseline(5);
+
+	.calendar {
+		margin: 0;
+		padding: 0;
+	}
+
+	.entry {
+		padding-top: 16px;
+		padding-bottom: 16px;
+	}
+
+	.date {
+		width: baseline(10);
+		height: baseline(10);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background: $gallery;
+		padding: 16px;
+		box-sizing: border-box;
+	}
+
+	.day {
+		font-weight: 700;
+		font-size: 26px;
+		text-decoration: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.link {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+	}
+
+	.container-fluid {
+		list-style: none;
+		margin: 0;
+		border-bottom: 1px solid $gallery;
+
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+
+	.title {
+		font-weight: 700;
+		align-self: flex-start;
+		color: $horizon;
+		margin-left: baseline(2);
+	}
+}

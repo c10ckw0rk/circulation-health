@@ -6,24 +6,24 @@
 
 html,
 body {
-    margin: 0;
-    height: 100%;
-    background: white;
-    background-size: 60%;
+	margin: 0;
+	height: 100%;
+	background: white;
+	background-size: 60%;
 }
 
 main {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .max-wrapper {
-    margin: 0 auto;
-    padding: 0;
-    max-width: 1400px;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 1400px;
 
-    @include break-point(sm) {
-        padding: 0 baseline(2);
-    }
+	@include break-point(sm) {
+		padding: 0 baseline(2);
+	}
 }
 
 .col-xs-1,
@@ -74,23 +74,23 @@ main {
 .col-sm-12,
 .col-md-12,
 .col-lg-12 {
-    box-sizing: border-box;
-    padding-right: baseline(2);
-    padding-left: baseline(2);
+	box-sizing: border-box;
+	padding-right: baseline(2);
+	padding-left: baseline(2);
 }
 
 .row {
-    margin-right: - baseline(2);
-    margin-left: - baseline(2);
+	margin-right: - baseline(2);
+	margin-left: - baseline(2);
 }
 
 textarea:focus,
 input:focus,
 button:focus {
-    outline: none;
+	outline: none;
 }
 
 .container-fluid {
-    padding-right: baseline(2);
-    padding-left: baseline(2);
+	padding-right: baseline(2);
+	padding-left: baseline(2);
 }

@@ -1,0 +1,15 @@
+@import '~scss/imports';
+
+.hamburger {
+	height: 16px;
+	width: 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	.line {
+		height: 2px;
+		width: 100%;
+		background: $emperor;
+	}
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import { withConsumer } from './store/Store';
+import { withConsumer } from 'js/store/Store';
+import Home from 'js/pages/Home';
 
-import Home from '@pages/Home';
 // import { getPages } from '@js/store/actions';
 // import About from '@/js/pages/About.js';
 // import Contact from '@/js/pages/Contact.js';

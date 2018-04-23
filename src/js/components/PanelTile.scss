@@ -1,0 +1,50 @@
+@import '~scss/imports';
+
+.panel-tile {
+	text-align: left;
+	background: $gallery;
+	padding: 0;
+
+	p {
+		font-weight: 400;
+	}
+
+	img {
+		height: 32px;
+		display: inline-block;
+	}
+
+	ul {
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		list-style: none;
+		margin-bottom: 0;
+		border-bottom: 1px solid $alto;
+
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+
+	a {
+		padding: 16px 16px;
+		display: flex;
+		text-decoration: none;
+		color: $dove-gray;
+		align-items: center;
+	}
+
+	span {
+		height: 64px;
+		width: 64px;
+		margin-right: 16px;
+		background: $alto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 32px;
+	}
+}

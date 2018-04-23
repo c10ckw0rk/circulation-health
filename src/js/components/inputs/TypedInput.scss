@@ -1,0 +1,20 @@
+@import '~scss/imports';
+
+.typed-input {
+	.input {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		height: baseline(7);
+		background: white;
+		border: 1px solid $gray;
+		font-size: baseline(2);
+		padding: baseline(1);
+		box-sizing: border-box;
+		color: $horizon;
+		width: 100%;
+	}
+
+	.label {
+		display: none;
+	}
+}

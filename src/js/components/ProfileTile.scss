@@ -1,0 +1,21 @@
+@import '~scss/imports';
+
+.profile-tile {
+	background: $gallery;
+
+	.col-xs-12 {
+		padding-top: baseline(5);
+		padding-bottom: baseline(5);
+	}
+
+	img {
+		width: 100%;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		font-weight: 300;
+	}
+}

@@ -11,25 +11,15 @@
 */
 
 //baseline
-$baseline: 8px;
-$baseFontSize: $baseline * 2;
-$default-margin: $baseline * 2;
-
-//Desktop font-sizes
-$h1-font-size: 64px !default;
-$h2-font-size: 40px !default;
-$h3-font-size: 32px !default;
-$h4-font-size: 24px !default;
-$h5-font-size: 20px !default;
-$h6-font-size: 16px !default;
+$baseFontSize: baseline(2);
+$default-margin: baseline(2);
 
 //mobile font-sizes
-$h1-mobile-font-size: 40px !default;
-$h2-mobile-font-size: 30px !default;
-$h3-mobile-font-size: 26px !default;
-$h4-mobile-font-size: 22px !default;
-$h5-mobile-font-size: 20px !default;
-$h6-mobile-font-size: 16px !default;
+$h1-mobile-font-size: 32px !default;
+$h2-mobile-font-size: 26px !default;
+$h3-mobile-font-size: 22px !default;
+$h4-mobile-font-size: 18px !default;
+$h5-mobile-font-size: 16px !default;
 
 /*
 |--------------------------------------------------
@@ -37,12 +27,13 @@ $h6-mobile-font-size: 16px !default;
 |--------------------------------------------------
 */
 
-@mixin font-style($font-size) {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: $font-size;
-    margin: 0;
-    @content;
+@mixin font-style($font-size, $desktop-size) {
+	font-size: $font-size;
+	@include break-point(sm) {
+		font-size: $desktop-size;
+	}
+	margin: 0;
+	@content;
 }
 
 /*
@@ -52,99 +43,106 @@ $h6-mobile-font-size: 16px !default;
 */
 
 body {
-    font-family: Roboto, sans-serif;
-    font-size: baseline(2);
-    font-weight: 300;
-    color: $horizon;
+	font-family: 'Lato', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: baseline(2);
+	font-weight: 300;
+	color: $horizon;
 }
 
-.h1 {
-    @include font-style($h1-font-size);
-    margin-bottom: baseline(3);
-    font-weight: 700;
-    line-height: 64px;
+.h1,
+h1 {
+	@include font-style(48px, 48px);
+	margin-bottom: baseline(3);
+	line-height: baseline(7);
 }
 
-.h2 {
-    @include font-style($h2-font-size);
-    margin-bottom: baseline(2);
-    font-weight: 300;
-    line-height: 56px;
+.h2,
+h2 {
+	@include font-style(24px, 36px);
+	margin-bottom: baseline(3);
+	line-height: baseline(4);
 }
 
-.h3 {
-    @include font-style($h3-font-size);
-    margin-bottom: baseline(4);
-    font-weight: 300;
-    line-height: 40px;
+.h3,
+h3 {
+	@include font-style(20px, 28px);
+	margin-bottom: baseline(2);
+	line-height: baseline(4);
 }
 
-.h4 {
-    @include font-style($h4-font-size);
-    margin-bottom: baseline(2);
-    font-weight: bold;
-    line-height: baseline(4);
+.h4,
+h4 {
+	@include font-style(18px, 18px);
+	margin-bottom: baseline(2);
+	line-height: baseline(3);
 }
 
-.h5 {
-    @include font-style($h5-font-size);
-    margin-bottom: baseline(2);
-    font-weight: 300;
-    line-height: 32px;
-}
-
-.h6 {
-    @include font-style($h6-font-size);
-    font-weight: 300;
-    margin-bottom: baseline(2);
-    line-height: 24px;
+.h5,
+h5 {
+	@include font-style(16px, 16px);
+	margin-bottom: baseline(2);
+	line-height: baseline(3);
 }
 
 //TODO: mobile font sizes
 
-p, pre, address, ul, ol, .gform_confirmation_message_1 {
-    margin: 0 0 $default-margin 0;
-    padding: 0;
+p,
+pre,
+address,
+ul,
+ol,
+.gform_confirmation_message_1 {
+	margin: 0 0 $default-margin 0;
+	padding: 0;
 }
 
-ul, ol {
-    margin-left: $baseline * 4;
-    margin-bottom: ($baseline * 3);
+ul,
+ol {
+	margin-left: baseline(4);
+	margin-bottom: baseline(3);
 }
 
 table {
-    margin: $default-margin 0;
-    th, td {
-        padding-top: 0;
-        padding-bottom: 0;
-    }
+	margin: $default-margin 0;
+
+	th,
+	td {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
 }
 
-li ul, li ol {
-    margin-top: 0;
+li ul,
+li ol {
+	margin-top: 0;
 }
 
 a {
-    text-decoration: none;
-    color: $chestnut-rose;
-    text-decoration: underline;
+	color: $chestnut-rose;
+	text-decoration: underline;
 }
 
-p, code, li, time, .gform_confirmation_message_1, label {
-    font-size: $baseFontSize;
-    -webkit-font-smoothing: antialiased;
-    line-height: 24px;
-    font-weight: 300;
+p,
+code,
+li,
+time,
+label {
+	font-size: $baseFontSize;
+	-webkit-font-smoothing: antialiased;
+	line-height: 24px;
+	font-weight: 300;
 }
 
 time {
-    display: block;
+	display: block;
 }
 
 li {
-    margin-bottom: $baseline;
+	margin-bottom: baseline(1);
 
-    &:last-child {
-        margin-bottom: 0;
-    }
+	&:last-child {
+		margin-bottom: 0;
+	}
 }

@@ -1,0 +1,9 @@
+@import '~scss/imports';
+
+.button {
+	height: baseline(7);
+	background: $alto;
+	color: $horizon;
+	font-size: 16px;
+	padding: 16px;
+}

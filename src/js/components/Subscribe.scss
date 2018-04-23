@@ -1,0 +1,19 @@
+@import '~scss/imports';
+
+.subscribe {
+	padding-top: baseline(5);
+	padding-bottom: baseline(5);
+
+	.form {
+		display: flex;
+	}
+
+	.Button {
+		width: 90px;
+	}
+
+	.text-input {
+		flex-grow: 2;
+		margin-right: baseline(2);
+	}
+}

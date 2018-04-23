@@ -1,0 +1,22 @@
+@import '~scss/imports';
+
+.banner {
+	position: relative;
+	background-size: cover;
+	background-position: center;
+
+	h2 {
+		color: white;
+		height: vw(200, sm);
+		font-size: vw(24, sm);
+		line-height: vw(32, sm);
+		font-weight: 300;
+		display: flex;
+		align-content: center;
+		justify-content: center;
+	}
+
+	.inner-content {
+		align-self: center;
+	}
+}

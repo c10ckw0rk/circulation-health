@@ -17,11 +17,8 @@ module.exports = () => {
 		},
 		resolve: {
 			alias: {
-				'@js': path.resolve(__dirname, 'src/js'),
-				'@store': path.resolve(__dirname, 'src/js/store'),
-				'@pages': path.resolve(__dirname, 'src/js/pages'),
-				'@hoc': path.resolve(__dirname, 'src/js/hoc'),
-				'@components': path.resolve(__dirname, 'src/js/components')
+				scss: path.resolve(__dirname, 'src/scss'),
+				js: path.resolve(__dirname, 'src/js')
 			}
 		},
 		module: {
@@ -38,7 +35,17 @@ module.exports = () => {
 				},
 				{
 					test: /\.scss$/,
-					loader: 'style-loader!css-loader!sass-loader',
+					use: [
+						{
+							loader: 'style-loader' // creates style nodes from JS strings
+						},
+						{
+							loader: 'css-loader' // translates CSS into CommonJS
+						},
+						{
+							loader: 'sass-loader' // compiles Sass to CSS
+						}
+					],
 					exclude: /node_modules/
 				},
 				{

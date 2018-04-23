@@ -6,7 +6,8 @@ const { Provider, Consumer } = createContext(null);
 export default class Store extends React.Component {
 	state = {
 		pages: [],
-		posts: []
+		posts: [],
+		home: []
 	};
 
 	render() {

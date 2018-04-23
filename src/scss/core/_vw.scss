@@ -1,0 +1,25 @@
+@function vw($val, $point) {
+	$width: 0;
+
+	// Extra Small Devices, Phones
+	@if ($point == sm) {
+		$width: 320;
+	}
+
+	// Small Devices, Tablets
+	@if ($point == md) {
+		$width: 320;
+	}
+
+	// Large Devices, Wide Screens
+	@if ($point == lg) {
+		$width: 320;
+	}
+
+	// Even-larger
+	@if ($point == xl) {
+		$width: 320;
+	}
+
+	@return ($val / $width) * 100vw;
+}

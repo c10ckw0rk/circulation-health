@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 
 const appUrl = 'http://localhost:8000/?rest_route=/wp/v2';
 
@@ -12,16 +12,16 @@ const api = async endPoint => {
 	return response.data;
 };
 
-const actionTemplate = async (endPoint, key) => this.setState({ [key]: await api(endPoint) });
+const actionTemplate = async (endPoint, key, context) => context.setState({ [key]: await api(endPoint) });
 
 export async function getPages() {
-	await actionTemplate(`${appUrl}/pages`, 'pages');
+	await actionTemplate(`${appUrl}/pages`, 'pages', this);
 }
 
 export async function getPosts() {
-	await actionTemplate(`${appUrl}/posts`, 'posts');
+	await actionTemplate(`${appUrl}/posts`, 'posts', this);
 }
 
 export async function getHomes() {
-	await actionTemplate(`${appUrl}/home_template`, 'home');
+	await actionTemplate(`${appUrl}/home_template`, 'home', this);
 }

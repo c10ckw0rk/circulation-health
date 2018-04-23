@@ -1,0 +1,15 @@
+@import '~scss/imports';
+
+.center-tile {
+	background: white;
+	padding-top: 24px;
+	margin-bottom: 24px;
+	text-align: center;
+
+	p {
+		font-weight: 400;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
