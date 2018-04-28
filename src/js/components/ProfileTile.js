@@ -1,10 +1,11 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
 import './ProfileTile.scss';
+import { themedir } from 'js/config';
 
 export default class ProfileTile extends React.Component {
 	static defaultProps = {
-		profileImage: '/wp-content/themes/circulation-health/img/dr-bullen.jpg',
+		profileImage: themedir + '/img/dr-bullen.jpg',
 		content: `<h2 class='h4'>About</h2>
 				<h3>Dr Andrew Bullen<br> FRACS MBBS BSc(Med)</h3>
 				<p>

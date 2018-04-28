@@ -10,6 +10,8 @@ import CalendarTile from 'js/components/CalendarTile';
 import CaseStudyTile from 'js/components/CaseStudyTile';
 import Map from 'js/components/Map';
 import Subscribe from 'js/components/Subscribe';
+import Social from 'js/components/Social';
+import ContactUs from 'js/components/ContactUs';
 
 class Home extends React.Component {
 	state = {
@@ -36,6 +38,8 @@ class Home extends React.Component {
 				<CaseStudyTile />
 				<Map />
 				<Subscribe />
+				<Social />
+				<ContactUs />
 			</>
 		);
 	}

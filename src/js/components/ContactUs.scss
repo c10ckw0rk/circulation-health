@@ -1,18 +1,19 @@
 @import '~scss/imports';
 
-.social {
+.contact-us {
 	margin-top: baseline(5);
 	margin-bottom: baseline(5);
 
 	.list {
 		margin: 0;
 		padding: 0;
-		display: flex;
+	}
+	.item {
+		list-style: none;
+		font-weight: 700;
 	}
 
 	.link {
-		list-style: none;
-		padding: 0 baseline(4) 0 0;
-		margin: 0;
+		font-weight: 700;
 	}
 }

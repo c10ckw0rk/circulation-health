@@ -3,28 +3,29 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import './PanelTile.scss';
+import { themedir } from 'js/config';
 
 export default class PanelTile extends React.Component {
 	static defaultProps = {
 		links: [
 			{
 				title: 'Venous disease',
-				image: '/wp-content/themes/circulation-health/img/clipboard.svg',
+				image: themedir + '/img/clipboard.svg',
 				link: '#'
 			},
 			{
 				title: 'Arterial disease',
-				image: '/wp-content/themes/circulation-health/img/heart.svg',
+				image: themedir + '/img/heart.svg',
 				link: '#'
 			},
 			{
 				title: 'Vascular access',
-				image: '/wp-content/themes/circulation-health/img/monitor.svg',
+				image: themedir + '/img/monitor.svg',
 				link: '#'
 			},
 			{
 				title: 'Vascular Arterial access',
-				image: '/wp-content/themes/circulation-health/img/stethoscope.svg',
+				image: themedir + '/img/stethoscope.svg',
 				link: '#'
 			}
 		]

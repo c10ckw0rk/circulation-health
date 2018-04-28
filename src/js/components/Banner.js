@@ -1,10 +1,11 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
 import './Banner.scss';
+import { themedir } from 'js/config';
 
 export default class Banner extends React.Component {
 	static defaultProps = {
-		backgroundImage: '/wp-content/themes/circulation-health/img/banner.jpg',
+		backgroundImage: themedir + '/img/banner.jpg',
 		titleContent: 'Comprehensive diagnosis and treatment of all arterial and venous disorders'
 	};
 
