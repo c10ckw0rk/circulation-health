@@ -2,7 +2,6 @@ import React from 'react';
 import { withConsumer } from 'js/store/Store';
 import Header from 'js/components/Header';
 import Banner from 'js/components/Banner';
-import ListTile from 'js/components/ListTile';
 import CenterTile from 'js/components/CenterTile';
 import PanelTile from 'js/components/PanelTile';
 import ProfileTile from 'js/components/ProfileTile';
@@ -30,7 +29,6 @@ class Home extends React.Component {
 			<>
 				<Header />
 				<Banner />
-				<ListTile />
 				<CenterTile />
 				<PanelTile />
 				<ProfileTile />

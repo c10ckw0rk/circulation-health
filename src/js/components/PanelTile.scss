@@ -5,6 +5,10 @@
 	background: $gallery;
 	padding: 0;
 
+	@include break-point(sm) {
+		background: none;
+	}
+
 	p {
 		font-weight: 400;
 	}
@@ -17,12 +21,29 @@
 	ul {
 		padding: 0;
 		margin: 0;
+
+		@include break-point(sm) {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-items: center;
+			margin: 0 baseline(1);
+		}
 	}
 
 	li {
 		list-style: none;
 		margin-bottom: 0;
 		border-bottom: 1px solid $alto;
+
+		@include break-point(sm) {
+			padding: 0 0 baseline(2);
+			width: baseline(34);
+			height: baseline(34);
+			border: none;
+			margin: 0 baseline(1);
+		}
 
 		&:last-of-type {
 			border-bottom: none;
@@ -35,6 +56,12 @@
 		text-decoration: none;
 		color: $dove-gray;
 		align-items: center;
+
+		@include break-point(sm) {
+			height: 100%;
+			border: 1px solid $alto;
+			box-sizing: border-box;
+		}
 	}
 
 	span {

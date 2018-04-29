@@ -1,7 +1,21 @@
+$xs: 479;
+$sm: 480;
+$md: 768;
+$lg: 1200;
+$xl: 1400;
+
+:export {
+	xs: $xs;
+	sm: $sm;
+	md: $md;
+	lg: $lg;
+	xl: $xl;
+}
+
 @mixin break-point($point) {
 	// Custom, iPhone Retina */
 	@if ($point == xs) {
-		@media only screen and (max-width: 767px) {
+		@media (max-width: $xs + px) {
 			@content;
 		}
 	}
@@ -9,7 +23,7 @@
 	// Extra Small Devices, Phones
 
 	@if ($point == sm) {
-		@media only screen and (min-width: 768px) {
+		@media (min-width: $sm + px) {
 			@content;
 		}
 	}
@@ -17,7 +31,7 @@
 	// Small Devices, Tablets
 
 	@if ($point == md) {
-		@media only screen and (min-width: 992px) {
+		@media (min-width: $md + px) {
 			@content;
 		}
 	}
@@ -25,7 +39,7 @@
 	// Large Devices, Wide Screens
 
 	@if ($point == lg) {
-		@media (min-width: 1200px) {
+		@media (min-width: $lg + px) {
 			@content;
 		}
 	}
@@ -33,7 +47,7 @@
 	// Even-larger
 
 	@if ($point == xl) {
-		@media (min-width: 1400px) {
+		@media (min-width: $xl + px) {
 			@content;
 		}
 	}

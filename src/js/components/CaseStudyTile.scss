@@ -1,7 +1,10 @@
 @import '~scss/imports';
 
 .case-study-tile {
-	padding-top: baseline(5);
-	padding-bottom: baseline(5);
-	background: $wild-sand;
+	margin-top: baseline(5);
+	margin-bottom: baseline(5);
+
+	.title {
+		margin-bottom: baseline(2);
+	}
 }

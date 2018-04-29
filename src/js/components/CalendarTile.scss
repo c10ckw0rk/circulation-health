@@ -1,8 +1,8 @@
 @import '~scss/imports';
 
 .calendar-tile {
-	padding-top: baseline(5);
-	padding-bottom: baseline(5);
+	margin-top: baseline(5);
+	margin-bottom: baseline(5);
 
 	.calendar {
 		margin: 0;
@@ -42,10 +42,15 @@
 	.container-fluid {
 		list-style: none;
 		margin: 0;
-		border-bottom: 1px solid $gallery;
+
+		.entry {
+			border-bottom: 1px solid $gallery;
+		}
 
 		&:last-of-type {
-			border-bottom: none;
+			.entry {
+				border-bottom: none;
+			}
 		}
 	}
 

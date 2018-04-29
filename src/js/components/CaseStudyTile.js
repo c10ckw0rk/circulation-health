@@ -46,7 +46,7 @@ export default class CaseStudyTile extends React.Component {
 		return (
 			<div className={'case-study-tile'}>
 				<Container>
-					<h2>{title}</h2>
+					<h2 className={'title'}>{title}</h2>
 				</Container>
 				{caseStudies.map(({ img, content }, i) => (
 					<article className={'case-study'} key={i}>

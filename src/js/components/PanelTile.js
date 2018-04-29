@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './PanelTile.scss';
 import { themedir } from 'js/config';
+import Container from 'js/components/grid/Container';
 
 export default class PanelTile extends React.Component {
 	static defaultProps = {
@@ -38,22 +39,20 @@ export default class PanelTile extends React.Component {
 	render() {
 		const { links } = this.props;
 		return (
-			<div className={'container-fluid panel-tile'}>
-				<div className={'row'}>
-					<ul className={'col-xs-12'}>
-						{links.map(({ title, image, link }) => (
-							<li key={link + title}>
-								<Link to={link}>
-									<span>
-										<img src={image} />
-									</span>
-									{title}
-								</Link>
-							</li>
-						))}
-					</ul>
-				</div>
-			</div>
+			<Container className={'panel-tile'} col={false}>
+				<ul>
+					{links.map(({ title, image, link }) => (
+						<li className={'col-xs-12'} key={link + title}>
+							<Link to={link}>
+								<span>
+									<img src={image} />
+								</span>
+								{title}
+							</Link>
+						</li>
+					))}
+				</ul>
+			</Container>
 		);
 	}
 }

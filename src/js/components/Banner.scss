@@ -5,7 +5,13 @@
 	background-size: cover;
 	background-position: center;
 
-	h2 {
+	.inner-banner {
+		@include break-point(md) {
+			display: flex;
+		}
+	}
+
+	.banner-title {
 		color: white;
 		height: vw(200, sm);
 		font-size: vw(24, sm);
@@ -14,9 +20,38 @@
 		display: flex;
 		align-content: center;
 		justify-content: center;
+		margin-bottom: 0;
+
+		@include break-point(sm) {
+			height: baseline(40);
+			font-size: 36px;
+			line-height: 48px;
+		}
 	}
 
 	.inner-content {
 		align-self: center;
+	}
+
+	.banner-links {
+		overflow: hidden;
+
+		@include break-point(md) {
+			align-self: center;
+			min-width: baseline(34);
+		}
+	}
+
+	.list-tile-wrapper {
+		width: 100vw;
+		margin-left: - baseline(2);
+		@include break-point(md) {
+			width: auto;
+			margin-left: auto;
+			display: flex;
+			align-content: center;
+			justify-content: center;
+			height: baseline(40);
+		}
 	}
 }
