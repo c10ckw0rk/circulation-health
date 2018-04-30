@@ -8,17 +8,17 @@
 
 	// Small Devices, Tablets
 	@if ($point == md) {
-		$width: 320;
+		$width: $md;
 	}
 
 	// Large Devices, Wide Screens
 	@if ($point == lg) {
-		$width: 320;
+		$width: $lg;
 	}
 
 	// Even-larger
 	@if ($point == xl) {
-		$width: 320;
+		$width: $xl;
 	}
 
 	@return ($val / $width) * 100vw;

@@ -7,3 +7,7 @@
 @function baseline($num) {
 	@return 8px * $num;
 }
+
+@function baselineCalc($num) {
+	@return 8 * $num;
+}

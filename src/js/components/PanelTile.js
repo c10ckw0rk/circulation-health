@@ -44,10 +44,12 @@ export default class PanelTile extends React.Component {
 					{links.map(({ title, image, link }) => (
 						<li className={'col-xs-12'} key={link + title}>
 							<Link to={link}>
-								<span>
-									<img src={image} />
+								<span className={'image-wrap'}>
+									<span className={'image'}>
+										<img src={image} />
+									</span>
 								</span>
-								{title}
+								<span className={'title'}>{title}</span>
 							</Link>
 						</li>
 					))}
