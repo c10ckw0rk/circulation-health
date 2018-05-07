@@ -46,6 +46,7 @@
 	.list-tile-wrapper {
 		width: 100vw;
 		margin-left: - baseline(2);
+
 		@include break-point(md) {
 			width: auto;
 			margin-left: auto;

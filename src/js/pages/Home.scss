@@ -1,0 +1,16 @@
+@import '~scss/imports';
+
+.home {
+	.footer-cols {
+		margin-top: baseline(5);
+		margin-bottom: baseline(5);
+
+		@include break-point(sm) {
+			float: none;
+		}
+
+		@include break-point(md) {
+			float: left;
+		}
+	}
+}

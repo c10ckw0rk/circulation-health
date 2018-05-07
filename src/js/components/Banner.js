@@ -63,7 +63,7 @@ export default class Banner extends React.Component {
 		const { backgroundImage } = this.state;
 
 		return (
-			<div className={'banner'} style={{ backgroundImage: `url(${backgroundImage})` }}>
+			<section className={'banner'} style={{ backgroundImage: `url(${backgroundImage})` }}>
 				<Container>
 					<div className={'inner-banner'}>
 						<h2 className={'banner-title'}>
@@ -74,7 +74,7 @@ export default class Banner extends React.Component {
 						</div>
 					</div>
 				</Container>
-			</div>
+			</section>
 		);
 	}
 }

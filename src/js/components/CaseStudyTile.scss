@@ -4,6 +4,12 @@
 	margin-top: baseline(5);
 	margin-bottom: baseline(5);
 
+	.case-studies {
+		@include break-point(md) {
+			display: flex;
+		}
+	}
+
 	.title {
 		margin-bottom: baseline(2);
 	}

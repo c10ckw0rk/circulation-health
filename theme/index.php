@@ -20,6 +20,7 @@
 </head>
 <body>
     <div id="app"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeyiWxUHdOzxmEQGLBdI2BMYQAY7M0liw"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/index.js"></script>
     <?php wp_footer(); ?>
 </body>

@@ -53,40 +53,42 @@ body {
 
 .h1,
 h1 {
-	@include font-style(48px, 48px);
+	@include font-style(36px, 36px);
 	margin-bottom: baseline(3);
-	line-height: baseline(7);
+	line-height: baseline(6);
 }
 
 .h2,
 h2 {
-	@include font-style(24px, 36px);
+	@include font-style(24px, 24px);
 	margin-bottom: baseline(3);
 	line-height: baseline(4);
 }
 
 .h3,
 h3 {
-	@include font-style(20px, 28px);
-	margin-bottom: baseline(2);
+	@include font-style(20px, 20px);
+	margin-bottom: baseline(3);
 	line-height: baseline(4);
 }
 
 .h4,
 h4 {
 	@include font-style(18px, 18px);
-	margin-bottom: baseline(2);
+	margin-bottom: baseline(3);
 	line-height: baseline(3);
 }
 
 .h5,
 h5 {
 	@include font-style(16px, 16px);
-	margin-bottom: baseline(2);
+	margin-bottom: baseline(3);
 	line-height: baseline(3);
 }
 
-//TODO: mobile font sizes
+.no-margin {
+	margin: 0;
+}
 
 p,
 pre,

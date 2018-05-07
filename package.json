@@ -23,6 +23,7 @@
 		"babel-loader": "^8.0.0-beta",
 		"classnames": "^2.2.5",
 		"css-loader": "^0.28.11",
+		"google-map-react": "^1.0.0",
 		"lodash": "^4.17.5",
 		"node-sass": "^4.8.3",
 		"prop-types": "^15.6.1",

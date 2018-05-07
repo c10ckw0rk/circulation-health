@@ -3,13 +3,28 @@
 .profile-tile {
 	background: $gallery;
 
-	.col-xs-12 {
-		padding-top: baseline(5);
-		padding-bottom: baseline(5);
+	@include break-point(sm) {
+		display: flex;
+		flex-direction: row-reverse;
+	}
+
+	@include break-point(md) {
+		display: flex;
+		flex-direction: row;
 	}
 
 	img {
 		width: 100%;
+
+		@include break-point(sm) {
+			width: 30vw;
+		}
+
+		@include break-point(md) {
+			width: 40vw;
+			margin: baseline(4) 0 0;
+			max-width: baseline(56);
+		}
 	}
 
 	h1,
@@ -17,5 +32,69 @@
 	h3,
 	h4 {
 		font-weight: 300;
+	}
+
+	.content {
+		padding-top: baseline(5);
+		padding-bottom: baseline(5);
+
+		@include break-point(sm) {
+			margin-left: baseline(4);
+		}
+	}
+
+	.wrapper {
+		@include break-point(sm) {
+			display: flex;
+		}
+	}
+
+	.profile {
+		width: 100vw;
+		position: relative;
+		left: -16px;
+
+		@include break-point(sm) {
+			width: auto;
+			left: auto;
+		}
+
+		@include break-point(md) {
+			height: 0;
+		}
+	}
+
+	.row {
+		max-width: 1200px;
+	}
+}
+
+.profile-wrap {
+	@include break-point(md) {
+		height: 0;
+	}
+}
+
+.profile-padding-wrap {
+	.padding {
+		@include break-point(md) {
+			width: 40vw;
+			height: 40vw;
+			margin: baseline(4) 0 0;
+			max-height: 448px;
+		}
+	}
+}
+
+.grey-bumper {
+	.profile-wrap {
+		height: auto;
+	}
+}
+
+.grey-bumper {
+	.padding {
+		display: none;
+		margin-bottom: 0;
 	}
 }

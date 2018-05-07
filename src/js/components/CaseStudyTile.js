@@ -26,7 +26,11 @@ export default class CaseStudyTile extends React.Component {
                 <h3>Case study title goes here</h3>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales, quam vel porta volutpat, elit.
-                    Phasellus sodales, quam vel porta volutpat, elit.
+                    Phasellus sodales, quam vel porta volutpat, elit. 
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales, quam vel porta volutpat, elit.
+                    Phasellus sodales, quam vel porta volutpat, elit. 
                 </p>
                 <p>
                     <a href="#">More about this case study</a>
@@ -48,12 +52,14 @@ export default class CaseStudyTile extends React.Component {
 				<Container>
 					<h2 className={'title'}>{title}</h2>
 				</Container>
-				{caseStudies.map(({ img, content }, i) => (
-					<article className={'case-study'} key={i}>
-						<img src={img} />
-						<Container dangerouslySetInnerHTML={{ __html: content }} />
-					</article>
-				))}
+				<div className={'case-studies'}>
+					{caseStudies.map(({ img, content }, i) => (
+						<article className={'case-study'} key={i}>
+							<img src={img} />
+							<Container dangerouslySetInnerHTML={{ __html: content }} />
+						</article>
+					))}
+				</div>
 			</div>
 		);
 	}

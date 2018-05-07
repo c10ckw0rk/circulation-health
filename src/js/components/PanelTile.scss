@@ -46,6 +46,7 @@
 		}
 
 		@include break-point(md) {
+			padding: 0 0 baseline(2);
 			width: vw(baselineCalc(21), md);
 			height: vw(baselineCalc(21), md);
 			max-height: baseline(42);
@@ -95,8 +96,17 @@
 		align-items: center;
 		justify-content: center;
 		border-radius: 32px;
+		max-width: 128px;
+		max-height: 128px;
 
 		@include break-point(sm) {
+			margin-right: 0;
+			width: vw(baselineCalc(7), sm);
+			height: vw(baselineCalc(7), sm);
+			border-radius: vw(baselineCalc(7), sm);
+		}
+
+		@include break-point(md) {
 			margin-right: 0;
 			width: vw(baselineCalc(8), md);
 			height: vw(baselineCalc(8), md);
@@ -107,9 +117,15 @@
 	img {
 		height: baseline(4);
 		display: inline-block;
+		max-width: 50px;
+		max-height: 50px;
 
 		@include break-point(sm) {
-			height: vw(baselineCalc(1.5), sm);
+			height: vw(baselineCalc(3), sm);
+		}
+
+		@include break-point(md) {
+			height: vw(baselineCalc(3.5), md);
 		}
 	}
 

@@ -11,6 +11,10 @@ import Map from 'js/components/Map';
 import Subscribe from 'js/components/Subscribe';
 import Social from 'js/components/Social';
 import ContactUs from 'js/components/ContactUs';
+import HalfContainer from 'js/components/grid/HalfContainer';
+import ThirdsContainer from 'js/components/grid/ThirdsContainer';
+
+import './Home.scss';
 
 class Home extends React.Component {
 	state = {
@@ -26,19 +30,25 @@ class Home extends React.Component {
 
 	render() {
 		return (
-			<>
+			<div className={'home'}>
 				<Header />
 				<Banner />
 				<CenterTile />
 				<PanelTile />
 				<ProfileTile />
-				<CalendarTile />
-				<CaseStudyTile />
+				<HalfContainer>
+					<CalendarTile />
+					<CaseStudyTile />
+				</HalfContainer>
 				<Map />
-				<Subscribe />
-				<Social />
-				<ContactUs />
-			</>
+				<footer>
+					<ThirdsContainer colClass={'footer-cols'}>
+						<Subscribe />
+						<Social />
+						<ContactUs />
+					</ThirdsContainer>
+				</footer>
+			</div>
 		);
 	}
 }

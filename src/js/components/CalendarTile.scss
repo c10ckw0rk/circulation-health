@@ -12,6 +12,13 @@
 	.entry {
 		padding-top: 16px;
 		padding-bottom: 16px;
+		border-bottom: 1px solid $gallery;
+		margin: 0;
+		list-style: none;
+
+		&:last-of-type {
+			border-bottom: none;
+		}
 	}
 
 	.date {
@@ -41,17 +48,6 @@
 
 	.container-fluid {
 		list-style: none;
-		margin: 0;
-
-		.entry {
-			border-bottom: 1px solid $gallery;
-		}
-
-		&:last-of-type {
-			.entry {
-				border-bottom: none;
-			}
-		}
 	}
 
 	.title {

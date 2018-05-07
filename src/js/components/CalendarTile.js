@@ -36,16 +36,14 @@ export default class CalendarTile extends React.Component {
 
 		return (
 			<div className={'calendar-tile'}>
-				<div className={'container-fluid'}>
-					<div className={'row'}>
-						<h2 className={'col-xs-12'}>{title}</h2>
-					</div>
-				</div>
+				<Container>
+					<h2>{title}</h2>
+				</Container>
 				<ul className={'calendar'}>
 					{eventList.map(({ title, date: { day, month } }) => (
-						<li className={'container-fluid'} key={(title + day).replace(/ /gi, '-')}>
-							<div className={'row'}>
-								<div className={'col-xs-12 entry'}>
+						<li key={(title + day).replace(/ /gi, '-')} className={'entry'}>
+							<Container>
+								<div>
 									<Link to={'/'} className={'link'}>
 										<span className={'date'}>
 											<span className={'day'}>{day}</span>
@@ -54,7 +52,7 @@ export default class CalendarTile extends React.Component {
 										<span className={'title'}>{title}</span>
 									</Link>
 								</div>
-							</div>
+							</Container>
 						</li>
 					))}
 				</ul>
