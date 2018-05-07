@@ -1,6 +1,13 @@
 @import '~scss/imports';
 
 .header {
+	z-index: 1;
+	position: relative;
+
+	@include break-point(md) {
+		padding-top: baseline(2);
+	}
+
 	.inner-header {
 		display: flex;
 		height: 100%;
@@ -13,12 +20,21 @@
 		height: 64px;
 		margin-bottom: 0;
 
+		@include break-point(md) {
+			height: 88px;
+		}
+
 		%sections {
 			line-height: baseline(2);
 			display: block;
 			height: 12px;
 			margin: 0;
 			flex-grow: 2;
+
+			@include break-point(md) {
+				height: 24px;
+				line-height: baseline(3);
+			}
 		}
 
 		&-section-1 {
@@ -27,6 +43,11 @@
 			font-size: 12px;
 			color: $glacier;
 			letter-spacing: 1px;
+
+			@include break-point(md) {
+				font-size: 22px;
+				margin: 0 0 4px 0;
+			}
 		}
 
 		&-section-2 {
@@ -35,6 +56,12 @@
 			font-size: 9px;
 			color: $dove-gray;
 			letter-spacing: 1px;
+
+			@include break-point(md) {
+				font-size: 16px;
+				line-height: 16px !important;
+				vertical-align: top;
+			}
 		}
 	}
 
@@ -42,10 +69,15 @@
 		display: block;
 		height: 40px;
 		position: relative;
+
+		@include break-point(md) {
+			height: 88px;
+		}
 	}
 
 	.text-wrapper {
 		padding: 6px;
+		margin-left: 4px;
 	}
 
 	.menu {
@@ -57,5 +89,136 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		margin-right: - baseline(2);
+
+		@include break-point(md) {
+			display: none;
+		}
+	}
+
+	.enquiry {
+		flex-direction: column;
+		justify-content: center;
+		padding-right: baseline(4);
+		display: none;
+
+		@include break-point(md) {
+			display: flex;
+		}
+
+		p {
+			font-size: baseline(2);
+			margin: 0;
+			text-align: right;
+			color: $dove-gray;
+		}
+
+		a {
+			font-size: 20px;
+			line-height: baseline(3);
+			white-space: nowrap;
+			font-weight: 700;
+			color: $glacier;
+		}
+	}
+
+	.make-enquiry {
+		display: none;
+		justify-content: center;
+		flex-direction: column;
+
+		@include break-point(md) {
+			display: flex;
+		}
+
+		.button {
+			background: $chestnut-rose;
+			height: baseline(6);
+			white-space: nowrap;
+			color: white;
+			font-weight: 400;
+			text-decoration: none;
+			box-sizing: border-box;
+			display: block;
+		}
+	}
+
+	.desktop-header-wrapper {
+		height: baseline(4);
+		display: none;
+
+		@include break-point(md) {
+			display: block;
+		}
+	}
+
+	.desktop-header {
+		margin: baseline(2) 0 0;
+
+		.nav {
+			margin: 0;
+			display: flex;
+			background: $glacier;
+			position: relative;
+			padding-right: 215px;
+			flex-wrap: wrap;
+
+			li {
+				margin: 0;
+
+				&.search {
+					height: 100%;
+					position: absolute;
+					right: 0;
+					top: 0;
+					border-left: solid 1px rgba(255, 255, 255, 0.15);
+					display: flex;
+					align-items: center;
+
+					input {
+						-webkit-appearance: none;
+						-moz-appearance: none;
+						appearance: none;
+						height: 100%;
+						padding: baseline(2);
+						box-sizing: border-box;
+						border: 0;
+						background: transparent;
+						font-size: 14px;
+						color: white;
+					}
+
+					::placeholder {
+						/* Chrome, Firefox, Opera, Safari 10.1+ */
+						color: white;
+						opacity: 1; /* Firefox */
+					}
+
+					::-ms-input-placeholder {
+						color: white;
+					}
+
+					.icon {
+						height: 20px;
+						padding-left: baseline(2);
+					}
+				}
+
+				&:not(&:last-of-type) {
+					a {
+						padding-right: 0;
+					}
+				}
+			}
+
+			a {
+				color: white;
+				text-decoration: none;
+				font-size: 14px;
+				font-weight: 400;
+				padding: baseline(2);
+				display: block;
+			}
+		}
 	}
 }
