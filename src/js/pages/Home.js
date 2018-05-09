@@ -8,13 +8,11 @@ import ProfileTile from 'js/components/ProfileTile';
 import CalendarTile from 'js/components/CalendarTile';
 import CaseStudyTile from 'js/components/CaseStudyTile';
 import Map from 'js/components/Map';
-import Subscribe from 'js/components/Subscribe';
-import Social from 'js/components/Social';
-import ContactUs from 'js/components/ContactUs';
+import ListTile from 'js/components/ListTile';
 import HalfContainer from 'js/components/grid/HalfContainer';
-import ThirdsContainer from 'js/components/grid/ThirdsContainer';
 
 import './Home.scss';
+import Footer from 'js/components/Footer';
 
 class Home extends React.Component {
 	state = {
@@ -30,25 +28,25 @@ class Home extends React.Component {
 
 	render() {
 		return (
-			<div className={'home'}>
+			<>
 				<Header />
-				<Banner />
-				<CenterTile />
-				<PanelTile />
-				<ProfileTile />
-				<HalfContainer>
-					<CalendarTile />
-					<CaseStudyTile />
-				</HalfContainer>
-				<Map />
-				<footer>
-					<ThirdsContainer colClass={'footer-cols'}>
-						<Subscribe />
-						<Social />
-						<ContactUs />
-					</ThirdsContainer>
-				</footer>
-			</div>
+				<Banner>
+					<div className={'list-tile-wrapper'}>
+						<ListTile className={'banner-links'} />
+					</div>
+				</Banner>
+				<main className={'home'}>
+					<CenterTile />
+					<PanelTile />
+					<ProfileTile />
+					<HalfContainer>
+						<CalendarTile />
+						<CaseStudyTile />
+					</HalfContainer>
+					<Map />
+				</main>
+				<Footer />
+			</>
 		);
 	}
 }

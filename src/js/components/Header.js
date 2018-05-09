@@ -1,7 +1,7 @@
 import React from 'react';
 import { withConsumer } from 'js/store/Store';
 import Logo from 'js/components/svg/Logo';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Hamburger } from 'js/components/icon/Hamburger';
 import './Header.scss';
 import Container from 'js/components/grid/Container';
@@ -20,24 +20,8 @@ class Header extends React.Component {
 				link: '/'
 			},
 			{
-				title: 'SPECIALTY AREAS',
-				link: '/'
-			},
-			{
-				title: 'PATIENT INFORMATION',
-				link: '/'
-			},
-			{
-				title: 'LATEST NEWS',
-				link: '/'
-			},
-			{
-				title: 'ABOUT US',
-				link: '/'
-			},
-			{
-				title: 'CONTACT',
-				link: '/'
+				title: 'SAMPLE PAGE',
+				link: '/sample-page'
 			}
 		],
 		searchPlaceholder: 'SEARCH'
@@ -85,7 +69,9 @@ class Header extends React.Component {
 							<ul className={'nav'}>
 								{navItems.map(({ title, link }, i) => (
 									<li key={i}>
-										<Link to={link}>{title}</Link>
+										<NavLink exact to={link}>
+											{title}
+										</NavLink>
 									</li>
 								))}
 								<li className={'search'}>

@@ -57,3 +57,11 @@
 		}
 	}
 }
+
+.banner.short {
+	.banner-title,
+	.list-tile-wrapper {
+		height: baseline(27);
+		justify-content: left;
+	}
+}

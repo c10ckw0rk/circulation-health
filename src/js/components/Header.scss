@@ -218,6 +218,25 @@
 				font-weight: 400;
 				padding: baseline(2);
 				display: block;
+				position: relative;
+				white-space: nowrap;
+
+				&:after {
+					content: '';
+					display: block;
+					height: 4px;
+					transform: translateY(16px);
+				}
+
+				&.active:after {
+					box-shadow: 0 -4px 0 0 $chestnut-rose inset;
+				}
+
+				&:hover {
+					&:after {
+						box-shadow: 0 -4px 0 0 lighten($chestnut-rose, 20) inset;
+					}
+				}
 			}
 		}
 	}
