@@ -58,6 +58,11 @@ export default class Map extends React.Component {
 		this.grid.exec();
 	}
 
+	componentWillUnmount() {
+		this.grid.destroy();
+		this.grid = undefined;
+	}
+
 	render() {
 		const { style } = this.state;
 

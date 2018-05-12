@@ -1,4 +1,96 @@
 @import '~scss/imports';
 
 .side-menu {
+	width: 100vw;
+	margin-left: - baseline(2);
+
+	@include break-point(md) {
+		padding-bottom: baseline(6);
+		width: auto;
+		margin-left: auto;
+	}
+
+	.title {
+		height: baseline(9);
+		margin: 0;
+		font-size: 20px;
+		display: flex;
+		justify-items: center;
+		align-items: center;
+		font-weight: 400;
+		box-sizing: border-box;
+		padding: 24px 16px;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		height: baseline(9);
+		display: flex;
+		padding: 24px 16px;
+		align-items: center;
+		box-sizing: border-box;
+
+		&:hover {
+			background: $wild-sand;
+		}
+	}
+
+	ul > li {
+		a {
+			background: $gallery;
+			border-bottom: 1px solid $alto;
+			color: $horizon;
+			text-decoration: none;
+		}
+
+		ul li a {
+			padding-left: 48px;
+			font-weight: 200;
+		}
+	}
+
+	.title {
+		flex-grow: 2;
+	}
+
+	.title-wrap {
+		display: flex;
+		background: $alto;
+		align-items: center;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		width: 100%;
+		color: $glacier;
+		padding: 0;
+	}
+
+	.icon-wrap {
+		width: 16px;
+		padding: 0 24px;
+
+		@include break-point(md) {
+			display: none;
+		}
+	}
+
+	.nav-wrapper {
+		display: none;
+		&.open {
+			display: block;
+		}
+
+		@include break-point(md) {
+			display: block;
+		}
+	}
 }
