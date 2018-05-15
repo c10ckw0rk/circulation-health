@@ -1,0 +1,44 @@
+@import '~scss/imports';
+
+.accordion {
+	.title {
+		background: none;
+		width: 100%;
+		color: $horizon;
+		font-size: 20px;
+		line-height: baseline(3);
+		background: $alto;
+		text-align: left;
+		box-sizing: border-box;
+		padding: baseline(3);
+		border: none;
+		border-bottom: 1px solid $wild-sand;
+		font-weight: 700;
+		cursor: pointer;
+
+		&:hover {
+			transition: background 0.2s;
+			background: $gallery;
+		}
+	}
+	.content {
+		padding: baseline(5) baseline(3);
+		background: $wild-sand;
+		display: none;
+	}
+
+	&.open {
+		.content {
+			display: block;
+		}
+
+		.title {
+			background: $chestnut-rose;
+			color: white;
+
+			&:hover {
+				background: $chestnut-rose-hover;
+			}
+		}
+	}
+}

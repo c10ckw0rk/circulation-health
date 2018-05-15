@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const appUrl = 'http://localhost:8000/?rest_route=/wp/v2';
+const sitePath = 'http://localhost:8000';
+const appUrl = `${sitePath}/?rest_route=/wp/v2`;
 
 const api = async endPoint => {
 	let response;
@@ -22,6 +23,6 @@ export async function getPosts() {
 	await actionTemplate(`${appUrl}/posts`, 'posts', this);
 }
 
-export async function getHomes() {
-	await actionTemplate(`${appUrl}/home_template`, 'home', this);
+export async function getPrimaryNavigation() {
+	await actionTemplate(`${sitePath}/wp-json/api/menu`, 'primaryNavigation', this);
 }

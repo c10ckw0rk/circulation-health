@@ -22,16 +22,32 @@ class Header extends React.Component {
 			{
 				title: 'SAMPLE PAGE',
 				link: '/sample-page'
+			},
+			{
+				title: 'FAQS',
+				link: '/faqs'
 			}
 		],
 		searchPlaceholder: 'SEARCH'
 	};
 
-	componentWillReceiveProps(nextProps, nextContent) {
-		if (nextProps !== this.props && nextProps.home.length > 0) {
-			const title = nextProps.home[0].title.rendered.split(' ');
-			this.setState({ title });
+	static getDerivedStateFromProps(nextProps, prevState) {
+		const newState = {};
+
+		if (nextProps.primaryNavigation !== prevState.primaryNavigation) {
+			newState.navItems = nextProps.primaryNavigation.map(({ title, url }) => ({
+				title: title.toUpperCase(),
+				link: url.replace('http://localhost:8000', '')
+			}));
 		}
+
+		if (nextProps.home && nextProps.home.length > 0) {
+			newState.title = nextProps.home[0].title.rendered.split(' ');
+		}
+
+		if (!Object.keys(newState).length) return null;
+
+		return newState;
 	}
 
 	render() {

@@ -1,43 +1,46 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { withConsumer } from 'js/store/Store';
 import Home from 'js/pages/Home';
 import Page from 'js/pages/Page';
+import Faq from 'js/pages/Faq';
 
-// const templates = {
-// 	home: Home,
-// 	page: Page
-// };
+const templates = {
+	'home.php': Home,
+	'faq.php': Faq
+};
 
 class App extends React.Component {
 	static defaultProps = {
-		home: [],
 		pages: [],
-		posts: []
+		posts: [],
+		primaryNavigation: []
 	};
 
 	pageRoutes = pages =>
 		pages.map((page, i) => {
-			return <Route key={i} component={() => <Page {...page} />} path={`/${page.slug}`} exact />;
+			return (
+				<Route
+					key={i}
+					component={() => {
+						const Template = templates[page.template] || Page;
+						return <Template {...page} />;
+					}}
+					exact
+					path={`${page.link.replace(location.origin, '')}`}
+				/>
+			);
 		});
-
-	homeRoutes = ({ state, actions }) =>
-		state.pages.map((page, i) => <Route key={i} component={page} path={`/${page.slug}`} exact />);
 
 	componentWillMount() {
 		this.props.getPages();
-		this.props.getHomes();
-	}
-
-	componentWillReceiveProps(nextProps, nextContext) {
-		// console.log(nextProps);
+		this.props.getPrimaryNavigation();
 	}
 
 	render() {
 		return (
 			<Router>
 				<Switch>
-					<Route path="/" component={Home} exact />
 					{this.pageRoutes(this.props.pages)}
 					{/*<Route render={() => <Redirect to="/" />} />*/}
 				</Switch>
