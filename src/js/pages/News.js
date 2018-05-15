@@ -62,10 +62,10 @@ export default class Page extends React.Component {
 		const { title, news } = this.props;
 
 		return (
-			<div className={'news'}>
+			<>
 				<Header />
 				<Banner overlap titleContent={title.rendered} />
-				<Container className={'news-wrapper'}>
+				<Container className={'news'}>
 					{news.map(({ title, date: { day, month }, link }, i) => (
 						<NavLink key={i} to={link} className={'news-row'}>
 							<Date day={day} month={month} />
@@ -75,7 +75,7 @@ export default class Page extends React.Component {
 				</Container>
 
 				<Footer />
-			</div>
+			</>
 		);
 	}
 }

@@ -31,9 +31,9 @@ export default class Banner extends React.Component {
 	};
 
 	componentDidMount() {
-		const { backgroundImage, short } = this.props;
+		const { backgroundImage, short, overlap } = this.props;
 
-		if (short) return;
+		if (short || overlap) return;
 
 		this.grid = new Grid();
 		this.grid.register('xs', 'on', () => {
@@ -55,8 +55,8 @@ export default class Banner extends React.Component {
 	}
 
 	componentWillUnmount() {
-		const { short } = this.props;
-		if (short) return;
+		const { short, overlap } = this.props;
+		if (short || overlap) return;
 
 		this.grid.destroy();
 		this.grid = undefined;
@@ -65,9 +65,11 @@ export default class Banner extends React.Component {
 	render() {
 		const { titleContent, short, overlap } = this.props;
 		const { backgroundImage } = this.state;
+		const style = { backgroundImage: `url(${backgroundImage})` };
 
 		return (
-			<section className={cn('banner', { short, overlap })} style={{ backgroundImage: `url(${backgroundImage})` }}>
+			<section className={cn('banner', { short, overlap })} style={!overlap ? style : undefined}>
+				{overlap && <div className={'overlap-banner'} style={style} />}
 				<Container>
 					<div className={'inner-banner'}>
 						<h2 className={'banner-title'}>

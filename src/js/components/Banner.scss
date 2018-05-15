@@ -4,6 +4,7 @@
 	position: relative;
 	background-size: cover;
 	background-position: center;
+	transform: translate3d(0, 0, 0);
 
 	.inner-banner {
 		@include break-point(md) {
@@ -64,17 +65,27 @@
 		height: baseline(27);
 		justify-content: left;
 	}
+
+	.banner-title {
+		margin-top: baseline(2);
+	}
 }
 
 .banner.overlap {
-	margin-bottom: - baseline(38);
-	z-index: 0;
+	.overlap-banner {
+		height: baseline(52);
+		background-size: cover;
+		background-position: center;
+		position: absolute;
+		width: 100%;
+	}
+
 	.inner-banner {
-		height: baseline(59);
 		display: block;
 	}
 	.banner-title {
 		display: flex;
+		margin-top: baseline(2);
 		height: baseline(23);
 		justify-content: left;
 	}
