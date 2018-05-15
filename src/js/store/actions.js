@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const sitePath = 'http://localhost:8000';
+const sitePath = location.origin;
 const appUrl = `${sitePath}/?rest_route=/wp/v2`;
 
 const api = async endPoint => {

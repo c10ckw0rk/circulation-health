@@ -85,7 +85,7 @@ class Header extends React.Component {
 							<ul className={'nav'}>
 								{navItems.map(({ title, link }, i) => (
 									<li key={i}>
-										<NavLink exact to={link}>
+										<NavLink exact to={link.replace(location.origin, '')}>
 											{title}
 										</NavLink>
 									</li>
