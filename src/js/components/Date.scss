@@ -1,0 +1,21 @@
+@import '~scss/imports';
+
+.date {
+	width: baseline(10);
+	height: baseline(10);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: $gallery;
+	padding: 16px;
+	box-sizing: border-box;
+	color: $chestnut-rose;
+
+	.day {
+		font-weight: 700;
+		font-size: 26px;
+		text-decoration: none;
+		margin: 0;
+		padding: 0;
+	}
+}

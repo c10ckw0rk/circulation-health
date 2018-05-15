@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './CalendarTile.scss';
 import Container from 'js/components/grid/Container';
+import Date from 'js/components/Date';
 
 export default class CalendarTile extends React.Component {
 	static defaultProps = {
@@ -12,14 +13,14 @@ export default class CalendarTile extends React.Component {
 			{
 				title: 'Event One',
 				date: {
-					day: 5,
+					day: '05',
 					month: 'APR'
 				}
 			},
 			{
 				title: 'Event Two',
 				date: {
-					day: 6,
+					day: '06',
 					month: 'APR'
 				}
 			}
@@ -45,10 +46,7 @@ export default class CalendarTile extends React.Component {
 							<Container>
 								<div>
 									<Link to={'/'} className={'link'}>
-										<span className={'date'}>
-											<span className={'day'}>{day}</span>
-											<span className={'month'}>{month}</span>
-										</span>
+										<Date day={day} month={month} />
 										<span className={'title'}>{title}</span>
 									</Link>
 								</div>

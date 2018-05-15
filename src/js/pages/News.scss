@@ -1,0 +1,26 @@
+@import '~scss/imports';
+
+.news {
+	.news-wrapper {
+		min-height: 304px;
+	}
+
+	.news-row {
+		padding: baseline(2);
+		background: white;
+		margin-bottom: baseline(2);
+		display: flex;
+		text-decoration: none;
+		position: relative;
+		z-index: 1;
+	}
+
+	.title {
+		display: flex;
+		box-sizing: border-box;
+		padding: baseline(2);
+		align-items: center;
+		font-size: baseline(3);
+		color: $horizon;
+	}
+}

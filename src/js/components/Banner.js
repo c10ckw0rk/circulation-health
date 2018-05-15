@@ -63,11 +63,11 @@ export default class Banner extends React.Component {
 	}
 
 	render() {
-		const { titleContent, short } = this.props;
+		const { titleContent, short, overlap } = this.props;
 		const { backgroundImage } = this.state;
 
 		return (
-			<section className={cn('banner', { short })} style={{ backgroundImage: `url(${backgroundImage})` }}>
+			<section className={cn('banner', { short, overlap })} style={{ backgroundImage: `url(${backgroundImage})` }}>
 				<Container>
 					<div className={'inner-banner'}>
 						<h2 className={'banner-title'}>

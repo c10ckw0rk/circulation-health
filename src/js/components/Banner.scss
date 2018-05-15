@@ -65,3 +65,17 @@
 		justify-content: left;
 	}
 }
+
+.banner.overlap {
+	margin-bottom: - baseline(38);
+	z-index: 0;
+	.inner-banner {
+		height: baseline(59);
+		display: block;
+	}
+	.banner-title {
+		display: flex;
+		height: baseline(23);
+		justify-content: left;
+	}
+}

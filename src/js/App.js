@@ -4,10 +4,12 @@ import { withConsumer } from 'js/store/Store';
 import Home from 'js/pages/Home';
 import Page from 'js/pages/Page';
 import Faq from 'js/pages/Faq';
+import News from 'js/pages/News';
 
 const templates = {
 	'home.php': Home,
-	'faq.php': Faq
+	'faq.php': Faq,
+	'news.php': News
 };
 
 class App extends React.Component {
