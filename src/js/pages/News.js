@@ -50,14 +50,6 @@ export default class Page extends React.Component {
 		news: PropTypes.array
 	};
 
-	state = {
-		page: {
-			title: {
-				rendered: ''
-			}
-		}
-	};
-
 	render() {
 		const { title, news } = this.props;
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Container from 'js/components/grid/Container';
 import TypedInput from 'js/components/inputs/TypedInput';
 import Button from 'js/components/inputs/Button';

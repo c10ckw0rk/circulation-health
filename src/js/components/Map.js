@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from 'js/util/Grid';
+import cn from 'classnames';
 import './Map.scss';
 
 export default class Map extends React.Component {
@@ -64,10 +65,11 @@ export default class Map extends React.Component {
 	}
 
 	render() {
+		const { className } = this.props;
 		const { style } = this.state;
 
 		return (
-			<div className={'map'}>
+			<div className={cn('map', className)}>
 				<div className={'block-interaction'} />
 				<div style={style} ref={this.mapElement} />
 			</div>

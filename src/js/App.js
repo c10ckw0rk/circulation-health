@@ -5,11 +5,13 @@ import Home from 'js/pages/Home';
 import Page from 'js/pages/Page';
 import Faq from 'js/pages/Faq';
 import News from 'js/pages/News';
+import ContactUs from 'js/pages/ContactUs';
 
 const templates = {
 	'home.php': Home,
 	'faq.php': Faq,
-	'news.php': News
+	'news.php': News,
+	'contact-us.php': ContactUs
 };
 
 class App extends React.Component {
