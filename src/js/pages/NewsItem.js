@@ -46,7 +46,7 @@ export default class NewsItem extends React.Component {
 		return (
 			<>
 				<Header />
-				<Banner overlap />
+				<Banner titleContent={''} overlap />
 				<main className={'news-item'}>
 					<Container col={false}>
 						<div className={'col-xs-12 col-md-4'}>
