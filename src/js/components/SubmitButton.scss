@@ -1,0 +1,12 @@
+@import '~scss/imports';
+
+.submit-button {
+	margin-top: baseline(5);
+	-webkit-appearance: none;
+	height: baseline(6);
+	background: $chestnut-rose;
+	border: none;
+	color: white;
+	font-size: 16px;
+	padding: 0 baseline(2);
+}

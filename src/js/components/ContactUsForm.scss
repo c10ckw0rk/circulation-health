@@ -1,0 +1,23 @@
+@import '~scss/imports';
+
+.contact-us-form {
+	background: white;
+	box-sizing: border-box;
+	padding: baseline(3);
+
+	.h3 {
+		font-weight: 400;
+	}
+
+	.text-input {
+		margin-bottom: baseline(3);
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	.contact-us-submit {
+		width: 100%;
+	}
+}

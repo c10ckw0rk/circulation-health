@@ -6,7 +6,7 @@
 		-webkit-appearance: none;
 		height: baseline(7);
 		background: white;
-		border: 1px solid $gray;
+		border: 1px solid $alto;
 		font-size: baseline(2);
 		padding: baseline(1);
 		box-sizing: border-box;
@@ -16,8 +16,5 @@
 
 	.label {
 		display: none;
-	}
-
-	.text-area {
 	}
 }

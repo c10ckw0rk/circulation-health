@@ -6,12 +6,14 @@ import Page from 'js/pages/Page';
 import Faq from 'js/pages/Faq';
 import News from 'js/pages/News';
 import ContactUs from 'js/pages/ContactUs';
+import NewsItem from 'js/pages/NewsItem';
 
 const templates = {
 	'home.php': Home,
 	'faq.php': Faq,
 	'news.php': News,
-	'contact-us.php': ContactUs
+	'contact-us.php': ContactUs,
+	'news-item.php': NewsItem
 };
 
 class App extends React.Component {

@@ -6,6 +6,7 @@ import Container from 'js/components/grid/Container';
 import Map from 'js/components/Map';
 import TypedInput from 'js/components/inputs/TypedInput';
 import PropTypes from 'prop-types';
+import SubmitButton from 'js/components/SubmitButton';
 
 export default class ContactUs extends React.Component {
 	static defaultProps = {
@@ -111,9 +112,7 @@ export default class ContactUs extends React.Component {
 											className={'text-area'}
 										/>
 										<div className={'submit-wrapper'}>
-											<button type={'submit'} className={'submit'}>
-												{buttonLabel}
-											</button>
+											<SubmitButton />
 										</div>
 									</div>
 								</Container>
