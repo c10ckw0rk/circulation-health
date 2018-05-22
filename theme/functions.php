@@ -22,7 +22,7 @@ add_action( 'rest_api_init', function () {
 /*-----------------------------------------------------------------------------------*/
 
 function remove_admin_menu_items() {
-    $remove_menu_items = array(__('Posts', 'CPT UI'));
+    $remove_menu_items = array(__('Comments', 'Posts', 'CPT UI'));
     global $menu;
     end ($menu);
     while (prev($menu)){

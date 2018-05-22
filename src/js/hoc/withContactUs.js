@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const formPath = '/wp-json/contact-form-7/v1/contact-forms/86/feedback';
+const formPath = '/wp-json/contact-form-7/v1/contact-forms/91/feedback';
 const success = 'mail_sent';
 
 export default function withContactUs(Component) {
