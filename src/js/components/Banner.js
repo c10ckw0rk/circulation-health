@@ -8,13 +8,11 @@ import cn from 'classnames';
 
 export default class Banner extends React.Component {
 	static defaultProps = {
-		backgroundImage: {
-			xs: themedir + '/img/banner.jpg',
-			sm: themedir + '/img/banner.jpg',
-			md: themedir + '/img/banner.jpg',
-			lg: themedir + '/img/banner.jpg',
-			xl: themedir + '/img/banner.jpg'
-		},
+		xs: themedir + '/img/banner.jpg',
+		sm: themedir + '/img/banner.jpg',
+		md: themedir + '/img/banner.jpg',
+		lg: themedir + '/img/banner.jpg',
+		xl: themedir + '/img/banner.jpg',
 		titleContent: 'Comprehensive diagnosis and treatment of all arterial and venous disorders',
 		short: false
 	};
@@ -27,29 +25,29 @@ export default class Banner extends React.Component {
 
 	grid;
 	state = {
-		backgroundImage: this.props.backgroundImage.xs
+		backgroundImage: this.props.xs
 	};
 
 	componentDidMount() {
-		const { backgroundImage, short, overlap } = this.props;
+		const { xs, sm, md, lg, xl, short, overlap } = this.props;
 
 		if (short || overlap) return;
 
 		this.grid = new Grid();
 		this.grid.register('xs', 'on', () => {
-			this.setState({ backgroundImage: backgroundImage.xs });
+			this.setState({ backgroundImage: xs });
 		});
 		this.grid.register('sm', 'on', () => {
-			this.setState({ backgroundImage: backgroundImage.sm });
+			this.setState({ backgroundImage: sm });
 		});
 		this.grid.register('md', 'on', () => {
-			this.setState({ backgroundImage: backgroundImage.md });
+			this.setState({ backgroundImage: md });
 		});
 		this.grid.register('lg', 'on', () => {
-			this.setState({ backgroundImage: backgroundImage.lg });
+			this.setState({ backgroundImage: lg });
 		});
 		this.grid.register('xl', 'on', () => {
-			this.setState({ backgroundImage: backgroundImage.xl });
+			this.setState({ backgroundImage: xl });
 		});
 		this.grid.exec();
 	}

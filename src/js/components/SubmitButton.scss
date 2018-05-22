@@ -9,4 +9,10 @@
 	color: white;
 	font-size: 16px;
 	padding: 0 baseline(2);
+
+	&:disabled {
+		color: $dove-gray;
+		background: $alto !important;
+		cursor: not-allowed;
+	}
 }

@@ -12,6 +12,12 @@
 		box-sizing: border-box;
 		color: $horizon;
 		width: 100%;
+
+		&:disabled {
+			color: $dove-gray;
+			background: $alto !important;
+			cursor: not-allowed;
+		}
 	}
 
 	.label {

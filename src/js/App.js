@@ -25,15 +25,20 @@ class App extends React.Component {
 
 	pageRoutes = pages =>
 		pages.map((page, i) => {
+			const { acf, template, link, ...rest } = page;
+			Object.keys(acf).forEach(field => {
+				acf[field] = !acf[field] ? undefined : acf[field];
+			});
+
 			return (
 				<Route
 					key={i}
 					component={() => {
-						const Template = templates[page.template] || Page;
-						return <Template {...page} />;
+						const Template = templates[template] || Page;
+						return <Template {...rest} {...acf} />;
 					}}
 					exact
-					path={`${page.link.replace(location.origin, '')}`}
+					path={`${link.replace(location.origin, '')}`}
 				/>
 			);
 		});

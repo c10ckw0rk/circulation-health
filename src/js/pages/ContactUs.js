@@ -1,16 +1,20 @@
 import React from 'react';
 import Header from 'js/components/Header';
+import PropTypes from 'prop-types';
 import Footer from 'js/components/Footer';
-import './ContactUs.scss';
 import Container from 'js/components/grid/Container';
 import Map from 'js/components/Map';
 import TypedInput from 'js/components/inputs/TypedInput';
-import PropTypes from 'prop-types';
 import SubmitButton from 'js/components/SubmitButton';
+import withContactUs from 'js/hoc/withContactUs';
 
-export default class ContactUs extends React.Component {
+import './ContactUs.scss';
+
+class ContactUs extends React.Component {
 	static defaultProps = {
-		title: 'Contact us',
+		title: {
+			rendered: 'Contact us'
+		},
 		buttonLabel: 'Submit enquiry',
 		types: [
 			{
@@ -28,19 +32,47 @@ export default class ContactUs extends React.Component {
 				label: 'Email',
 				detail: 'info@circulationhealth.com.au'
 			}
-		]
+		],
+		firstNamePlaceholder: 'First Name',
+		lastNamePlaceholder: 'Last Name',
+		emailPlaceholder: 'Email',
+		phonePlaceholder: 'Phone',
+		messagePlaceholder: 'Message',
+		introduction: `<p>
+                    We want to hear from you. Please send us an enquiry with the following form and we will get back to
+                    you as soon as we can. Alternatively, you can contact us
+                </p>`
 	};
 
 	static propTypes = {
 		title: PropTypes.object,
 		buttonLabel: PropTypes.string,
-		types: PropTypes.array
+		types: PropTypes.array,
+		firstNamePlaceholder: PropTypes.string,
+		lastNamePlaceholder: PropTypes.string,
+		emailPlaceholder: PropTypes.string,
+		phonePlaceholder: PropTypes.string,
+		messagePlaceholder: PropTypes.string,
+		content: PropTypes.object
 	};
 
-	onSubmit = () => {};
-
 	render() {
-		const { title, types, buttonLabel } = this.props;
+		const {
+			title,
+			types,
+			buttonLabel,
+			firstNamePlaceholder,
+			lastNamePlaceholder,
+			emailPlaceholder,
+			phonePlaceholder,
+			messagePlaceholder,
+			onChange,
+			onSubmit,
+			introduction,
+			submitted,
+			responseMessage
+		} = this.props;
+
 		return (
 			<>
 				<Header />
@@ -50,10 +82,7 @@ export default class ContactUs extends React.Component {
 						<div className={'contact-us-inner-wrapper'}>
 							<h2 className={'col-xs-12 title'}>{title.rendered}</h2>
 							<div className={'col-xs-12 col-sm-12 col-md-4'}>
-								<p>
-									We want to hear from you. Please send us an enquiry with the following form and we will get back to
-									you as soon as we can. Alternatively, you can contact us
-								</p>
+								<div dangerouslySetInnerHTML={{ __html: introduction }} />
 								<ul className={'list'}>
 									{types.map(({ type, label, detail }, i) => {
 										return (
@@ -67,56 +96,73 @@ export default class ContactUs extends React.Component {
 									})}
 								</ul>
 							</div>
-							<form className={'col-xs-12 col-sm-12 col-md-8'} onSubmit={this.onSubmit}>
+							<form className={'col-xs-12 col-sm-12 col-md-8 form'} onSubmit={onSubmit}>
 								<Container col={false}>
 									<div className={'col-xs-12 col-sm-12 col-md-6'}>
 										<TypedInput
-											placeholder={'First name'}
+											placeholder={firstNamePlaceholder}
 											autoFocus
-											id={'email'}
-											label={'email-address'}
+											onChange={onChange}
+											id={'first-name'}
+											label={firstNamePlaceholder}
 											type={'text'}
 											className={'text-input'}
+											disabled={submitted}
+											required
 										/>
 										<TypedInput
-											placeholder={'Email'}
+											placeholder={emailPlaceholder}
 											id={'email'}
-											label={'email-address'}
+											onChange={onChange}
+											label={emailPlaceholder}
 											type={'text'}
 											className={'text-input'}
+											disabled={submitted}
+											required
 										/>
 									</div>
 									<div className={'col-xs-12 col-sm-12 col-md-6'}>
 										<TypedInput
-											placeholder={'Last name'}
-											id={'email'}
-											label={'email-address'}
+											placeholder={lastNamePlaceholder}
+											id={'last-name'}
+											onChange={onChange}
+											label={lastNamePlaceholder}
 											type={'text'}
 											className={'text-input'}
+											disabled={submitted}
+											required
 										/>
 										<TypedInput
-											placeholder={'Phone'}
-											id={'email'}
-											label={'email-address'}
+											placeholder={phonePlaceholder}
+											id={'phone'}
+											onChange={onChange}
+											label={phonePlaceholder}
 											type={'text'}
 											className={'text-input'}
+											disabled={submitted}
+											required
 										/>
 									</div>
 									<div className={'col-xs-12 col-sm-12 col-md-12'}>
 										<TypedInput
 											big
-											placeholder={'Message'}
-											id={'email'}
-											label={'email-address'}
-											type={'text'}
+											placeholder={messagePlaceholder}
+											id={'message'}
+											onChange={onChange}
+											label={messagePlaceholder}
 											className={'text-area'}
+											disabled={submitted}
+											required
 										/>
 										<div className={'submit-wrapper'}>
-											<SubmitButton />
+											<SubmitButton disabled={submitted}>{buttonLabel}</SubmitButton>
 										</div>
 									</div>
 								</Container>
 							</form>
+							<div className={'col-xs-12'}>
+								<p className={'h2'}>{responseMessage}</p>
+							</div>
 						</div>
 					</Container>
 				</main>
@@ -125,3 +171,5 @@ export default class ContactUs extends React.Component {
 		);
 	}
 }
+
+export default withContactUs(ContactUs);
