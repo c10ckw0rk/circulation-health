@@ -61,14 +61,18 @@ module.exports = () => {
 			new LiveReloadPlugin()
 		]
 	};
+
 	if (prod) {
+		config.mode = 'production';
 		config.optimization = {
 			minimize: true
 		};
 	}
+
 	if (dev) {
 		config.watch = true;
 		config.devtool = 'eval-source-map'; // slightly slower rebuilds but gives line and column accuracy
 	}
+
 	return config;
 };

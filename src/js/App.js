@@ -26,6 +26,8 @@ class App extends React.Component {
 	pageRoutes = pages =>
 		pages.map((page, i) => {
 			const { acf, template, link, ...rest } = page;
+
+			//set false to undefined
 			Object.keys(acf).forEach(field => {
 				acf[field] = !acf[field] ? undefined : acf[field];
 			});

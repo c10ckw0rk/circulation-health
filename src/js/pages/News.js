@@ -7,41 +7,30 @@ import PropTypes from 'prop-types';
 import './News.scss';
 import Date from 'js/components/Date';
 import Container from 'js/components/grid/Container';
+import { withConsumer } from 'js/store/Store';
 
-export default class Page extends React.Component {
+class Page extends React.Component {
 	static defaultProps = {
 		news: [
 			{
 				title: 'Event One',
 				link: '/',
-				date: {
-					day: '05',
-					month: 'APR'
-				}
+				date: '2018,May,17'
 			},
 			{
 				title: 'Event Two',
 				link: '/',
-				date: {
-					day: '06',
-					month: 'APR'
-				}
+				date: '2018,May,17'
 			},
 			{
 				title: 'Event One',
 				link: '/',
-				date: {
-					day: '05',
-					month: 'APR'
-				}
+				date: '2018,May,17'
 			},
 			{
 				title: 'Event Two',
 				link: '/',
-				date: {
-					day: '06',
-					month: 'APR'
-				}
+				date: '2018,May,17'
 			}
 		]
 	};
@@ -50,20 +39,43 @@ export default class Page extends React.Component {
 		news: PropTypes.array
 	};
 
-	render() {
-		const { title, news } = this.props;
+	state = {
+		news: []
+	};
 
+	componentDidMount() {
+		const news = [];
+		this.props.pages.forEach(page => {
+			if (page.template === 'news-item.php') {
+				console.log(page);
+				news.push({
+					title: page.title.rendered,
+					link: page.link,
+					date: page.acf.date
+				});
+			}
+		});
+		this.setState({ news });
+	}
+
+	render() {
+		const { title } = this.props;
+		const { news } = this.state;
 		return (
 			<>
 				<Header />
 				<Banner overlap titleContent={title.rendered} />
 				<Container className={'news'}>
-					{news.map(({ title, date: { day, month }, link }, i) => (
-						<NavLink key={i} to={link} className={'news-row'}>
-							<Date day={day} month={month} />
-							<div className={'title'}>{title}</div>
-						</NavLink>
-					))}
+					{news.map(({ title, date, link }, i) => {
+						const parsedDate = date.split(',');
+						console.log(title);
+						return (
+							<NavLink key={i} to={link} className={'news-row'}>
+								<Date day={parsedDate[2]} month={parsedDate[1]} />
+								<div className={'title'}>{title}</div>
+							</NavLink>
+						);
+					})}
 				</Container>
 
 				<Footer />
@@ -71,3 +83,5 @@ export default class Page extends React.Component {
 		);
 	}
 }
+
+export default withConsumer()(Page);
