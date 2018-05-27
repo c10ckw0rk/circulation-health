@@ -12,12 +12,14 @@ const success = 'mail_sent';
 export default class Subscribe extends React.Component {
 	static defaultProps = {
 		title: 'Subscribe to our newsletter',
-		buttonText: 'Submit'
+		buttonText: 'Submit',
+		subscribePlaceholder: 'Your Email'
 	};
 
 	static propTypes = {
 		title: PropTypes.string,
-		buttonText: PropTypes.string
+		buttonText: PropTypes.string,
+		subscribePlaceholder: PropTypes.string
 	};
 
 	state = {
@@ -61,7 +63,7 @@ export default class Subscribe extends React.Component {
 	};
 
 	render() {
-		const { title, buttonText } = this.props;
+		const { title, buttonText, subscribePlaceholder } = this.props;
 		const { message, submitted } = this.state;
 		return (
 			<Container className={'subscribe'}>
@@ -70,7 +72,7 @@ export default class Subscribe extends React.Component {
 					<form onSubmit={this.onSubmit} className={'form'}>
 						<TypedInput
 							onChange={this.onChange}
-							placeholder={'Your email'}
+							placeholder={subscribePlaceholder}
 							id={'email'}
 							label={'email-address'}
 							type={'email'}

@@ -1,7 +1,5 @@
 import React from 'react';
-import Header from 'js/components/Header';
 import Banner from 'js/components/Banner';
-import Footer from 'js/components/Footer';
 import PropTypes from 'prop-types';
 import './NewsItem.scss';
 import Container from 'js/components/grid/Container';
@@ -60,7 +58,6 @@ export default class NewsItem extends React.Component {
 
 		return (
 			<>
-				<Header />
 				<Banner titleContent={''} overlap xs={mUrl} sm={mUrl} md={dUrl} lg={dUrl} xl={dUrl} />
 				<main className={'news-item'}>
 					<Container col={false}>
@@ -94,7 +91,6 @@ export default class NewsItem extends React.Component {
 						</div>
 					</Container>
 				</main>
-				<Footer />
 			</>
 		);
 	}

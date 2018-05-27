@@ -7,18 +7,35 @@ import ThirdsContainer from 'js/components/grid/ThirdsContainer';
 import './Footer.scss';
 
 export default class Footer extends React.Component {
-	static defaultProps = {};
-
-	static propTypes = {};
+	static propTypes = {
+		contactDetails: PropTypes.array,
+		subscribeTitle: PropTypes.string,
+		subscribePlaceholder: PropTypes.string,
+		subscribeButton: PropTypes.string,
+		socialLinks: PropTypes.array,
+		socialTitle: PropTypes.string,
+		contactTitle: PropTypes.string
+	};
 
 	render() {
-		const {} = this.props;
+		const {
+			contactDetails,
+			subscribeTitle,
+			subscribePlaceholder,
+			subscribeButton,
+			socialLinks,
+			socialTitle,
+			contactTitle
+		} = this.props;
+
+		console.log(socialTitle);
+
 		return (
 			<footer className={'footer'}>
 				<ThirdsContainer colClass={'footer-cols'}>
-					<Subscribe />
-					<Social />
-					<ContactUs />
+					<Subscribe buttonText={subscribeButton} subscribePlaceholder={subscribePlaceholder} title={subscribeTitle} />
+					<Social title={socialTitle} icons={socialLinks} />
+					<ContactUs title={contactTitle} types={contactDetails} />
 				</ThirdsContainer>
 			</footer>
 		);

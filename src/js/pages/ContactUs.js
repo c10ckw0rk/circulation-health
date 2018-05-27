@@ -75,7 +75,6 @@ class ContactUs extends React.Component {
 
 		return (
 			<>
-				<Header />
 				<Map className={'contact-us-map'} />
 				<main className={'contact-us-page-wrapper'}>
 					<Container col={false} className={'contact-us-page'}>
@@ -87,7 +86,7 @@ class ContactUs extends React.Component {
 									{types.map(({ type, label, detail }, i) => {
 										return (
 											<li key={i} className={'item'}>
-												{label}:{' '}
+												{label}:
 												<a className={'link'} href={`${type}:${detail}`}>
 													{detail}
 												</a>
@@ -166,7 +165,6 @@ class ContactUs extends React.Component {
 						</div>
 					</Container>
 				</main>
-				<Footer />
 			</>
 		);
 	}

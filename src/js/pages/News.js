@@ -1,7 +1,5 @@
 import React from 'react';
-import Header from 'js/components/Header';
 import Banner from 'js/components/Banner';
-import Footer from 'js/components/Footer';
 import { NavLink } from 'react-router-dom';
 import './News.scss';
 import Date from 'js/components/Date';
@@ -13,7 +11,6 @@ class News extends React.Component {
 		const { title, news } = this.props;
 		return (
 			<>
-				<Header />
 				<Banner overlap titleContent={title.rendered} />
 				<Container className={'news'}>
 					{news.map(({ title, date, link }, i) => {
@@ -26,8 +23,6 @@ class News extends React.Component {
 						);
 					})}
 				</Container>
-
-				<Footer />
 			</>
 		);
 	}

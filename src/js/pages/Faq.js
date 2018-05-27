@@ -1,7 +1,5 @@
 import React from 'react';
-import Header from 'js/components/Header';
 import Banner from 'js/components/Banner';
-import Footer from 'js/components/Footer';
 import './Faq.scss';
 import Accordion from 'js/components/Accordion';
 import PropTypes from 'prop-types';
@@ -70,10 +68,8 @@ export default class Faq extends React.Component {
 		const { title, faqs } = this.props;
 		return (
 			<>
-				<Header />
 				<Banner short titleContent={title.rendered} />
 				<main className={'faq'}>{faqs.map((faq, i) => <Accordion open={i === 0} {...faq} key={i} />)}</main>
-				<Footer />
 			</>
 		);
 	}

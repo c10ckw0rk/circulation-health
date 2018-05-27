@@ -8,6 +8,7 @@ import Faq from 'js/pages/Faq';
 import News from 'js/pages/News';
 import ContactUs from 'js/pages/ContactUs';
 import NewsItem from 'js/pages/NewsItem';
+import Base from 'js/templates/Base';
 
 const templates = {
 	'home.php': Home,
@@ -34,7 +35,7 @@ class App extends React.Component {
 	pageRoutes = pages =>
 		pages.map((page, i) => {
 			const { acf, template, link, ...rest } = page;
-
+			const { globalOptions } = this.props;
 			// set false to undefined
 			Object.keys(acf).forEach(field => {
 				acf[field] = !acf[field] ? undefined : acf[field];
@@ -45,7 +46,13 @@ class App extends React.Component {
 					key={i}
 					component={() => {
 						const Template = templates[template] || Page;
-						return <Template {...rest} {...acf} />;
+						return (
+							<>
+								<Base {...globalOptions.acf}>
+									<Template {...rest} {...acf} />
+								</Base>
+							</>
+						);
 					}}
 					exact
 					path={`${link.replace(location.origin, '')}`}
@@ -58,6 +65,8 @@ class App extends React.Component {
 		this.props.getPrimaryNavigation();
 		this.props.getGlobalOptions();
 	}
+
+	componentDidMount() {}
 
 	render() {
 		return (

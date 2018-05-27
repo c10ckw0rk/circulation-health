@@ -1,22 +1,12 @@
 import React from 'react';
-import Header from 'js/components/Header';
 import Banner from 'js/components/Banner';
 import Container from 'js/components/grid/Container';
-import Footer from 'js/components/Footer';
 import './Page.scss';
 import SideMenu from 'js/components/SideMenu';
 import cn from 'classnames';
 
 export default class Page extends React.Component {
 	state = {
-		page: {
-			title: {
-				rendered: ''
-			},
-			excerpt: {
-				rendered: ''
-			}
-		},
 		sizes: {
 			xs: {
 				left: 12,
@@ -49,7 +39,6 @@ export default class Page extends React.Component {
 
 		return (
 			<>
-				<Header />
 				<Banner short titleContent={title.rendered} />
 				<main className={'page'}>
 					<Container>
@@ -65,7 +54,6 @@ export default class Page extends React.Component {
 						</div>
 					</Container>
 				</main>
-				<Footer />
 			</>
 		);
 	}
