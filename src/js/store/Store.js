@@ -7,7 +7,8 @@ export default class Store extends React.Component {
 	state = {
 		pages: [],
 		posts: [],
-		home: []
+		home: [],
+		globalOptions: []
 	};
 
 	render() {
@@ -27,9 +28,9 @@ export default class Store extends React.Component {
 	}
 }
 
-export function withConsumer() {
-	return function(Component) {
-		return props => (
+export const withConsumer = Component => {
+	return props => {
+		return (
 			<Consumer>
 				{({ state, actions }) => {
 					return <Component {...props} {...state} {...actions} />;
@@ -37,4 +38,4 @@ export function withConsumer() {
 			</Consumer>
 		);
 	};
-}
+};

@@ -2,7 +2,6 @@ import React from 'react';
 import Header from 'js/components/Header';
 import Banner from 'js/components/Banner';
 import Footer from 'js/components/Footer';
-import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './NewsItem.scss';
 import Container from 'js/components/grid/Container';

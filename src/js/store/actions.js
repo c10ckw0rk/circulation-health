@@ -26,3 +26,7 @@ export async function getPosts() {
 export async function getPrimaryNavigation() {
 	await actionTemplate(`${sitePath}/wp-json/api/menu`, 'primaryNavigation', this);
 }
+
+export async function getGlobalOptions() {
+	await actionTemplate(`${sitePath}/wp-json/acf/v3/options/options`, 'globalOptions', this);
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { withConsumer } from 'js/store/Store';
 import Header from 'js/components/Header';
 import Banner from 'js/components/Banner';
 import CenterTile from 'js/components/CenterTile';
@@ -15,17 +14,6 @@ import './Home.scss';
 import Footer from 'js/components/Footer';
 
 class Home extends React.Component {
-	state = {
-		page: {
-			title: {
-				rendered: ''
-			},
-			excerpt: {
-				rendered: ''
-			}
-		}
-	};
-
 	render() {
 		return (
 			<>
@@ -51,4 +39,4 @@ class Home extends React.Component {
 	}
 }
 
-export default withConsumer()(Home);
+export default Home;

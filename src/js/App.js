@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { withConsumer } from 'js/store/Store';
 import Home from 'js/pages/Home';
@@ -20,14 +21,21 @@ class App extends React.Component {
 	static defaultProps = {
 		pages: [],
 		posts: [],
-		primaryNavigation: []
+		primaryNavigation: [],
+		globalOptions: []
+	};
+
+	static propTypes = {
+		getPages: PropTypes.func,
+		getPrimaryNavigation: PropTypes.func,
+		getGlobalOptions: PropTypes.func
 	};
 
 	pageRoutes = pages =>
 		pages.map((page, i) => {
 			const { acf, template, link, ...rest } = page;
 
-			//set false to undefined
+			// set false to undefined
 			Object.keys(acf).forEach(field => {
 				acf[field] = !acf[field] ? undefined : acf[field];
 			});
@@ -48,18 +56,16 @@ class App extends React.Component {
 	componentWillMount() {
 		this.props.getPages();
 		this.props.getPrimaryNavigation();
+		this.props.getGlobalOptions();
 	}
 
 	render() {
 		return (
 			<Router>
-				<Switch>
-					{this.pageRoutes(this.props.pages)}
-					{/*<Route render={() => <Redirect to="/" />} />*/}
-				</Switch>
+				<Switch>{this.pageRoutes(this.props.pages)}</Switch>
 			</Router>
 		);
 	}
 }
 
-export default withConsumer()(App);
+export default withConsumer(App);

@@ -103,4 +103,4 @@ class Header extends React.Component {
 	}
 }
 
-export default withConsumer()(Header);
+export default withConsumer(Header);

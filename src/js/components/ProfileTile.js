@@ -1,5 +1,5 @@
 import React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './ProfileTile.scss';
 import { themedir } from 'js/config';
 import Container from 'js/components/grid/Container';
@@ -35,7 +35,12 @@ export default class ProfileTile extends React.Component {
 	resize = () => {
 		let content = this.content.current.offsetHeight;
 		const img = this.img.current.offsetHeight;
-		const style = window.getComputedStyle(this.img.current);
+		const style = getComputedStyle(this.img.current);
+
+		if (!content || !img) {
+			setTimeout(this.resize, 100);
+			return;
+		}
 
 		content -= parseInt(style.marginTop.replace('px', ''));
 
@@ -47,12 +52,12 @@ export default class ProfileTile extends React.Component {
 	};
 
 	componentDidMount() {
-		window.addEventListener('resize', this.resize);
+		addEventListener('resize', this.resize);
 		setTimeout(this.resize);
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('resize', this.resize);
+		removeEventListener('resize', this.resize);
 	}
 
 	render() {

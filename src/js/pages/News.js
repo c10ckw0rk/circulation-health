@@ -3,64 +3,14 @@ import Header from 'js/components/Header';
 import Banner from 'js/components/Banner';
 import Footer from 'js/components/Footer';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import './News.scss';
 import Date from 'js/components/Date';
 import Container from 'js/components/grid/Container';
-import { withConsumer } from 'js/store/Store';
+import withNews from 'js/hoc/withNews';
 
-class Page extends React.Component {
-	static defaultProps = {
-		news: [
-			{
-				title: 'Event One',
-				link: '/',
-				date: '2018,May,17'
-			},
-			{
-				title: 'Event Two',
-				link: '/',
-				date: '2018,May,17'
-			},
-			{
-				title: 'Event One',
-				link: '/',
-				date: '2018,May,17'
-			},
-			{
-				title: 'Event Two',
-				link: '/',
-				date: '2018,May,17'
-			}
-		]
-	};
-
-	static propTypes = {
-		news: PropTypes.array
-	};
-
-	state = {
-		news: []
-	};
-
-	componentDidMount() {
-		const news = [];
-		this.props.pages.forEach(page => {
-			if (page.template === 'news-item.php') {
-				console.log(page);
-				news.push({
-					title: page.title.rendered,
-					link: page.link,
-					date: page.acf.date
-				});
-			}
-		});
-		this.setState({ news });
-	}
-
+class News extends React.Component {
 	render() {
-		const { title } = this.props;
-		const { news } = this.state;
+		const { title, news } = this.props;
 		return (
 			<>
 				<Header />
@@ -68,7 +18,6 @@ class Page extends React.Component {
 				<Container className={'news'}>
 					{news.map(({ title, date, link }, i) => {
 						const parsedDate = date.split(',');
-						console.log(title);
 						return (
 							<NavLink key={i} to={link} className={'news-row'}>
 								<Date day={parsedDate[2]} month={parsedDate[1]} />
@@ -84,4 +33,4 @@ class Page extends React.Component {
 	}
 }
 
-export default withConsumer()(Page);
+export default withNews(News);

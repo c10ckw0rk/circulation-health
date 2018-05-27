@@ -719,3 +719,12 @@ function my_theme_register_required_plugins() {
     tgmpa( $plugins, $config );
 
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Options Page
+/*-----------------------------------------------------------------------------------*/
+
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page();
+}
