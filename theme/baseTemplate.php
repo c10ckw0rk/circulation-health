@@ -15,7 +15,8 @@
     <meta name="description" content="<?php bloginfo('description'); ?>">
     <script>
         const CONFIG = {
-            THEME_DIR: '<?php echo get_template_directory_uri(); ?>'
+            THEME_DIR: '<?php echo get_template_directory_uri(); ?>',
+            SITE_NAME: '<?php bloginfo('name'); ?>'
         }
     </script>
     <?php wp_head(); ?>
@@ -24,9 +25,9 @@
 
 <div id="app"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeyiWxUHdOzxmEQGLBdI2BMYQAY7M0liw"></script>
-<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 <?php if ($PROD) { ?>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/<?php echo $manifest[1] ?>"></script>
 <?php } else { ?>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/main.js"></script>

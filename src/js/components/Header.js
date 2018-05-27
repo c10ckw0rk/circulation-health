@@ -1,5 +1,5 @@
 import React from 'react';
-import { withConsumer } from 'js/store/Store';
+import PropTypes from 'prop-types';
 import Logo from 'js/components/svg/Logo';
 import { Link, NavLink } from 'react-router-dom';
 import { Hamburger } from 'js/components/icon/Hamburger';
@@ -8,34 +8,25 @@ import Container from 'js/components/grid/Container';
 import { MagnifyingGlass } from 'js/components/icon/MagnifyingGlass';
 
 class Header extends React.Component {
+	static propTypes = {
+		title: PropTypes.array,
+		phoneTitle: PropTypes.string,
+		phone: PropTypes.string,
+		enquiryTitle: PropTypes.string,
+		enquiryLink: PropTypes.string,
+		navItems: PropTypes.array,
+		searchPlaceholder: PropTypes.string
+	};
+
 	state = {
-		title: ['CIRCULATION', 'HEALTH'],
-		phoneTitle: 'CONSULTATION',
-		phone: '(02) 42 268 930',
-		enquiryButton: 'Make an enquiry',
-		enquiryLink: '/',
-		navItems: [
-			{
-				title: 'HOME',
-				link: '/'
-			},
-			{
-				title: 'SAMPLE PAGE',
-				link: '/sample-page'
-			},
-			{
-				title: 'FAQS',
-				link: '/faqs'
-			}
-		],
-		searchPlaceholder: 'SEARCH'
+		navItems: []
 	};
 
 	static getDerivedStateFromProps(nextProps, prevState) {
 		const newState = {};
 
-		if (nextProps.primaryNavigation !== prevState.primaryNavigation) {
-			newState.navItems = nextProps.primaryNavigation.map(({ title, url }) => ({
+		if (nextProps.navItems !== prevState.navItems) {
+			newState.navItems = nextProps.navItems.map(({ title, url }) => ({
 				title: title.toUpperCase(),
 				link: url.replace('http://localhost:8000', '')
 			}));
@@ -51,7 +42,8 @@ class Header extends React.Component {
 	}
 
 	render() {
-		const { title, phone, phoneTitle, enquiryButton, enquiryLink, navItems, searchPlaceholder } = this.state;
+		const { title, phone, phoneTitle, enquiryLink, enquiryTitle, searchPlaceholder } = this.props;
+		const { navItems } = this.state;
 
 		return (
 			<header className={'header'}>
@@ -74,7 +66,7 @@ class Header extends React.Component {
 						</div>
 						<div className={'make-enquiry'}>
 							<Link to={enquiryLink} className={'button'}>
-								{enquiryButton}
+								{enquiryTitle}
 							</Link>
 						</div>
 					</div>
@@ -103,4 +95,4 @@ class Header extends React.Component {
 	}
 }
 
-export default withConsumer(Header);
+export default Header;

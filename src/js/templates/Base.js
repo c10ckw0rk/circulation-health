@@ -3,6 +3,10 @@ import Header from 'js/components/Header';
 import Footer from 'js/components/Footer';
 
 export default class Base extends React.Component {
+	componentDidMount() {
+		console.log(this.props);
+	}
+
 	render() {
 		const {
 			children,
@@ -12,11 +16,24 @@ export default class Base extends React.Component {
 			subscribePlaceholder,
 			subscribeTitle,
 			contactTitle,
-			socialTitle
+			socialTitle,
+			primaryNavigation,
+			headerPhoneNumber,
+			searchPlaceholder,
+			enquiryTitle,
+			enquiryLink
 		} = this.props;
 		return (
 			<>
-				<Header />
+				<Header
+					title={CONFIG.SITE_NAME.toUpperCase().split(' ')}
+					phoneTitle={contactTitle}
+					phone={headerPhoneNumber}
+					enquiryTitle={enquiryTitle}
+					enquiryLink={enquiryLink}
+					navItems={primaryNavigation}
+					searchPlaceholder={searchPlaceholder}
+				/>
 				{children}
 				<Footer
 					contactDetails={contactDetails}

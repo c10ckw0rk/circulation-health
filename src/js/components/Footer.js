@@ -28,8 +28,6 @@ export default class Footer extends React.Component {
 			contactTitle
 		} = this.props;
 
-		console.log(socialTitle);
-
 		return (
 			<footer className={'footer'}>
 				<ThirdsContainer colClass={'footer-cols'}>

@@ -23,10 +23,6 @@ module.exports = () => {
 				js: path.resolve(__dirname, 'src/js')
 			}
 		},
-		externals: {
-			react: 'React',
-			['react-dom']: 'ReactDOM'
-		},
 		module: {
 			rules: [
 				{
@@ -87,6 +83,10 @@ module.exports = () => {
 					]
 				}
 			]
+		};
+		config.externals = {
+			react: 'React',
+			['react-dom']: 'ReactDOM'
 		};
 	}
 
