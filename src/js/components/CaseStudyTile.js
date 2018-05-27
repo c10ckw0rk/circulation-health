@@ -1,43 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Container from 'js/components/grid/Container';
+import { withConsumer } from 'js/store/Store';
 import './CaseStudyTile.scss';
 
-export default class CaseStudyTile extends React.Component {
+class CaseStudyTile extends React.Component {
 	static defaultProps = {
 		title: 'Case Studies',
-		caseStudies: [
-			{
-				img: '',
-				content: `
-                <h3>Case study title goes here</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales, quam vel porta volutpat, elit.
-                    Phasellus sodales, quam vel porta volutpat, elit.
-                </p>
-                <p>
-                    <a href="#">More about this case study</a>
-                </p>
-            `
-			},
-			{
-				img: '',
-				content: `
-                <h3>Case study title goes here</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales, quam vel porta volutpat, elit.
-                    Phasellus sodales, quam vel porta volutpat, elit. 
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales, quam vel porta volutpat, elit.
-                    Phasellus sodales, quam vel porta volutpat, elit. 
-                </p>
-                <p>
-                    <a href="#">More about this case study</a>
-                </p>
-            `
-			}
-		]
+		caseStudies: []
 	};
 
 	static propTypes = {
@@ -45,18 +15,35 @@ export default class CaseStudyTile extends React.Component {
 		caseStudies: PropTypes.array
 	};
 
+	state = {
+		caseStudyPages: []
+	};
+
+	componentDidMount() {
+		const { pages, caseStudies } = this.props;
+
+		let caseStudyPages = [];
+
+		caseStudies.forEach(caseStudy => {
+			caseStudyPages.push(pages.filter(page => page.link === caseStudy)[0]);
+		});
+
+		this.setState({ caseStudyPages });
+	}
+
 	render() {
-		const { caseStudies, title } = this.props;
+		const { title } = this.props;
+		const { caseStudyPages } = this.state;
 		return (
 			<div className={'case-study-tile'}>
 				<Container>
 					<h2 className={'title'}>{title}</h2>
 				</Container>
 				<div className={'case-studies'}>
-					{caseStudies.map(({ img, content }, i) => (
+					{caseStudyPages.map(({ img, excerpt }, i) => (
 						<article className={'case-study'} key={i}>
 							<img src={img} />
-							<Container dangerouslySetInnerHTML={{ __html: content }} />
+							<Container dangerouslySetInnerHTML={{ __html: excerpt.rendered }} />
 						</article>
 					))}
 				</div>
@@ -64,3 +51,5 @@ export default class CaseStudyTile extends React.Component {
 		);
 	}
 }
+
+export default withConsumer(CaseStudyTile);

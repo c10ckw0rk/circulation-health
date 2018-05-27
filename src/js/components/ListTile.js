@@ -10,20 +10,28 @@ export default class ListTile extends React.Component {
 		title: 'Information for patients',
 		items: [
 			{
-				title: 'Download referral',
-				link: '#'
+				link: {
+					title: '',
+					url: ''
+				}
 			},
 			{
-				title: 'Your first appointment',
-				link: '#'
+				link: {
+					title: '',
+					url: ''
+				}
 			},
 			{
-				title: 'Post operative care',
-				link: '#'
+				link: {
+					title: '',
+					url: ''
+				}
 			},
 			{
-				title: 'FAQs',
-				link: '#'
+				link: {
+					title: '',
+					url: ''
+				}
 			}
 		]
 	};
@@ -42,7 +50,9 @@ export default class ListTile extends React.Component {
 					<ul>
 						{items.map((item, i) => (
 							<li key={i}>
-								<a href={item.link}>{item.title}</a>
+								<a href={item.link.title} target={item.link.target}>
+									{item.link.url}
+								</a>
 							</li>
 						))}
 					</ul>

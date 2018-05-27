@@ -357,28 +357,6 @@ if ( function_exists('acf_add_local_field_group') ):
     acf_add_local_field_group(array(
         'key' => 'group_5afe0b3349511',
         'title' => 'Home Page',
-        'fields' => array(
-            array(
-                'key' => 'field_5acc739ce02da',
-                'label' => 'Site Name',
-                'name' => 'site_name',
-                'type' => 'text',
-                'instructions' => 'Put the name of your site in here',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => 'Circulation Health',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'formatting' => 'html',
-                'maxlength' => '',
-            ),
-        ),
         'location' => array(
             array(
                 array(

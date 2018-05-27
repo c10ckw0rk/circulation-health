@@ -11,22 +11,30 @@ export default class PanelTile extends React.Component {
 		links: [
 			{
 				title: 'Venous disease',
-				image: themedir + '/img/clipboard.svg',
+				icon: {
+					url: themedir + '/img/clipboard.svg'
+				},
 				link: '#'
 			},
 			{
 				title: 'Arterial disease',
-				image: themedir + '/img/heart.svg',
+				icon: {
+					url: themedir + '/img/heart.svg'
+				},
 				link: '#'
 			},
 			{
 				title: 'Vascular access',
-				image: themedir + '/img/monitor.svg',
+				icon: {
+					url: themedir + '/img/heart.svg'
+				},
 				link: '#'
 			},
 			{
 				title: 'Vascular Arterial access',
-				image: themedir + '/img/stethoscope.svg',
+				icon: {
+					url: themedir + '/img/heart.svg'
+				},
 				link: '#'
 			}
 		]
@@ -41,12 +49,12 @@ export default class PanelTile extends React.Component {
 		return (
 			<Container className={'panel-tile'} col={false}>
 				<ul>
-					{links.map(({ title, image, link }) => (
+					{links.map(({ title, icon, link }) => (
 						<li className={'col-xs-12'} key={link + title}>
 							<Link to={link}>
 								<span className={'image-wrap'}>
 									<span className={'image'}>
-										<img src={image} />
+										<img src={icon.url} />
 									</span>
 								</span>
 								<span className={'title'}>{title}</span>

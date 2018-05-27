@@ -3,10 +3,6 @@ import Header from 'js/components/Header';
 import Footer from 'js/components/Footer';
 
 export default class Base extends React.Component {
-	componentDidMount() {
-		console.log(this.props);
-	}
-
 	render() {
 		const {
 			children,

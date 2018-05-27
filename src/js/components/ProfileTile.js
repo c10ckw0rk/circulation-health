@@ -14,20 +14,11 @@ export default class ProfileTile extends React.Component {
 
 	static defaultProps = {
 		profileImage: themedir + '/img/dr-bullen.jpg',
-		content: `<h2 class="h4">About</h2>
-				<h1 class="no-margin">Dr Andrew Bullen</h1>
-				<h2>FRACS MBBS BSc(Med)</h2>
-				<p>
-					Dr Andrew Bullen is an Endovascular and Vascular surgeon in the Illawarra region with appointments at The
-					Wollongong Public and Private Hospitals as well as providing specialist vascular services and procedures at
-					the newly created Ulladulla day surgery.
-				</p>
-				<p>
-					<a href="#">Learn More</a>
-				</p>`
+		content: ``
 	};
 
 	static propTypes = {
+		title: PropTypes.string,
 		profileImage: PropTypes.string,
 		content: PropTypes.string
 	};
@@ -61,7 +52,7 @@ export default class ProfileTile extends React.Component {
 	}
 
 	render() {
-		const { profileImage, content } = this.props;
+		const { profileImage, content, title } = this.props;
 		const { className } = this.state;
 		return (
 			<div className={cn('profile-padding-wrap', className)}>
@@ -72,7 +63,10 @@ export default class ProfileTile extends React.Component {
 								<div className={'profile'}>
 									<img ref={this.img} className={'image'} src={profileImage} />
 								</div>
-								<div ref={this.content} className={'content'} dangerouslySetInnerHTML={{ __html: content }} />
+								<div ref={this.content} className={'content'}>
+									<h2 className="h4">{title}</h2>
+									<div dangerouslySetInnerHTML={{ __html: content }} />
+								</div>
 							</div>
 						</Container>
 					</div>
