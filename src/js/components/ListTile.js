@@ -50,8 +50,8 @@ export default class ListTile extends React.Component {
 					<ul>
 						{items.map((item, i) => (
 							<li key={i}>
-								<a href={item.link.title} target={item.link.target}>
-									{item.link.url}
+								<a href={item.link.url} target={item.link.target}>
+									{item.link.title}
 								</a>
 							</li>
 						))}

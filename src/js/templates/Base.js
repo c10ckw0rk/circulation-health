@@ -21,25 +21,29 @@ export default class Base extends React.Component {
 		} = this.props;
 		return (
 			<>
-				<Header
-					title={CONFIG.SITE_NAME.toUpperCase().split(' ')}
-					phoneTitle={contactTitle}
-					phone={headerPhoneNumber}
-					enquiryTitle={enquiryTitle}
-					enquiryLink={enquiryLink}
-					navItems={primaryNavigation}
-					searchPlaceholder={searchPlaceholder}
-				/>
+				{
+					<Header
+						title={CONFIG.SITE_NAME.toUpperCase().split(' ')}
+						phoneTitle={contactTitle}
+						phone={headerPhoneNumber}
+						enquiryTitle={enquiryTitle}
+						enquiryLink={enquiryLink}
+						navItems={primaryNavigation}
+						searchPlaceholder={searchPlaceholder}
+					/>
+				}
 				{children}
-				<Footer
-					contactDetails={contactDetails}
-					socialLinks={socialLinks}
-					subscribeButton={subscribeButton}
-					subscribePlaceholder={subscribePlaceholder}
-					subscribeTitle={subscribeTitle}
-					contactTitle={contactTitle}
-					socialTitle={socialTitle}
-				/>
+				{
+					<Footer
+						contactDetails={contactDetails}
+						socialLinks={socialLinks}
+						subscribeButton={subscribeButton}
+						subscribePlaceholder={subscribePlaceholder}
+						subscribeTitle={subscribeTitle}
+						contactTitle={contactTitle}
+						socialTitle={socialTitle}
+					/>
+				}
 			</>
 		);
 	}

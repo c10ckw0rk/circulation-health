@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Logo from 'js/components/svg/Logo';
-import { Link, NavLink } from 'react-router-dom';
-import { Hamburger } from 'js/components/icon/Hamburger';
-import './Header.scss';
 import Container from 'js/components/grid/Container';
-import { MagnifyingGlass } from 'js/components/icon/MagnifyingGlass';
+import { Link, NavLink } from 'react-router-dom';
+import Hamburger from 'js/components/icon/Hamburger';
+import MagnifyingGlass from 'js/components/icon/MagnifyingGlass';
+import cn from 'classnames';
+
+import './Header.scss';
 
 class Header extends React.Component {
 	static propTypes = {
@@ -19,8 +21,12 @@ class Header extends React.Component {
 	};
 
 	state = {
-		navItems: []
+		navItems: [],
+		sticky: true
 	};
+
+	nav = React.createRef();
+	top = undefined;
 
 	static getDerivedStateFromProps(nextProps, prevState) {
 		const newState = {};
@@ -41,10 +47,29 @@ class Header extends React.Component {
 		return newState;
 	}
 
+	scrollEvent = () => {
+		window.requestAnimationFrame(() => {
+			const scrollPos = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0;
+			if (this.top > scrollPos && !this.state.sticky) {
+				this.setState({ sticky: true });
+			} else if (this.top < scrollPos && this.state.sticky) {
+				this.setState({ sticky: false });
+			}
+		});
+	};
+
+	componentDidMount() {
+		this.top = getPosition(this.nav.current).top;
+		addEventListener('scroll', this.scrollEvent);
+	}
+
+	componentWillUnmount() {
+		removeEventListener('scroll', this.scrollEvent);
+	}
+
 	render() {
 		const { title, phone, phoneTitle, enquiryLink, enquiryTitle, searchPlaceholder } = this.props;
-		const { navItems } = this.state;
-
+		const { navItems, sticky } = this.state;
 		return (
 			<header className={'header'}>
 				<Container>
@@ -71,8 +96,8 @@ class Header extends React.Component {
 						</div>
 					</div>
 				</Container>
-				<div className={'desktop-header-wrapper'}>
-					<nav className={'desktop-header'}>
+				<div className={'desktop-header-wrapper'} ref={this.nav}>
+					<nav className={cn('desktop-header', { sticky: !sticky })}>
 						<Container>
 							<ul className={'nav'}>
 								{navItems.map(({ title, link }, i) => (
@@ -93,6 +118,21 @@ class Header extends React.Component {
 			</header>
 		);
 	}
+}
+
+//* Util *//
+
+function getPosition(element) {
+	let xPosition = 0;
+	let yPosition = 0;
+
+	while (element) {
+		xPosition += element.offsetLeft - element.scrollLeft + element.clientLeft;
+		yPosition += element.offsetTop - element.scrollTop + element.clientTop;
+		element = element.offsetParent;
+	}
+
+	return { left: xPosition, top: yPosition };
 }
 
 export default Header;

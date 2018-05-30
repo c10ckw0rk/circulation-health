@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from 'js/util/Grid';
 import cn from 'classnames';
+import withMap from 'js/hoc/withMap';
+
 import './Map.scss';
 
-export default class Map extends React.Component {
+class Map extends React.Component {
 	grid;
 	map;
 	mapElement = React.createRef();
@@ -17,7 +19,7 @@ export default class Map extends React.Component {
 			lat: 40.714728,
 			lng: -73.998672
 		},
-		zoom: 12,
+		zoom: 15,
 		style: { width: '100%', height: 200 }
 	};
 
@@ -28,16 +30,27 @@ export default class Map extends React.Component {
 	};
 
 	largeMap = () => {
-		this.setState({ style: { width: '100%', height: 600 }, zoom: 12 });
+		this.setState({ style: { width: '100%', height: 600 }, zoom: 15 });
 		google.maps.event.trigger(this.map, 'resize');
 	};
 
 	componentDidMount() {
-		const { center, zoom, style } = this.props;
+		const { zoom, style, map: { lat, lng } } = this.props;
+
+		const center = {
+			lat: Number(lat),
+			lng: Number(lng)
+		};
+
 		this.map = new google.maps.Map(this.mapElement.current, {
 			disableDefaultUI: true,
 			center,
 			zoom
+		});
+
+		new google.maps.Marker({
+			position: center,
+			map: this.map
 		});
 
 		this.setState({ style });
@@ -76,3 +89,5 @@ export default class Map extends React.Component {
 		);
 	}
 }
+
+export default withMap(Map);

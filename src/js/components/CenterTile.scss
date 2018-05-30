@@ -1,12 +1,22 @@
 @import '~scss/imports';
 
-.center-tile {
+.center-tile-wrapper {
 	background: white;
+}
+
+.center-tile {
 	padding-top: 24px;
-	margin-bottom: 24px;
+	padding-bottom: 24px;
 	text-align: center;
 
 	p {
 		font-weight: 400;
+	}
+
+	.content {
+		*:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
 	}
 }

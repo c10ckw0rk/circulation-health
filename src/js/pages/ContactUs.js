@@ -1,7 +1,5 @@
 import React from 'react';
-import Header from 'js/components/Header';
 import PropTypes from 'prop-types';
-import Footer from 'js/components/Footer';
 import Container from 'js/components/grid/Container';
 import Map from 'js/components/Map';
 import TypedInput from 'js/components/inputs/TypedInput';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class MagnifyingGlass extends React.Component {
+export default class MagnifyingGlass extends React.Component {
 	render() {
 		return (
 			<svg version="1.1" viewBox="0 0 22 22" {...this.props}>

@@ -23,7 +23,6 @@ class Home extends React.Component {
 		informationBoxLink: PropTypes.array
 	};
 
-
 	render() {
 		const {
 			tagLine,

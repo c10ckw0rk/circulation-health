@@ -34,15 +34,19 @@ class CaseStudyTile extends React.Component {
 	render() {
 		const { title } = this.props;
 		const { caseStudyPages } = this.state;
+
 		return (
 			<div className={'case-study-tile'}>
 				<Container>
 					<h2 className={'title'}>{title}</h2>
 				</Container>
 				<div className={'case-studies'}>
-					{caseStudyPages.map(({ img, excerpt }, i) => (
+					{caseStudyPages.map(({ img, excerpt, title }, i) => (
 						<article className={'case-study'} key={i}>
 							<img src={img} />
+							<Container>
+								<h3>{title.rendered}</h3>
+							</Container>
 							<Container dangerouslySetInnerHTML={{ __html: excerpt.rendered }} />
 						</article>
 					))}
