@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Logo from 'js/components/svg/Logo';
 import Container from 'js/components/grid/Container';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Hamburger from 'js/components/icon/Hamburger';
-import MagnifyingGlass from 'js/components/icon/MagnifyingGlass';
 import cn from 'classnames';
 
 import './Header.scss';
+import DesktopHeader from 'js/components/DesktopHeader';
 
 class Header extends React.Component {
 	static propTypes = {
@@ -26,16 +26,14 @@ class Header extends React.Component {
 	};
 
 	nav = React.createRef();
-	top = undefined;
+	bottom = undefined;
 
 	static getDerivedStateFromProps(nextProps, prevState) {
 		const newState = {};
 
-		if (nextProps.navItems !== prevState.navItems) {
-			newState.navItems = nextProps.navItems.map(({ title, url }) => ({
-				title: title.toUpperCase(),
-				link: url.replace('http://localhost:8000', '')
-			}));
+		if (nextProps.navItems !== prevState.navItems && typeof nextProps.navItems === 'object') {
+			newState.navItems = format(nextProps.navItems);
+			console.log(newState.navItems);
 		}
 
 		if (nextProps.home && nextProps.home.length > 0) {
@@ -50,16 +48,16 @@ class Header extends React.Component {
 	scrollEvent = () => {
 		window.requestAnimationFrame(() => {
 			const scrollPos = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0;
-			if (this.top > scrollPos && !this.state.sticky) {
+			if (this.bottom > scrollPos && !this.state.sticky) {
 				this.setState({ sticky: true });
-			} else if (this.top < scrollPos && this.state.sticky) {
+			} else if (this.bottom < scrollPos && this.state.sticky) {
 				this.setState({ sticky: false });
 			}
 		});
 	};
 
 	componentDidMount() {
-		this.top = getPosition(this.nav.current).top;
+		this.bottom = getPosition(this.nav.current).top + this.nav.current.offsetHeight;
 		addEventListener('scroll', this.scrollEvent);
 	}
 
@@ -70,8 +68,12 @@ class Header extends React.Component {
 	render() {
 		const { title, phone, phoneTitle, enquiryLink, enquiryTitle, searchPlaceholder } = this.props;
 		const { navItems, sticky } = this.state;
+
 		return (
 			<header className={'header'}>
+				<div className={cn('sticky-header', { sticky: !sticky })}>
+					<DesktopHeader navItems={navItems} searchPlaceholder={searchPlaceholder} />
+				</div>
 				<Container>
 					<div className={'inner-header'}>
 						<h1 className={'title'}>
@@ -97,23 +99,7 @@ class Header extends React.Component {
 					</div>
 				</Container>
 				<div className={'desktop-header-wrapper'} ref={this.nav}>
-					<nav className={cn('desktop-header', { sticky: !sticky })}>
-						<Container>
-							<ul className={'nav'}>
-								{navItems.map(({ title, link }, i) => (
-									<li key={i}>
-										<NavLink exact to={link.replace(location.origin, '')}>
-											{title}
-										</NavLink>
-									</li>
-								))}
-								<li className={'search'}>
-									<MagnifyingGlass className={'icon'} />
-									<input type={'text'} placeholder={searchPlaceholder} />
-								</li>
-							</ul>
-						</Container>
-					</nav>
+					<DesktopHeader navItems={navItems} searchPlaceholder={searchPlaceholder} />
 				</div>
 			</header>
 		);
@@ -133,6 +119,32 @@ function getPosition(element) {
 	}
 
 	return { left: xPosition, top: yPosition };
+}
+
+function storeItem(item, array) {
+	array.forEach(insideItem => {
+		if (Number(item.menu_item_parent) === insideItem.ID) {
+			if (!insideItem.children) insideItem.children = [];
+			insideItem.children.push(item);
+		} else if (insideItem.children) {
+			storeItem(item, insideItem.children);
+		}
+	});
+}
+
+function format(navItems) {
+	const SubMenuItem = [];
+	navItems.forEach((item, i) => {
+		if (item.menu_item_parent !== '0') {
+			SubMenuItem.push(item);
+			storeItem(item, navItems);
+			delete navItems[i];
+		}
+	});
+
+	navItems = navItems.filter(item => !!item);
+
+	return navItems;
 }
 
 export default Header;
