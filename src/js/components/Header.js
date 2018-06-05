@@ -4,10 +4,10 @@ import Logo from 'js/components/svg/Logo';
 import Container from 'js/components/grid/Container';
 import { Link } from 'react-router-dom';
 import Hamburger from 'js/components/icon/Hamburger';
+import DesktopHeader from 'js/components/DesktopHeader';
 import cn from 'classnames';
 
 import './Header.scss';
-import DesktopHeader from 'js/components/DesktopHeader';
 
 class Header extends React.Component {
 	static propTypes = {

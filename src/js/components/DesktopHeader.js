@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Container from 'js/components/grid/Container';
 import MagnifyingGlass from 'js/components/icon/MagnifyingGlass';
-import { NavLink } from 'react-router-dom';
+import Link from 'js/components/Link';
 import cn from 'classnames';
 
 export default class DesktopHeader extends React.Component {
@@ -39,13 +39,11 @@ export default class DesktopHeader extends React.Component {
 				{navItems.map(({ url, title, ID: id, children }) => {
 					return (
 						<li key={id}>
-							<NavLink exact to={url.replace(location.origin, '')}>
-								{title.toUpperCase()}
-							</NavLink>
+							<Link to={url.replace(location.origin, '')}>{title.toUpperCase()}</Link>
 							{children && this.renderMenu(children)}
 						</li>
 					);
-				})};
+				})}
 			</ul>
 		);
 	}
