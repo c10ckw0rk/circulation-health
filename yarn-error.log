@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/daniel.peterson/.nvm/versions/node/v9.5.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js prod
+  /Users/daniel.peterson/.nvm/versions/node/v9.5.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js dec
 
 PATH: 
   /Users/daniel.peterson/.nvm/versions/node/v9.5.0/bin:/Users/daniel.peterson/.composer/vendor/bin:usr/local/sbin:/Users/daniel.peterson/Downloads/android/:/Users/daniel.peterson/Library/Python/3.6/bin:/Users/daniel.peterson/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -17,9 +17,13 @@ npm manifest:
   {
   	"name": "circulation-health",
   	"version": "1.0.0",
+  	"license": "UNLICENSED",
+  	"private": true,
   	"scripts": {
   		"docker:up": "docker-compose up",
   		"build": "NODE_ENV=production webpack",
+  		"prod": "yarn clean && yarn build && yarn manifest",
+  		"clean": "rm -r -f ./theme/assets/*",
   		"manifest": "node ./build/manifest.js",
   		"dev": "NODE_ENV=development webpack"
   	},
@@ -42,6 +46,7 @@ npm manifest:
   	},
   	"dependencies": {
   		"axios": "^0.18.0",
+  		"babel-plugin-transform-react-remove-prop-types": "^0.4.13",
   		"classnames": "^2.2.5",
   		"css-loader": "^0.28.11",
   		"google-map-react": "^1.0.0",
@@ -1373,6 +1378,10 @@ Lockfile:
     dependencies:
       babel-plugin-syntax-object-rest-spread "^6.8.0"
       babel-runtime "^6.26.0"
+  
+  babel-plugin-transform-react-remove-prop-types@^0.4.13:
+    version "0.4.13"
+    resolved "https://registry.npmjs.org/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.13.tgz#331cfc05099a808238311d78319c27460d481189"
   
   babel-plugin-transform-regenerator@^6.24.1:
     version "6.26.0"
@@ -6744,7 +6753,7 @@ Lockfile:
       yeoman-environment "^2.0.5"
 
 Trace: 
-  Error: Command "prod" not found.
+  Error: Command "dec" not found. Did you mean "dev"?
       at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
       at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
       at Generator.next (<anonymous>)

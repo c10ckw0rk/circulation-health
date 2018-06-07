@@ -7,14 +7,18 @@ class Link extends React.Component {
 
 	state = {};
 
-	static getDerivedStateFromProps({ location: { pathname }, primaryNavigation }) {
-		primaryNavigation.forEach(() => {});
+	static getDerivedStateFromProps(nextProps) {
+		// const { location: { pathname }, primaryNavigation } = nextProps;
+		//
+		// primaryNavigation.forEach(() => {});
 		return {};
 	}
 
 	render() {
 		const { to, children, className } = this.props;
-		return <ReactLink className={className} to={to} children={children} />;
+		if (!to) return false;
+		return false;
+		// return <ReactLink className={className} to={to} children={children} />;
 	}
 }
 

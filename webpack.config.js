@@ -81,12 +81,26 @@ module.exports = () => {
 						},
 						'sass-loader'
 					]
+				},
+				{
+					test: /\.(png|jpg|gif)$/,
+					use: [
+						{
+							loader: 'file-loader',
+							options: {
+								name: '[path][name].[ext]',
+								outputPath: path.resolve('theme/img')
+							}
+						}
+					]
 				}
 			]
 		};
+		config.devtool = 'eval-source-map'; // slightly slower rebuilds but gives line and column accuracy
 		config.externals = {
 			react: 'React',
-			['react-dom']: 'ReactDOM'
+			'react-dom': 'ReactDOM'
+			// 'prop-types': 'PropTypes'
 		};
 	}
 

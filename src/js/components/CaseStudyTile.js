@@ -25,7 +25,10 @@ class CaseStudyTile extends React.Component {
 		let caseStudyPages = [];
 
 		caseStudies.forEach(caseStudy => {
-			caseStudyPages.push(pages.filter(page => page.link === caseStudy)[0]);
+			caseStudy = pages.filter(page => page.link === caseStudy)[0];
+			if (caseStudy) {
+				caseStudyPages.push(caseStudy);
+			}
 		});
 
 		this.setState({ caseStudyPages });
@@ -41,15 +44,16 @@ class CaseStudyTile extends React.Component {
 					<h2 className={'title'}>{title}</h2>
 				</Container>
 				<div className={'case-studies'}>
-					{caseStudyPages.map(({ img, excerpt, title }, i) => (
-						<article className={'case-study'} key={i}>
-							<img src={img} />
-							<Container>
-								<h3>{title.rendered}</h3>
-							</Container>
-							<Container dangerouslySetInnerHTML={{ __html: excerpt.rendered }} />
-						</article>
-					))}
+					{caseStudyPages.length > 0 &&
+						caseStudyPages.map(({ img, excerpt, title }, i) => (
+							<article className={'case-study'} key={i}>
+								<img src={img} />
+								<Container>
+									<h3>{title.rendered}</h3>
+								</Container>
+								<Container dangerouslySetInnerHTML={{ __html: excerpt.rendered }} />
+							</article>
+						))}
 				</div>
 			</div>
 		);

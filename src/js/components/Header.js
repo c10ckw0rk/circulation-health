@@ -91,9 +91,11 @@ class Header extends React.PureComponent {
 							</p>
 						</div>
 						<div className={'make-enquiry'}>
-							<Link to={enquiryLink} className={'button'}>
-								{enquiryTitle}
-							</Link>
+							{enquiryLink && (
+								<Link to={enquiryLink} className={'button'}>
+									{enquiryTitle}
+								</Link>
+							)}
 						</div>
 					</div>
 				</Container>

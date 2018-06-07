@@ -39,7 +39,7 @@ export default class DesktopHeader extends React.Component {
 				{navItems.map(({ url, title, ID: id, children }) => {
 					return (
 						<li key={id}>
-							<Link to={url.replace(location.origin, '')} navItems={navItems}>
+							<Link to={url.replace(location.origin, '') || '/'} navItems={navItems}>
 								{title.toUpperCase()}
 							</Link>
 							{children && this.renderMenu(children)}
