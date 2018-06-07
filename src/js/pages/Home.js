@@ -46,7 +46,9 @@ class Home extends React.Component {
 				<main className={'home'}>
 					<CenterTile content={tagLine} />
 					<PanelTile links={boxLinks} />
-					<ProfileTile content={profileContent} profileImage={profileImage.url} title={profileTitle} />
+					{profileImage && (
+						<ProfileTile content={profileContent} profileImage={profileImage.url} title={profileTitle} />
+					)}
 					<HalfContainer>
 						<CalendarTile />
 						<CaseStudyTile caseStudies={caseStudies} title={caseStudiesTitle} />
