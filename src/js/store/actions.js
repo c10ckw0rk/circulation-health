@@ -13,10 +13,14 @@ const api = async endPoint => {
 	return response.data;
 };
 
-const actionTemplate = async (endPoint, key, context) => context.setState({ [key]: await api(endPoint) });
+const actionTemplate = async (endPoint, key, context) =>
+	context.setState({ [key]: falseToUndefined(await api(endPoint)) });
 
 export async function getPages() {
-	await actionTemplate(`${appUrl}/pages`, 'pages', this);
+	const pages = falseToUndefined(await api(`${appUrl}/pages`));
+	this.setState({ pages });
+
+	await actionTemplate(`${appUrl}/pages`, 'globalOptions', this);
 }
 
 export async function getPosts() {
@@ -76,4 +80,19 @@ function formatNavigation(navItems) {
 	navItems = navItems.filter(item => !!item);
 
 	return navItems;
+}
+
+function falseToUndefined(array) {
+	if (array.map) {
+		return array.map(item => {
+			const { acf } = item;
+			if (acf) {
+				Object.keys(acf).forEach(field => {
+					acf[field] = !acf[field] ? undefined : acf[field];
+				});
+				item.acf = acf;
+			}
+			return item;
+		});
+	}
 }

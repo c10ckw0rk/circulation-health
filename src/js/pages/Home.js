@@ -35,6 +35,7 @@ class Home extends React.Component {
 			caseStudies,
 			caseStudiesTitle
 		} = this.props;
+
 		return (
 			<>
 				<Banner>

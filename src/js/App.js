@@ -38,9 +38,6 @@ class App extends React.Component {
 			const { globalOptions } = this.props;
 			let { primaryNavigation } = this.props;
 			// set false to undefined
-			Object.keys(acf).forEach(field => {
-				acf[field] = !acf[field] ? undefined : acf[field];
-			});
 
 			return (
 				<Route
