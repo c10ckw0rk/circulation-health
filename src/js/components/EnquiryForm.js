@@ -48,6 +48,7 @@ class EnquiryForm extends React.Component {
 					<>
 						<TypedInput
 							placeholder={firstNamePlaceholder}
+							autoComplete="given-name"
 							autoFocus
 							onChange={onChange}
 							id={'first-name'}
@@ -59,6 +60,7 @@ class EnquiryForm extends React.Component {
 						/>
 						<TypedInput
 							placeholder={lastNamePlaceholder}
+							autoComplete="family-name"
 							onChange={onChange}
 							id={'last-name'}
 							label={lastNamePlaceholder}
@@ -69,6 +71,7 @@ class EnquiryForm extends React.Component {
 						/>
 						<TypedInput
 							placeholder={emailPlaceholder}
+							autoComplete="email"
 							onChange={onChange}
 							id={'email'}
 							label={emailPlaceholder}
@@ -80,6 +83,7 @@ class EnquiryForm extends React.Component {
 						<TypedInput
 							placeholder={phonePlaceholder}
 							onChange={onChange}
+							autoComplete="tel"
 							id={'phone'}
 							label={phonePlaceholder}
 							type={'number'}

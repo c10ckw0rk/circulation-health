@@ -98,6 +98,7 @@ class ContactUs extends React.Component {
 									<div className={'col-xs-12 col-sm-12 col-md-6'}>
 										<TypedInput
 											placeholder={firstNamePlaceholder}
+											autoComplete="given-name"
 											autoFocus
 											onChange={onChange}
 											id={'first-name'}
@@ -109,6 +110,7 @@ class ContactUs extends React.Component {
 										/>
 										<TypedInput
 											placeholder={emailPlaceholder}
+											autoComplete="email"
 											id={'email'}
 											onChange={onChange}
 											label={emailPlaceholder}
@@ -121,6 +123,7 @@ class ContactUs extends React.Component {
 									<div className={'col-xs-12 col-sm-12 col-md-6'}>
 										<TypedInput
 											placeholder={lastNamePlaceholder}
+											autoComplete="family-name"
 											id={'last-name'}
 											onChange={onChange}
 											label={lastNamePlaceholder}
@@ -131,6 +134,7 @@ class ContactUs extends React.Component {
 										/>
 										<TypedInput
 											placeholder={phonePlaceholder}
+											autoComplete="tel"
 											id={'phone'}
 											onChange={onChange}
 											label={phonePlaceholder}

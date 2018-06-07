@@ -4,6 +4,7 @@
 	"scripts": {
 		"docker:up": "docker-compose up",
 		"build": "NODE_ENV=production webpack",
+		"manifest": "node ./build/manifest.js",
 		"dev": "NODE_ENV=development webpack"
 	},
 	"devDependencies": {

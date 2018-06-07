@@ -157,10 +157,9 @@
 		position: fixed;
 		width: 100%;
 		z-index: 1;
-		background: $glacier;
+		background: $horizon;
 		transition: transform 0.3s, opacity 0.3s;
 		opacity: 0;
-		display: none;
 
 		&.sticky {
 			opacity: 1;
@@ -227,6 +226,10 @@
 				&:hover > ul {
 					display: block;
 				}
+			}
+
+			ul > li > ul > li > ul {
+				display: none !important;
 			}
 
 			.search {

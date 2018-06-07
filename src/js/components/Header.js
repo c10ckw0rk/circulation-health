@@ -9,7 +9,7 @@ import cn from 'classnames';
 
 import './Header.scss';
 
-class Header extends React.Component {
+class Header extends React.PureComponent {
 	static propTypes = {
 		title: PropTypes.array,
 		phoneTitle: PropTypes.string,
@@ -32,8 +32,7 @@ class Header extends React.Component {
 		const newState = {};
 
 		if (nextProps.navItems !== prevState.navItems && typeof nextProps.navItems === 'object') {
-			newState.navItems = format(nextProps.navItems);
-			console.log(newState.navItems);
+			newState.navItems = nextProps.navItems;
 		}
 
 		if (nextProps.home && nextProps.home.length > 0) {
@@ -119,32 +118,6 @@ function getPosition(element) {
 	}
 
 	return { left: xPosition, top: yPosition };
-}
-
-function storeItem(item, array) {
-	array.forEach(insideItem => {
-		if (Number(item.menu_item_parent) === insideItem.ID) {
-			if (!insideItem.children) insideItem.children = [];
-			insideItem.children.push(item);
-		} else if (insideItem.children) {
-			storeItem(item, insideItem.children);
-		}
-	});
-}
-
-function format(navItems) {
-	const SubMenuItem = [];
-	navItems.forEach((item, i) => {
-		if (item.menu_item_parent !== '0') {
-			SubMenuItem.push(item);
-			storeItem(item, navItems);
-			delete navItems[i];
-		}
-	});
-
-	navItems = navItems.filter(item => !!item);
-
-	return navItems;
 }
 
 export default Header;

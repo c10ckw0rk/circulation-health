@@ -35,7 +35,8 @@ class App extends React.Component {
 	pageRoutes = pages =>
 		pages.map((page, i) => {
 			const { acf, template, link, ...rest } = page;
-			const { globalOptions, primaryNavigation } = this.props;
+			const { globalOptions } = this.props;
+			let { primaryNavigation } = this.props;
 			// set false to undefined
 			Object.keys(acf).forEach(field => {
 				acf[field] = !acf[field] ? undefined : acf[field];
