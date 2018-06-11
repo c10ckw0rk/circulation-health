@@ -5,7 +5,7 @@ import './Page.scss';
 import SideMenu from 'js/components/SideMenu';
 import cn from 'classnames';
 
-export default class Page extends React.Component {
+export default class Page extends React.PureComponent {
 	state = {
 		sizes: {
 			xs: {
@@ -34,7 +34,6 @@ export default class Page extends React.Component {
 	render() {
 		const { title, content } = this.props;
 		const { sizes, menu } = this.state;
-		const leftClasses = Object.keys(sizes).map(size => `col-${size}-${sizes[size].left}`);
 		const rightClasses = Object.keys(sizes).map(size => `col-${size}-${sizes[size].right}`);
 
 		return (
@@ -44,11 +43,7 @@ export default class Page extends React.Component {
 					<Container>
 						<div className={'container-fluid page-content'}>
 							<div className={'row'}>
-								{menu && (
-									<div className={cn(leftClasses, 'navigation')}>
-										<SideMenu title={title.rendered} menu={menu} />
-									</div>
-								)}
+								<SideMenu title={title.rendered} menu={menu} />
 								<div className={cn(rightClasses, 'content')} dangerouslySetInnerHTML={{ __html: content.rendered }} />
 							</div>
 						</div>

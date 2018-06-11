@@ -32,13 +32,11 @@ class App extends React.Component {
 		getGlobalOptions: PropTypes.func
 	};
 
-	pageRoutes = pages =>
-		pages.map((page, i) => {
+	pageRoutes = pages => {
+		return pages.map((page, i) => {
 			const { acf, template, link, ...rest } = page;
-			const { globalOptions } = this.props;
-			let { primaryNavigation } = this.props;
+			const { globalOptions, primaryNavigation } = this.props;
 			// set false to undefined
-
 			return (
 				<Route
 					key={i}
@@ -57,11 +55,10 @@ class App extends React.Component {
 				/>
 			);
 		});
+	};
 
 	componentWillMount() {
-		this.props.getPages();
-		this.props.getPrimaryNavigation();
-		this.props.getGlobalOptions();
+		this.props.getInit();
 	}
 
 	render() {

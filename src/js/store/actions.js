@@ -16,23 +16,12 @@ const api = async endPoint => {
 const actionTemplate = async (endPoint, key, context) =>
 	context.setState({ [key]: falseToUndefined(await api(endPoint)) });
 
-export async function getPages() {
+export async function getInit() {
 	const pages = falseToUndefined(await api(`${appUrl}/pages`));
-	this.setState({ pages });
-
-	await actionTemplate(`${appUrl}/pages`, 'globalOptions', this);
-}
-
-export async function getPosts() {
-	await actionTemplate(`${appUrl}/posts`, 'posts', this);
-}
-
-export async function getPrimaryNavigation() {
-	this.setState({ primaryNavigation: formatNavigation(await api(`${sitePath}/wp-json/api/menu`)) });
-}
-
-export async function getGlobalOptions() {
-	await actionTemplate(`${sitePath}/wp-json/acf/v3/options/options`, 'globalOptions', this);
+	const primaryNavigation = formatNavigation(await api(`${sitePath}/wp-json/api/menu`));
+	const globalOptions = falseToUndefined(await api(`${sitePath}/wp-json/acf/v3/options/options`));
+	// const posts = await actionTemplate(`${appUrl}/posts`, 'posts', this);
+	this.setState({ pages, primaryNavigation, globalOptions });
 }
 
 // util

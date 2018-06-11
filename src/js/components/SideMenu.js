@@ -3,30 +3,35 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './SideMenu.scss';
 import { ChevronDown } from 'js/components/icon/ChevronDown';
+import { withConsumer } from 'js/store/Store';
 import cn from 'classnames';
 
-export default class SideMenu extends React.Component {
+const sizes = {
+	xs: {
+		left: 12,
+		right: 12
+	},
+	sm: {
+		left: 3,
+		right: 9
+	},
+	md: {
+		left: 3,
+		right: 9
+	},
+	lg: {
+		left: 3,
+		right: 9
+	},
+	xl: {
+		left: 3,
+		right: 9
+	}
+};
+
+class SideMenu extends React.Component {
 	static defaultProps = {
-		title: 'Menu 1',
-		menu: [
-			{
-				title: 'Level 2 Navigation',
-				link: '/',
-				menu: [{ title: 'Level 3 Navigation', link: '/' }]
-			},
-			{
-				title: 'Level 2 Navigation',
-				link: '/'
-			},
-			{
-				title: 'Level 2 Navigation',
-				link: '/'
-			},
-			{
-				title: 'Level 2 Navigation',
-				link: '/'
-			}
-		]
+		title: 'Menu 1'
 	};
 
 	static propTypes = {
@@ -35,8 +40,36 @@ export default class SideMenu extends React.Component {
 	};
 
 	state = {
-		open: false
+		open: false,
+		menu: {}
 	};
+
+	hasSection() {
+		const { primaryNavigation } = this.props;
+		let parentItem = {};
+
+		primaryNavigation.forEach(navItem => {
+			if (navItem.url === location.href) {
+				parentItem = navItem;
+			}
+
+			if (navItem.allChildren) {
+				navItem.allChildren.forEach(item => {
+					if (item.url === location.href) {
+						parentItem = navItem;
+					}
+				});
+			}
+		});
+
+		if (parentItem.allChildren) {
+			this.setState({ menu: parentItem });
+		}
+	}
+
+	componentDidMount() {
+		this.hasSection();
+	}
 
 	onClick = e => {
 		e.preventDefault();
@@ -44,41 +77,40 @@ export default class SideMenu extends React.Component {
 	};
 
 	render() {
-		const { title, menu } = this.props;
+		const leftClasses = Object.keys(sizes).map(size => `col-${size}-${sizes[size].left}`);
+		const { menu } = this.state;
+
+		if (Object.keys(menu).length === 0) return false;
+
 		return (
-			<nav className={'side-menu'}>
-				<button className={'title-wrap'} onClick={this.onClick}>
-					<h2 className={'title'}>{title}</h2>
-					<div className={'icon-wrap'}>
-						<ChevronDown className={'down-icon'} />
-					</div>
-				</button>
-				{this.renderMenu(menu)}
-			</nav>
+			<div className={cn(leftClasses, 'navigation')}>
+				<nav className={'side-menu'}>
+					<button className={'title-wrap'} onClick={this.onClick}>
+						<h2 className={'title'}>{menu.title}</h2>
+						<div className={'icon-wrap'}>
+							<ChevronDown className={'down-icon'} />
+						</div>
+					</button>
+					{this.renderMenu(menu.children)}
+				</nav>
+			</div>
 		);
 	}
 
-	renderMenu(menu, key) {
-		const { open } = this.state;
+	renderMenu(navItems) {
 		return (
-			<ul key={key + '-menu'} className={cn({ 'nav-wrapper': !key, open })}>
-				{menu.map((item, i) => {
-					if (!item.menu) {
-						return this.renderItem(item, i);
-					} else {
-						return this.renderItem(item, i, this.renderMenu(item.menu));
-					}
+			<ul>
+				{navItems.map(({ url, title, ID: id, children }) => {
+					return (
+						<li key={id}>
+							<Link to={url.replace(location.origin, '') || '/'}>{title.toUpperCase()}</Link>
+							{children && this.renderMenu(children)}
+						</li>
+					);
 				})}
 			</ul>
 		);
 	}
-
-	renderItem({ link, title }, key, children) {
-		return (
-			<li key={key}>
-				<Link to={link}>{title}</Link>
-				{children}
-			</li>
-		);
-	}
 }
+
+export default withConsumer(SideMenu);

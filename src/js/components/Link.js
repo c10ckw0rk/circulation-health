@@ -17,8 +17,8 @@ class Link extends React.Component {
 	render() {
 		const { to, children, className } = this.props;
 		if (!to) return false;
-		return false;
-		// return <ReactLink className={className} to={to} children={children} />;
+
+		return <ReactLink className={className} to={to} children={children} />;
 	}
 }
 

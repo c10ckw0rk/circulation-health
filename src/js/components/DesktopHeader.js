@@ -18,6 +18,7 @@ export default class DesktopHeader extends React.Component {
 
 	render() {
 		const { searchPlaceholder, navItems } = this.props;
+
 		return (
 			<nav className={cn('desktop-header')}>
 				<Container>
