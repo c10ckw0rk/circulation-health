@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from 'js/components/Header';
 import Footer from 'js/components/Footer';
+import MobileNav from 'js/components/MobileNav';
 
 export default class Base extends React.Component {
 	render() {
@@ -21,6 +22,7 @@ export default class Base extends React.Component {
 		} = this.props;
 		return (
 			<>
+				<MobileNav navItems={primaryNavigation} />
 				<Header
 					title={CONFIG.SITE_NAME.toUpperCase().split(' ')}
 					phoneTitle={contactTitle}

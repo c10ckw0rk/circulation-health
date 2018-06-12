@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import Link from 'js/components/Link';
 import './SideMenu.scss';
 import { ChevronDown } from 'js/components/icon/ChevronDown';
 import { withConsumer } from 'js/store/Store';
@@ -78,7 +78,7 @@ class SideMenu extends React.Component {
 
 	render() {
 		const leftClasses = Object.keys(sizes).map(size => `col-${size}-${sizes[size].left}`);
-		const { menu } = this.state;
+		const { menu, open } = this.state;
 
 		if (Object.keys(menu).length === 0) return false;
 
@@ -86,30 +86,26 @@ class SideMenu extends React.Component {
 			<div className={cn(leftClasses, 'navigation')}>
 				<nav className={'side-menu'}>
 					<button className={'title-wrap'} onClick={this.onClick}>
-						<h2 className={'title'}>{menu.title}</h2>
+						<h2 className={'title'}>{menu.title.toUpperCase()}</h2>
 						<div className={'icon-wrap'}>
 							<ChevronDown className={'down-icon'} />
 						</div>
 					</button>
-					{this.renderMenu(menu.children)}
+					<ul className={cn('nav-wrapper', { open })}>{this.renderMenu(menu.children)}</ul>
 				</nav>
 			</div>
 		);
 	}
 
 	renderMenu(navItems) {
-		return (
-			<ul>
-				{navItems.map(({ url, title, ID: id, children }) => {
-					return (
-						<li key={id}>
-							<Link to={url.replace(location.origin, '') || '/'}>{title.toUpperCase()}</Link>
-							{children && this.renderMenu(children)}
-						</li>
-					);
-				})}
-			</ul>
-		);
+		return navItems.map(({ url, title, ID: id, children }) => {
+			return (
+				<li key={id}>
+					<Link to={url.replace(location.origin, '') || '/'}>{title.toUpperCase()}</Link>
+					{children && <ul> {this.renderMenu(children)} </ul>}
+				</li>
+			);
+		});
 	}
 }
 
