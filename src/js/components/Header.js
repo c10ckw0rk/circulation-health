@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Logo from 'js/components/svg/Logo';
 import Container from 'js/components/grid/Container';
 import { Link } from 'react-router-dom';
-import Hamburger from 'js/components/icon/Hamburger';
 import DesktopHeader from 'js/components/DesktopHeader';
+import MobileHeader from 'js/components/MobileHeader';
 import cn from 'classnames';
 
 import './Header.scss';
 
-class Header extends React.PureComponent {
+export default class Header extends React.PureComponent {
 	static propTypes = {
 		title: PropTypes.array,
 		phoneTitle: PropTypes.string,
@@ -17,7 +16,8 @@ class Header extends React.PureComponent {
 		enquiryTitle: PropTypes.string,
 		enquiryLink: PropTypes.string,
 		navItems: PropTypes.array,
-		searchPlaceholder: PropTypes.string
+		searchPlaceholder: PropTypes.string,
+		showMobileMenu: PropTypes.func
 	};
 
 	state = {
@@ -55,9 +55,17 @@ class Header extends React.PureComponent {
 		});
 	};
 
+	showMobileMenu = () => {
+		this.props.showMobileMenu(true);
+	};
+
 	componentDidMount() {
 		this.bottom = getPosition(this.nav.current).top + this.nav.current.offsetHeight;
 		addEventListener('scroll', this.scrollEvent);
+		addEventListener('resize', () => {
+			this.bottom = getPosition(this.nav.current).top + this.nav.current.offsetHeight;
+			this.scrollEvent();
+		});
 	}
 
 	componentWillUnmount() {
@@ -72,19 +80,11 @@ class Header extends React.PureComponent {
 			<header className={'header'}>
 				<div className={cn('sticky-header', { sticky: !sticky })}>
 					<DesktopHeader navItems={navItems} searchPlaceholder={searchPlaceholder} />
+					<MobileHeader className={'mobile-header'} title={title} showMobileMenu={this.showMobileMenu} />
 				</div>
 				<Container>
 					<div className={'inner-header'}>
-						<h1 className={'title'}>
-							<Logo className={'logo'} />
-							<div className={'text-wrapper'}>
-								<span className={'title-section-1 h4'}>{title[0]}</span>
-								<span className={'title-section-2'}>{title[1]}</span>
-							</div>
-						</h1>
-						<button className={'menu'}>
-							<Hamburger />
-						</button>
+						<MobileHeader className={'desktop-inner-head'} title={title} showMobileMenu={this.showMobileMenu} />
 						<div className={'enquiry'}>
 							<p>
 								{phoneTitle} <br /> <a href={`tel:${phone}`}>{phone}</a>
@@ -121,5 +121,3 @@ function getPosition(element) {
 
 	return { left: xPosition, top: yPosition };
 }
-
-export default Header;

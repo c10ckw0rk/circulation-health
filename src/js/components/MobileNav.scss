@@ -28,7 +28,7 @@
 
 		::placeholder {
 			/* Chrome, Firefox, Opera, Safari 10.1+ */
-			color: white;
+			color: rgba(255, 255, 255, 0.5);
 			opacity: 1; /* Firefox */
 		}
 
@@ -40,6 +40,26 @@
 			height: 20px;
 			padding-left: baseline(2);
 		}
+
+		margin-bottom: 24px;
+	}
+
+	.close-wrapper {
+		text-align: right;
+	}
+
+	.button {
+		background: none;
+		padding: 0;
+		margin: 0;
+		border: 0;
+	}
+
+	.close-icon {
+		height: 16px;
+		width: 16px;
+		color: white;
+		padding: 24px 0 24px 16px;
 	}
 
 	ul,
@@ -48,17 +68,31 @@
 		margin: 0;
 	}
 
+	ul > li > ul {
+		margin-left: 16px;
+
+		a {
+			color: $alto;
+			padding-top: 0;
+		}
+	}
+
+	ul > li > ul > li ul {
+		display: none;
+	}
+
 	a {
 		color: white;
 		text-decoration: none;
-		line-height: 56px;
+		line-height: 24px;
+		padding: 16px 0;
 		display: inline-block;
 
 		&:after {
 			content: '';
 			display: block;
 			height: 4px;
-			transform: translateY(-16px);
+			transform: translateY(2px);
 		}
 
 		&.active {

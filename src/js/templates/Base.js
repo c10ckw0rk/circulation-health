@@ -1,9 +1,15 @@
 import React from 'react';
-import Header from 'js/components/Header';
+import DesktopHeader from 'js/components/Header';
 import Footer from 'js/components/Footer';
 import MobileNav from 'js/components/MobileNav';
 
 export default class Base extends React.Component {
+	state = {
+		mobileMenu: false
+	};
+
+	onClick = val => this.setState({ mobileMenu: val });
+
 	render() {
 		const {
 			children,
@@ -22,8 +28,8 @@ export default class Base extends React.Component {
 		} = this.props;
 		return (
 			<>
-				<MobileNav navItems={primaryNavigation} />
-				<Header
+				{this.state.mobileMenu && <MobileNav navItems={primaryNavigation} closeMenu={this.onClick} />}
+				<DesktopHeader
 					title={CONFIG.SITE_NAME.toUpperCase().split(' ')}
 					phoneTitle={contactTitle}
 					phone={headerPhoneNumber}
@@ -31,6 +37,7 @@ export default class Base extends React.Component {
 					enquiryLink={enquiryLink}
 					navItems={primaryNavigation}
 					searchPlaceholder={searchPlaceholder}
+					showMobileMenu={this.onClick}
 				/>
 				{children}
 				<Footer

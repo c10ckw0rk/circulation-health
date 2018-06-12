@@ -3,6 +3,7 @@
 .header {
 	z-index: 1;
 	position: relative;
+	background: white;
 
 	@include break-point(md) {
 		padding-top: baseline(2);
@@ -143,6 +144,21 @@
 		}
 	}
 
+	.mobile-menu {
+		//display: flex;
+		//width: 100%;
+		//position: fixed;
+		//background: white;
+		//left: 0;
+		//box-sizing: border-box;
+		//padding: 0 16px;
+		//
+		//@include break-point(md) {
+		//	display: block;
+		//	position: relative;
+		//}
+	}
+
 	.desktop-header-wrapper {
 		height: baseline(4);
 		display: none;
@@ -153,21 +169,49 @@
 	}
 
 	.sticky-header {
-		top: -76px;
+		@include break-point(md) {
+			top: -76px;
+			position: fixed;
+			width: 100%;
+			z-index: 1;
+			background: $horizon;
+			transition: transform 0.3s, opacity 0.3s;
+			opacity: 0;
+			display: block;
+
+			&.sticky {
+				opacity: 1;
+				transform: translateY(60px);
+			}
+		}
+	}
+
+	.mobile-header {
+		background: white;
+		padding: 0 16px;
 		position: fixed;
+		display: flex;
 		width: 100%;
 		z-index: 1;
-		background: $horizon;
-		transition: transform 0.3s, opacity 0.3s;
-		opacity: 0;
+		box-sizing: border-box;
 
-		&.sticky {
-			opacity: 1;
-			transform: translateY(60px);
+		@include break-point(md) {
+			display: none;
+		}
+	}
+
+	.desktop-inner-head {
+		display: flex;
+		width: 100%;
+
+		@include break-point(md) {
+			display: block;
+			width: auto;
 		}
 	}
 
 	.desktop-header {
+		display: none;
 		margin: baseline(2) 0 0;
 
 		.nav {
@@ -297,6 +341,12 @@
 					}
 				}
 			}
+		}
+	}
+
+	.desktop-header {
+		@include break-point(md) {
+			display: block;
 		}
 	}
 }

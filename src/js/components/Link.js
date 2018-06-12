@@ -12,8 +12,6 @@ class Link extends React.Component {
 		const { to, primaryNavigation } = nextProps;
 		const currentUrl = location.href;
 
-		console.log('currentUrl -----', currentUrl, '----- currentUrl');
-		console.log('link for', to);
 		let parentItem = undefined;
 
 		// find parent item
