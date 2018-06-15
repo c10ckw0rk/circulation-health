@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/daniel.peterson/.nvm/versions/node/v9.5.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js dec
+  /Users/daniel.peterson/.nvm/versions/node/v9.5.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js ma
 
 PATH: 
-  /Users/daniel.peterson/.nvm/versions/node/v9.5.0/bin:/Users/daniel.peterson/.composer/vendor/bin:usr/local/sbin:/Users/daniel.peterson/Downloads/android/:/Users/daniel.peterson/Library/Python/3.6/bin:/Users/daniel.peterson/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  /Users/daniel.peterson/Downloads/google-cloud-sdk/bin:/Users/daniel.peterson/.nvm/versions/node/v9.5.0/bin:/Users/daniel.peterson/.composer/vendor/bin:usr/local/sbin:/Users/daniel.peterson/Downloads/android/:/Users/daniel.peterson/Library/Python/3.6/bin:/Users/daniel.peterson/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/daniel.peterson/go/bin
 
 Yarn version: 
   1.5.1
@@ -6753,7 +6753,7 @@ Lockfile:
       yeoman-environment "^2.0.5"
 
 Trace: 
-  Error: Command "dec" not found. Did you mean "dev"?
+  Error: Command "ma" not found.
       at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
       at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
       at Generator.next (<anonymous>)

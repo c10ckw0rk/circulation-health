@@ -1,0 +1,27 @@
+@import '~scss/imports';
+
+.search-result {
+	margin-bottom: 32px;
+	max-width: 767px;
+	margin-left: 0 !important;
+
+	.search-card {
+		background: white;
+		display: block;
+		padding: 24px;
+	}
+
+	a {
+		color: $horizon;
+		text-decoration: none;
+	}
+
+	b {
+		font-weight: 900;
+		text-decoration: underline;
+	}
+
+	h3 {
+		text-decoration: underline;
+	}
+}

@@ -58,6 +58,7 @@ function storeItem(item, array) {
 
 function formatNavigation(navItems) {
 	const SubMenuItem = [];
+	if (!navItems) return [];
 	navItems.forEach((item, i) => {
 		if (item.menu_item_parent !== '0') {
 			SubMenuItem.push(item);

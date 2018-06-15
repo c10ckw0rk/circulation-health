@@ -8,6 +8,7 @@ import Faq from 'js/pages/Faq';
 import News from 'js/pages/News';
 import ContactUs from 'js/pages/ContactUs';
 import NewsItem from 'js/pages/NewsItem';
+import Search from 'js/pages/Search';
 import Base from 'js/templates/Base';
 
 const templates = {
@@ -15,7 +16,8 @@ const templates = {
 	'faq.php': Faq,
 	'news.php': News,
 	'contact-us.php': ContactUs,
-	'news-item.php': NewsItem
+	'news-item.php': NewsItem,
+	'search.php': Search
 };
 
 class App extends React.Component {

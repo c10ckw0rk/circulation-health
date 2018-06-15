@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'js/components/Link';
 import './SideMenu.scss';
 import { ChevronDown } from 'js/components/icon/ChevronDown';
@@ -30,15 +29,6 @@ const sizes = {
 };
 
 class SideMenu extends React.Component {
-	static defaultProps = {
-		title: 'Menu 1'
-	};
-
-	static propTypes = {
-		title: PropTypes.string,
-		menu: PropTypes.array
-	};
-
 	state = {
 		open: false,
 		menu: {}

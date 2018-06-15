@@ -1,0 +1,33 @@
+@import '~scss/imports';
+
+.search-page {
+	margin-top: 32px;
+	@include break-point(md) {
+		margin-top: 80px;
+	}
+
+	.h1 {
+		font-weight: 300;
+		margin-bottom: 40px;
+
+		@include break-point(md) {
+			margin-bottom: 56px;
+		}
+	}
+
+	.text-input {
+		width: 100%;
+		box-sizing: border-box;
+		margin-right: 16px;
+		margin-bottom: 32px;
+
+		@include break-point(md) {
+			max-width: 400px;
+			margin-bottom: 64px;
+		}
+	}
+
+	.form {
+		display: flex;
+	}
+}
