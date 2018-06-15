@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import Link from 'js/components/Link';
 
 import './PanelTile.scss';
 import { themedir } from 'js/config';

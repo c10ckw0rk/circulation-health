@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import Link from 'js/components/Link';
 import Container from 'js/components/grid/Container';
+import stripHtmlTags from 'js/util/stripHtmlTags';
+
 import './SearchResult.scss';
 
 export default class SearchResult extends React.Component {
@@ -62,12 +64,6 @@ export default class SearchResult extends React.Component {
 			</Container>
 		);
 	}
-}
-
-function stripHtmlTags(str) {
-	if (str === null || str === '') return false;
-	else str = str.toString();
-	return str.replace(/<[^>]*>/g, '');
 }
 
 function getIndicesOf(str, searchStr) {

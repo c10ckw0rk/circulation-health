@@ -2,6 +2,7 @@
 
 .search-page {
 	margin-top: 32px;
+
 	@include break-point(md) {
 		margin-top: 80px;
 	}
@@ -29,5 +30,11 @@
 
 	.form {
 		display: flex;
+	}
+
+	.no-results {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 64px;
 	}
 }

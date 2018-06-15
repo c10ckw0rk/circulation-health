@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Container from 'js/components/grid/Container';
-import MagnifyingGlass from 'js/components/icon/MagnifyingGlass';
 import Link from 'js/components/Link';
 import cn from 'classnames';
+import SearchInput from 'js/components/SearchInput';
 
 export default class DesktopHeader extends React.Component {
 	static defaultProps = {
@@ -22,13 +22,8 @@ export default class DesktopHeader extends React.Component {
 		return (
 			<nav className={cn('desktop-header')}>
 				<Container>
-					<div className={'nav'}>
-						{this.renderMenu(navItems)}
-						<div className={'search'}>
-							<MagnifyingGlass className={'icon'} />
-							<input type={'text'} placeholder={searchPlaceholder} />
-						</div>
-					</div>
+					<div className={'nav'}>{this.renderMenu(navItems)}</div>
+					<SearchInput />
 				</Container>
 			</nav>
 		);

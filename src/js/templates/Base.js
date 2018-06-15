@@ -1,14 +1,45 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import DesktopHeader from 'js/components/Header';
 import Footer from 'js/components/Footer';
 import MobileNav from 'js/components/MobileNav';
+import { withConsumer } from 'js/store/Store';
+import stripHtmlTags from 'js/util/stripHtmlTags';
 
-export default class Base extends React.Component {
+const searchPage = {
+	title: {
+		rendered: 'Search'
+	},
+	excerpt: {
+		rendered: 'Search Page'
+	}
+};
+
+class Base extends React.Component {
 	state = {
-		mobileMenu: false
+		mobileMenu: false,
+		page: undefined
 	};
 
 	onClick = val => this.setState({ mobileMenu: val });
+
+	onLocationChange = () => {
+		const { pages } = this.props;
+		let page;
+		if (location.pathname === '/search/') {
+			page = searchPage;
+		} else {
+			page = pages.find(page => page.link === location.href);
+		}
+		this.setState({ page });
+	};
+
+	componentDidMount() {
+		const { history } = this.props;
+		history.listen(this.onLocationChange);
+		this.onLocationChange();
+	}
 
 	render() {
 		const {
@@ -26,8 +57,16 @@ export default class Base extends React.Component {
 			enquiryTitle,
 			enquiryLink
 		} = this.props;
+		const { page } = this.state;
+
 		return (
 			<>
+				{page && (
+					<Helmet>
+						<title>{page.title.rendered}</title>
+						<meta name="description" content={stripHtmlTags(page.excerpt.rendered)} />
+					</Helmet>
+				)}
 				{this.state.mobileMenu && <MobileNav navItems={primaryNavigation} closeMenu={this.onClick} />}
 				<DesktopHeader
 					title={CONFIG.SITE_NAME.toUpperCase().split(' ')}
@@ -53,3 +92,5 @@ export default class Base extends React.Component {
 		);
 	}
 }
+
+export default withRouter(withConsumer(Base));

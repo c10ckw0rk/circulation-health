@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Container from 'js/components/grid/Container';
-import { Link } from 'react-router-dom';
+import Link from 'js/components/Link';
 import DesktopHeader from 'js/components/DesktopHeader';
 import MobileHeader from 'js/components/MobileHeader';
 import cn from 'classnames';

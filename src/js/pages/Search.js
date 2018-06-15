@@ -26,6 +26,8 @@ class Search extends React.Component {
 		buttonText: 'Search'
 	};
 
+	locationListener = undefined;
+
 	constructor(props, ...rest) {
 		super(props, ...rest);
 
@@ -46,11 +48,15 @@ class Search extends React.Component {
 			pathname,
 			search: `?query=${inputVal}`
 		});
-		this.performSearch(inputVal);
 	};
 
 	onChange = e => {
 		this.setState({ inputVal: e.target.value });
+	};
+
+	onLocationChange = () => {
+		const searchTerm = location.search.replace('?query=', '');
+		this.performSearch(searchTerm);
 	};
 
 	performSearch(searchTerm) {
@@ -60,9 +66,17 @@ class Search extends React.Component {
 	componentDidMount() {
 		const { searchTerm } = this.state;
 
+		const { history } = this.props;
+		this.locationListener = history.listen(this.onLocationChange);
+		this.onLocationChange();
+
 		if (searchTerm) {
 			this.performSearch(searchTerm);
 		}
+	}
+
+	componentWillUnmount() {
+		this.locationListener();
 	}
 
 	render() {
@@ -88,6 +102,7 @@ class Search extends React.Component {
 					</Button>
 				</form>
 				{result.map(page => <SearchResult key={page.id} page={page} searchTerm={searchTerm} />)}
+				{result.length === 0 && <h3 className={'no-results'}>No results found</h3>}
 			</Container>
 		);
 	}

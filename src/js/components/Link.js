@@ -5,25 +5,29 @@ import cn from 'classnames';
 
 class Link extends React.Component {
 	state = {
-		parentItem: false
+		parentItem: false,
+		currentPage: undefined
 	};
 
 	static getDerivedStateFromProps(nextProps) {
 		const { to, primaryNavigation } = nextProps;
+
 		const currentUrl = location.href;
 
 		let parentItem = undefined;
 
-		// find parent item
-		primaryNavigation.forEach(item => {
-			if (item.allChildren) {
-				item.allChildren.forEach(child => {
-					if (currentUrl === child.url) {
-						parentItem = item;
-					}
-				});
-			}
-		});
+		if (primaryNavigation) {
+			// find parent item
+			primaryNavigation.forEach(item => {
+				if (item.allChildren) {
+					item.allChildren.forEach(child => {
+						if (currentUrl === child.url) {
+							parentItem = item;
+						}
+					});
+				}
+			});
+		}
 
 		if (parentItem && parentItem.url) {
 			parentItem = parentItem.url.replace(location.origin, '') === to;
@@ -34,6 +38,11 @@ class Link extends React.Component {
 		};
 	}
 
+	onClick = e => {
+		const { onClick } = this.props;
+		if (onClick) onClick(e);
+	};
+
 	render() {
 		const { to, children, className } = this.props;
 		const { parentItem } = this.state;
@@ -42,7 +51,11 @@ class Link extends React.Component {
 
 		const active = to === location.pathname || parentItem;
 
-		return <ReactLink className={cn(className, { active })} to={to} children={children} />;
+		return (
+			<>
+				<ReactLink className={cn(className, { active })} to={to} children={children} onClick={this.onClick} />
+			</>
+		);
 	}
 }
 

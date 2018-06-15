@@ -5,6 +5,10 @@
 	max-width: 767px;
 	margin-left: 0 !important;
 
+	&:last-of-type {
+		margin-bottom: 64px;
+	}
+
 	.search-card {
 		background: white;
 		display: block;

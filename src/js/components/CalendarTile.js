@@ -1,6 +1,6 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import Link from 'js/components/Link';
 import './CalendarTile.scss';
 import Container from 'js/components/grid/Container';
 import Date from 'js/components/Date';
