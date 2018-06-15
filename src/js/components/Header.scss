@@ -144,21 +144,6 @@
 		}
 	}
 
-	.mobile-menu {
-		//display: flex;
-		//width: 100%;
-		//position: fixed;
-		//background: white;
-		//left: 0;
-		//box-sizing: border-box;
-		//padding: 0 16px;
-		//
-		//@include break-point(md) {
-		//	display: block;
-		//	position: relative;
-		//}
-	}
-
 	.desktop-header-wrapper {
 		height: baseline(4);
 		display: none;
@@ -281,16 +266,17 @@
 				text-decoration: none;
 				font-size: 14px;
 				font-weight: 400;
-				padding: baseline(2) baseline(4) baseline(2) 0;
+				padding: baseline(2) baseline(4) 12px 0;
 				display: inline-block;
 				position: relative;
 				white-space: nowrap;
+				line-height: 32px;
 
 				&:after {
 					content: '';
 					display: block;
 					height: 4px;
-					transform: translateY(4px);
+					transform: translateY(-2px);
 				}
 
 				&.active:after {

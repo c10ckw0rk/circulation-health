@@ -38,13 +38,8 @@ class Link extends React.Component {
 		};
 	}
 
-	onClick = e => {
-		const { onClick } = this.props;
-		if (onClick) onClick(e);
-	};
-
 	render() {
-		const { to, children, className } = this.props;
+		const { to, children, className, onClick } = this.props;
 		const { parentItem } = this.state;
 
 		if (!to) return false;
@@ -53,7 +48,7 @@ class Link extends React.Component {
 
 		return (
 			<>
-				<ReactLink className={cn(className, { active })} to={to} children={children} onClick={this.onClick} />
+				<ReactLink className={cn(className, { active })} to={to} children={children} onClick={onClick} />
 			</>
 		);
 	}

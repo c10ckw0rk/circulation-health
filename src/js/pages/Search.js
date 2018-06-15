@@ -60,7 +60,9 @@ class Search extends React.Component {
 	};
 
 	performSearch(searchTerm) {
-		axios.get(`${searchPath}${searchTerm}`).then(result => this.setState({ searchTerm, result: result.data }));
+		if (searchTerm) {
+			axios.get(`${searchPath}${searchTerm}`).then(result => this.setState({ searchTerm, result: result.data }));
+		}
 	}
 
 	componentDidMount() {
@@ -69,10 +71,7 @@ class Search extends React.Component {
 		const { history } = this.props;
 		this.locationListener = history.listen(this.onLocationChange);
 		this.onLocationChange();
-
-		if (searchTerm) {
-			this.performSearch(searchTerm);
-		}
+		this.performSearch(searchTerm);
 	}
 
 	componentWillUnmount() {

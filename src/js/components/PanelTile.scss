@@ -11,7 +11,7 @@
 
 	@include break-point(md) {
 		background: none;
-		margin: baseline(6) 0;
+		//margin: baseline(6) 0;
 	}
 
 	p {
@@ -38,7 +38,7 @@
 		border-bottom: 1px solid $alto;
 
 		@include break-point(sm) {
-			padding: 0 0 baseline(2);
+			padding: baseline(2) 0;
 			width: vw(baselineCalc(18), sm);
 			height: vw(baselineCalc(18), sm);
 			border: none;
@@ -46,7 +46,7 @@
 		}
 
 		@include break-point(md) {
-			padding: 0 0 baseline(2);
+			padding: baseline(2) 0;
 			width: vw(baselineCalc(21), md);
 			height: vw(baselineCalc(21), md);
 			max-height: baseline(42);
