@@ -36,7 +36,7 @@ class SearchInput extends React.Component {
 		const { searchPlaceholder } = this.props;
 		return (
 			<form className={'search'} onSubmit={this.onSubmit}>
-				<button type={'submit'} className={'button'}>
+				<button type={'submit'} className={'search-submit-button'}>
 					<MagnifyingGlass className={'icon'} />
 				</button>
 				<TypedInput

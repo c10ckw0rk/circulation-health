@@ -29,6 +29,18 @@
 		color: white;
 		padding: 0;
 		width: 100%;
+		height: 100%;
+	}
+
+	.typed-input {
+		height: 100%;
+		width: 100%;
+	}
+
+	.search-submit-button {
+		background: none;
+		border: none;
+		padding: 16px;
 	}
 
 	::-ms-input-placeholder {
@@ -37,10 +49,6 @@
 
 	.icon {
 		height: 20px;
-	}
-
-	.button {
-		background: none;
-		border: none;
+		padding-left: 0;
 	}
 }

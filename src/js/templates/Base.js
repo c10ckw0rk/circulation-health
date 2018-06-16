@@ -32,7 +32,7 @@ class Base extends React.Component {
 		} else {
 			page = pages.find(page => page.link === location.href);
 		}
-		this.setState({ page });
+		this.setState({ page, mobileMenu: false });
 	};
 
 	componentDidMount() {

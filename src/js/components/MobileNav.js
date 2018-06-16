@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'js/components/Link';
-import Container from 'js/components/grid/Container';
-import MagnifyingGlass from 'js/components/icon/MagnifyingGlass';
-import './MobileNav.scss';
 import { Close } from 'js/components/icon/Close';
+import Container from 'js/components/grid/Container';
+import SearchInput from 'js/components/SearchInput';
+
+import './MobileNav.scss';
 
 export default class MobileNav extends React.Component {
 	static defaultProps = {
@@ -31,10 +32,7 @@ export default class MobileNav extends React.Component {
 							<Close className={'close-icon'} />
 						</button>
 					</div>
-					<div className={'search'}>
-						<MagnifyingGlass className={'icon'} />
-						<input type={'text'} placeholder={searchPlaceholder} />
-					</div>
+					<SearchInput searchPlaceholder={searchPlaceholder} />
 					{this.renderMenu(navItems)}
 				</Container>
 			</nav>
