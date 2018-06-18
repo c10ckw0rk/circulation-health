@@ -25,8 +25,9 @@ const withMap = Component =>
 			render() {
 				const { news } = this.state;
 				const { globalOptions } = this.props;
-				if (!globalOptions || !globalOptions.acf) return false;
-				return <Component {...this.props} news={news} map={this.props.globalOptions.acf.googleMapsAddress} />;
+
+				if (!globalOptions) return false;
+				return <Component {...this.props} news={news} map={this.props.globalOptions.googleMapsAddress} />;
 			}
 		}
 	);

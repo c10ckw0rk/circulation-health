@@ -156,3 +156,14 @@ function my_theme_register_required_plugins() {
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page();
 }
+
+/*
+ * Google Maps key
+ */
+
+function my_acf_google_map_api( $api ){
+    $api['key'] = 'AIzaSyCeyiWxUHdOzxmEQGLBdI2BMYQAY7M0liw';
+    return $api;
+}
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');

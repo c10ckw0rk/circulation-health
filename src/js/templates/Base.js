@@ -78,7 +78,7 @@ class Base extends React.Component {
 					searchPlaceholder={searchPlaceholder}
 					showMobileMenu={this.onClick}
 				/>
-				{children}
+				<div className={'content-wrapper'}>{children}</div>
 				<Footer
 					contactDetails={contactDetails}
 					socialLinks={socialLinks}

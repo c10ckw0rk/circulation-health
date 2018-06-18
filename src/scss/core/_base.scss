@@ -12,6 +12,16 @@ body {
 	background-size: 60%;
 }
 
+#app {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.content-wrapper {
+	flex-grow: 2;
+}
+
 main {
 	overflow: hidden;
 }

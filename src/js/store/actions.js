@@ -19,7 +19,9 @@ const actionTemplate = async (endPoint, key, context) =>
 export async function getInit() {
 	const pages = falseToUndefined(await api(`${appUrl}/pages`));
 	const primaryNavigation = formatNavigation(await api(`${sitePath}/wp-json/api/menu`));
-	const globalOptions = falseToUndefined(await api(`${sitePath}/wp-json/acf/v3/options/options`));
+	const options = await api(`${sitePath}/wp-json/acf/v3/options/options`);
+	const globalOptions = falseToUndefined([options.acf])[0];
+
 	// const posts = await actionTemplate(`${appUrl}/posts`, 'posts', this);
 	this.setState({ pages, primaryNavigation, globalOptions });
 }

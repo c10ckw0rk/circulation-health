@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Hamburger from 'js/components/icon/Hamburger';
 import Logo from 'js/components/svg/Logo';
+import { NavLink } from 'react-router-dom';
 
 export default class MobileHeader extends React.Component {
 	static defaultProps = {
@@ -23,7 +24,9 @@ export default class MobileHeader extends React.Component {
 		return (
 			<div className={className}>
 				<h1 className={'title'}>
-					<Logo className={'logo'} />
+					<NavLink to={'/'}>
+						<Logo className={'logo'} />
+					</NavLink>
 					<div className={'text-wrapper'}>
 						<span className={'title-section-1 h4'}>{title[0]}</span>
 						<span className={'title-section-2'}>{title[1]}</span>
