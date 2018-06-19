@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const sitePath = location.origin;
-const appUrl = `${sitePath}/?rest_route=/wp/v2`;
+const appUrl = `${sitePath}/?per_page=100&rest_route=/wp/v2`;
 
 const api = async endPoint => {
 	let response;
@@ -17,8 +17,8 @@ const actionTemplate = async (endPoint, key, context) =>
 	context.setState({ [key]: falseToUndefined(await api(endPoint)) });
 
 export async function getInit() {
-	const pages = falseToUndefined(await api(`${appUrl}/pages`));
 	const primaryNavigation = formatNavigation(await api(`${sitePath}/wp-json/api/menu`));
+	const pages = falseToUndefined(await api(`${appUrl}/pages`));
 	const options = await api(`${sitePath}/wp-json/acf/v3/options/options`);
 	const globalOptions = falseToUndefined([options.acf])[0];
 

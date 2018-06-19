@@ -16,7 +16,7 @@ class News extends React.Component {
 					{news.map(({ title, date, link }, i) => {
 						const parsedDate = date.split(',');
 						return (
-							<NavLink key={i} to={link} className={'news-row'}>
+							<NavLink key={i} to={link.replace(location.origin, '')} className={'news-row'}>
 								<Date day={parsedDate[2]} month={parsedDate[1]} />
 								<div className={'title'}>{title}</div>
 							</NavLink>

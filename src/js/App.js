@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { withConsumer } from 'js/store/Store';
 import Home from 'js/pages/Home';
 import Page from 'js/pages/Page';
@@ -36,7 +36,6 @@ class App extends React.Component {
 	pageRoutes = pages => {
 		return pages.map((page, i) => {
 			let { acf, template, link, ...rest } = page;
-
 			return (
 				<Route
 					key={i}

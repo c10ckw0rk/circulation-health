@@ -8,13 +8,51 @@ import SearchInput from 'js/components/SearchInput';
 export default class DesktopHeader extends React.Component {
 	static defaultProps = {
 		navItems: [],
-		searchPlaceholder: ''
+		searchPlaceholder: '',
+		sticky: false,
+		changedSize: () => {}
 	};
 
 	static propTypes = {
 		navItems: PropTypes.array,
-		searchPlaceholder: PropTypes.string
+		searchPlaceholder: PropTypes.string,
+		sticky: PropTypes.bool,
+		changedSize: PropTypes.func
 	};
+
+	timeout;
+	width;
+	isBigger = false;
+
+	onRef = ref => {
+		if (!this.props.sticky) return;
+		clearTimeout(this.timeout);
+		this.timeout = setTimeout(() => {
+			if (!ref) return;
+			let width = 0;
+			[...ref.parentNode.children].forEach(item => {
+				width += item.offsetWidth;
+			});
+			this.width = width + 32 + 236;
+			this.checkWidth();
+		}, 10);
+	};
+
+	checkWidth = () => {
+		requestAnimationFrame(() => {
+			if (this.width < window.innerWidth && this.isBigger) {
+				this.isBigger = false;
+				this.props.changedSize(this.isBigger);
+			} else if (this.width > window.innerWidth && !this.isBigger) {
+				this.isBigger = true;
+				this.props.changedSize(this.isBigger);
+			}
+		});
+	};
+
+	componentDidMount() {
+		window.addEventListener('resize', this.checkWidth);
+	}
 
 	render() {
 		const { searchPlaceholder, navItems } = this.props;
@@ -34,7 +72,7 @@ export default class DesktopHeader extends React.Component {
 			<ul>
 				{navItems.map(({ url, title, ID: id, children }) => {
 					return (
-						<li key={id}>
+						<li ref={this.onRef} key={id}>
 							<Link to={url.replace(location.origin, '') || '/'}>{title.toUpperCase()}</Link>
 							{children && this.renderMenu(children)}
 						</li>

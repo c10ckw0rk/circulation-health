@@ -7,10 +7,6 @@
 	height: 100%;
 	z-index: 2;
 
-	@include break-point(md) {
-		display: none;
-	}
-
 	.search {
 		height: 56px;
 		border: solid 1px rgba(255, 255, 255, 0.15);

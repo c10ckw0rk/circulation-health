@@ -19,10 +19,15 @@ const searchPage = {
 class Base extends React.Component {
 	state = {
 		mobileMenu: false,
-		page: undefined
+		page: undefined,
+		mobileMode: undefined
 	};
 
 	onClick = val => this.setState({ mobileMenu: val });
+
+	changedSize = val => {
+		this.setState({ mobileMode: val });
+	};
 
 	onLocationChange = () => {
 		const { pages } = this.props;
@@ -67,8 +72,10 @@ class Base extends React.Component {
 						<meta name="description" content={stripHtmlTags(page.excerpt.rendered)} />
 					</Helmet>
 				)}
-				{this.state.mobileMenu && <MobileNav navItems={primaryNavigation} closeMenu={this.onClick} />}
+				{this.state.mobileMenu &&
+					this.state.mobileMode && <MobileNav navItems={primaryNavigation} closeMenu={this.onClick} />}
 				<DesktopHeader
+					changedSize={this.changedSize}
 					title={CONFIG.SITE_NAME.toUpperCase().split(' ')}
 					phoneTitle={contactTitle}
 					phone={headerPhoneNumber}

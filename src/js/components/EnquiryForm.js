@@ -49,7 +49,6 @@ class EnquiryForm extends React.Component {
 						<TypedInput
 							placeholder={firstNamePlaceholder}
 							autoComplete="given-name"
-							autoFocus
 							onChange={onChange}
 							id={'first-name'}
 							label={firstNamePlaceholder}

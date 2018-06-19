@@ -5,10 +5,6 @@
 	position: relative;
 	background: white;
 
-	@include break-point(md) {
-		padding-top: baseline(2);
-	}
-
 	.inner-header {
 		display: flex;
 		height: 100%;
@@ -21,21 +17,12 @@
 		height: 64px;
 		margin-bottom: 0;
 
-		@include break-point(md) {
-			height: 88px;
-		}
-
 		%sections {
 			line-height: baseline(2);
 			display: block;
 			height: 12px;
 			margin: 0;
 			flex-grow: 2;
-
-			@include break-point(md) {
-				height: 24px;
-				line-height: baseline(3);
-			}
 		}
 
 		&-section-1 {
@@ -44,11 +31,6 @@
 			font-size: 12px;
 			color: $glacier;
 			letter-spacing: 1px;
-
-			@include break-point(md) {
-				font-size: 22px;
-				margin: 0 0 4px 0;
-			}
 		}
 
 		&-section-2 {
@@ -57,12 +39,6 @@
 			font-size: 9px;
 			color: $dove-gray;
 			letter-spacing: 1px;
-
-			@include break-point(md) {
-				font-size: 16px;
-				line-height: 16px !important;
-				vertical-align: top;
-			}
 		}
 	}
 
@@ -70,10 +46,6 @@
 		display: block;
 		height: 40px;
 		position: relative;
-
-		@include break-point(md) {
-			height: 88px;
-		}
 	}
 
 	.text-wrapper {
@@ -91,10 +63,6 @@
 		align-items: center;
 		justify-content: center;
 		margin-right: - baseline(2);
-
-		@include break-point(md) {
-			display: none;
-		}
 	}
 
 	.enquiry {
@@ -102,10 +70,6 @@
 		justify-content: center;
 		padding-right: baseline(4);
 		display: none;
-
-		@include break-point(md) {
-			display: flex;
-		}
 
 		p {
 			font-size: baseline(2);
@@ -128,10 +92,6 @@
 		justify-content: center;
 		flex-direction: column;
 
-		@include break-point(md) {
-			display: flex;
-		}
-
 		.button {
 			background: $chestnut-rose;
 			height: baseline(6);
@@ -147,28 +107,6 @@
 	.desktop-header-wrapper {
 		height: baseline(4);
 		display: none;
-
-		@include break-point(md) {
-			display: block;
-		}
-	}
-
-	.sticky-header {
-		@include break-point(md) {
-			top: -76px;
-			position: fixed;
-			width: 100%;
-			z-index: 1;
-			background: $horizon;
-			transition: transform 0.3s, opacity 0.3s;
-			opacity: 0;
-			display: block;
-
-			&.sticky {
-				opacity: 1;
-				transform: translateY(60px);
-			}
-		}
 	}
 
 	.mobile-header {
@@ -179,24 +117,14 @@
 		width: 100%;
 		z-index: 1;
 		box-sizing: border-box;
-
-		@include break-point(md) {
-			display: none;
-		}
 	}
 
 	.desktop-inner-head {
 		display: flex;
 		width: 100%;
-
-		@include break-point(md) {
-			display: block;
-			width: auto;
-		}
 	}
 
 	.desktop-header {
-		display: none;
 		margin: baseline(2) 0 0;
 
 		.nav {
@@ -208,7 +136,6 @@
 			ul {
 				height: 100%;
 				display: flex;
-				flex-wrap: wrap;
 				padding: 0 215px 0 0;
 				margin: 0;
 			}
@@ -292,8 +219,97 @@
 		}
 	}
 
-	.desktop-header {
-		@include break-point(md) {
+	.sticky-header {
+		top: -64px;
+		position: fixed;
+		width: 100%;
+		z-index: 1;
+		background: $horizon;
+		transition: transform 0.3s, opacity 0.3s;
+		opacity: 0;
+		display: block;
+
+		&.sticky {
+			opacity: 1;
+			transform: translateY(60px);
+		}
+
+		.desktop-header {
+			margin-top: 0;
+			display: none;
+		}
+	}
+}
+
+.header {
+	&.desktop-mode {
+		padding-top: baseline(2);
+
+		.sticky-header {
+			.desktop-header {
+				display: block;
+			}
+		}
+
+		.mobile-nav {
+			display: none;
+		}
+
+		.search {
+			position: absolute;
+			width: auto;
+		}
+
+		.title {
+			height: 88px;
+
+			%sections {
+				height: 24px;
+				line-height: baseline(3);
+			}
+
+			&-section-1 {
+				font-size: 22px;
+				margin: 0 0 4px 0;
+			}
+
+			&-section-2 {
+				font-size: 16px;
+				line-height: 16px !important;
+				vertical-align: top;
+			}
+		}
+
+		.logo {
+			height: 88px;
+		}
+
+		.menu {
+			display: none;
+		}
+
+		.enquiry {
+			display: flex;
+		}
+
+		.make-enquiry {
+			display: flex;
+		}
+
+		.desktop-header-wrapper {
+			display: block;
+		}
+
+		.mobile-header {
+			display: none;
+		}
+
+		.desktop-inner-head {
+			display: block;
+			width: auto;
+		}
+
+		.desktop-header {
 			display: block;
 		}
 	}

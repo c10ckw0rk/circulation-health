@@ -3,12 +3,6 @@
 .search {
 	width: auto;
 	position: relative;
-
-	@include break-point(md) {
-		position: absolute;
-		width: auto;
-	}
-
 	height: 100%;
 	right: 0;
 	top: 0;

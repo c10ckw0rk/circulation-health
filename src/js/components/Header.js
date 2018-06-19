@@ -17,12 +17,14 @@ export default class Header extends React.PureComponent {
 		enquiryLink: PropTypes.string,
 		navItems: PropTypes.array,
 		searchPlaceholder: PropTypes.string,
-		showMobileMenu: PropTypes.func
+		showMobileMenu: PropTypes.func,
+		changedSize: PropTypes.func
 	};
 
 	state = {
 		navItems: [],
-		sticky: true
+		sticky: true,
+		mobileMode: undefined
 	};
 
 	nav = React.createRef();
@@ -59,13 +61,16 @@ export default class Header extends React.PureComponent {
 		this.props.showMobileMenu(true);
 	};
 
+	changedSize = val => {
+		this.props.changedSize(val);
+		this.setState({ mobileMode: val });
+	};
+
 	componentDidMount() {
+		if (!this.nav.current) return;
+
 		this.bottom = getPosition(this.nav.current).top + this.nav.current.offsetHeight;
 		addEventListener('scroll', this.scrollEvent);
-		addEventListener('resize', () => {
-			this.bottom = getPosition(this.nav.current).top + this.nav.current.offsetHeight;
-			this.scrollEvent();
-		});
 	}
 
 	componentWillUnmount() {
@@ -74,13 +79,20 @@ export default class Header extends React.PureComponent {
 
 	render() {
 		const { title, phone, phoneTitle, enquiryLink, enquiryTitle, searchPlaceholder } = this.props;
-		const { navItems, sticky } = this.state;
+		const { navItems, sticky, mobileMode } = this.state;
 
 		return (
-			<header className={'header'}>
+			<header className={cn('header', { 'desktop-mode': !mobileMode })}>
 				<div className={cn('sticky-header', { sticky: !sticky })}>
-					<DesktopHeader navItems={navItems} searchPlaceholder={searchPlaceholder} />
-					<MobileHeader className={'mobile-header'} title={title} showMobileMenu={this.showMobileMenu} />
+					<DesktopHeader
+						sticky
+						changedSize={this.changedSize}
+						navItems={navItems}
+						searchPlaceholder={searchPlaceholder}
+					/>
+					{mobileMode && (
+						<MobileHeader className={'mobile-header'} title={title} showMobileMenu={this.showMobileMenu} />
+					)}
 				</div>
 				<Container>
 					<div className={'inner-header'}>
@@ -100,7 +112,7 @@ export default class Header extends React.PureComponent {
 					</div>
 				</Container>
 				<div className={'desktop-header-wrapper'} ref={this.nav}>
-					<DesktopHeader navItems={navItems} searchPlaceholder={searchPlaceholder} />
+					{!mobileMode && <DesktopHeader navItems={navItems} searchPlaceholder={searchPlaceholder} />}
 				</div>
 			</header>
 		);

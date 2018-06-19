@@ -81,8 +81,6 @@ class Map extends React.Component {
 		const { className } = this.props;
 		const { style } = this.state;
 
-		console.log('here');
-
 		return (
 			<div className={cn('map', className)}>
 				<div className={'block-interaction'} />
