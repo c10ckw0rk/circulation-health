@@ -11,7 +11,7 @@ const withNews = Component =>
 			componentDidMount() {
 				const news = [];
 				this.props.pages.forEach(page => {
-					if (page.template === 'news-item.php') {
+					if (page.template === 'news-post.php') {
 						news.push({
 							title: page.title.rendered,
 							link: page.link,

@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'js/components/Link';
-import './SideMenu.scss';
 import { ChevronDown } from 'js/components/icon/ChevronDown';
 import { withConsumer } from 'js/store/Store';
 import cn from 'classnames';
+
+import './SideMenu.scss';
 
 const sizes = {
 	xs: {
@@ -76,7 +77,7 @@ class SideMenu extends React.Component {
 			<div className={cn(leftClasses, 'navigation')}>
 				<nav className={'side-menu'}>
 					<button className={'title-wrap'} onClick={this.onClick}>
-						<h2 className={'title'}>{menu.title.toUpperCase()}</h2>
+						<h2 className={'title'}>{menu.title}</h2>
 						<div className={'icon-wrap'}>
 							<ChevronDown className={'down-icon'} />
 						</div>
@@ -91,7 +92,9 @@ class SideMenu extends React.Component {
 		return navItems.map(({ url, title, ID: id, children }) => {
 			return (
 				<li key={id}>
-					<Link to={url.replace(location.origin, '') || '/'}>{title.toUpperCase()}</Link>
+					<Link to={url.replace(location.origin, '') || '/'}>
+						<span>{title}</span>
+					</Link>
 					{children && <ul> {this.renderMenu(children)} </ul>}
 				</li>
 			);

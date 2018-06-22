@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link as ReactLink } from 'react-router-dom';
+import { bool } from 'prop-types';
 import { withConsumer } from 'js/store/Store';
 import cn from 'classnames';
 
@@ -7,6 +8,10 @@ class Link extends React.Component {
 	state = {
 		parentItem: false,
 		currentPage: undefined
+	};
+
+	static propTypes = {
+		noParentMatch: bool
 	};
 
 	static getDerivedStateFromProps(nextProps) {
@@ -33,9 +38,11 @@ class Link extends React.Component {
 			parentItem = parentItem.url.replace(location.origin, '') === to;
 		}
 
-		return {
-			parentItem
-		};
+		if (!nextProps.noParentMatch) {
+			return {
+				parentItem
+			};
+		}
 	}
 
 	render() {

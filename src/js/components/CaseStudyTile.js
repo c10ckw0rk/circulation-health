@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Container from 'js/components/grid/Container';
 import { withConsumer } from 'js/store/Store';
+import stripHtmlTags from 'js/util/stripHtmlTags';
 import './CaseStudyTile.scss';
 
 class CaseStudyTile extends React.Component {
@@ -37,6 +38,8 @@ class CaseStudyTile extends React.Component {
 	render() {
 		const { title } = this.props;
 		const { caseStudyPages } = this.state;
+		const max = [...caseStudyPages];
+		max.length = 2;
 
 		return (
 			<div className={'case-study-tile'}>
@@ -45,13 +48,17 @@ class CaseStudyTile extends React.Component {
 				</Container>
 				<div className={'case-studies'}>
 					{caseStudyPages.length > 0 &&
-						caseStudyPages.map(({ img, excerpt, title }, i) => (
+						max.map(({ content, title, acf }, i) => (
 							<article className={'case-study'} key={i}>
-								<img src={img} />
+								<Container>
+									<img className={'img'} src={acf.pageImage.url} />
+								</Container>
 								<Container>
 									<h3>{title.rendered}</h3>
 								</Container>
-								<Container dangerouslySetInnerHTML={{ __html: excerpt.rendered }} />
+								<Container
+									dangerouslySetInnerHTML={{ __html: stripHtmlTags(content.rendered.substring(0, 100).trim() + '...') }}
+								/>
 							</article>
 						))}
 				</div>

@@ -8,10 +8,20 @@ import withNews from 'js/hoc/withNews';
 
 class News extends React.Component {
 	render() {
-		const { title, news } = this.props;
+		const { title, news, mobileBanner = {}, desktopBanner = {}, noNewsContent } = this.props;
+		const hasNews = news.length === 0;
+
 		return (
 			<>
-				<Banner overlap titleContent={title.rendered} />
+				<Banner
+					xs={mobileBanner.url}
+					sm={mobileBanner.url}
+					md={desktopBanner.url}
+					lg={desktopBanner.url}
+					xl={desktopBanner.url}
+					overlap={!hasNews}
+					titleContent={title.rendered}
+				/>
 				<Container className={'news'}>
 					{news.map(({ title, date, link }, i) => {
 						const parsedDate = date.split(',');
@@ -22,6 +32,12 @@ class News extends React.Component {
 							</NavLink>
 						);
 					})}
+					{hasNews && (
+						<div
+							style={{ textAlign: 'center', width: '100%', padding: '32px' }}
+							dangerouslySetInnerHTML={{ __html: noNewsContent }}
+						/>
+					)}
 				</Container>
 			</>
 		);

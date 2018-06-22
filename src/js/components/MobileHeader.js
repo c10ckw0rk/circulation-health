@@ -28,8 +28,10 @@ export default class MobileHeader extends React.Component {
 						<Logo className={'logo'} />
 					</NavLink>
 					<div className={'text-wrapper'}>
-						<span className={'title-section-1 h4'}>{title[0]}</span>
-						<span className={'title-section-2'}>{title[1]}</span>
+						<NavLink to={'/'}>
+							<span className={'title-section-1 h4'}>{title[0]}</span>
+							<span className={'title-section-2'}>{title[1]}</span>
+						</NavLink>
 					</div>
 				</h1>
 				<button className={'menu'} onClick={this.showMobileMenu}>

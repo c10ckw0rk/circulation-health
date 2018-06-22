@@ -31,13 +31,15 @@ class CalendarTile extends React.Component {
 
 	render() {
 		const { title, news, footerLink } = this.props;
+		const latest = [...news];
+		latest.length = 2;
 		return (
 			<div className={'calendar-tile'}>
 				<Container>
 					<h2>{title}</h2>
 				</Container>
 				<ul className={'calendar'}>
-					{news.map(({ title, date }) => {
+					{latest.map(({ title, date }) => {
 						const parsedDate = date.split(',');
 						return (
 							<li key={(title + date).replace(/ /gi, '-')} className={'entry'}>

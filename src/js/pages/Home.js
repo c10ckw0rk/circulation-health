@@ -33,12 +33,19 @@ class Home extends React.Component {
 			informationBoxTitle,
 			informationBoxLink,
 			caseStudies,
-			caseStudiesTitle
+			caseStudiesTitle,
+			mobileBannerImage = {},
+			desktopBannerImage = {}
 		} = this.props;
 
 		return (
 			<>
-				<Banner>
+				<Banner
+					xs={mobileBannerImage.url}
+					sm={mobileBannerImage.url}
+					md={desktopBannerImage.url}
+					lg={desktopBannerImage.url}
+					xl={desktopBannerImage.url}>
 					<div className={'list-tile-wrapper'}>
 						<ListTile className={'banner-links'} title={informationBoxTitle} items={informationBoxLink} />
 					</div>

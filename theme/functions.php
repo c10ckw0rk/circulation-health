@@ -36,24 +36,6 @@ add_action( 'rest_api_init', function () {
     ) );
 } );
 
-
-/*-----------------------------------------------------------------------------------*/
-/* Remove Unwanted Admin Menu Items */
-/*-----------------------------------------------------------------------------------*/
-
-function remove_admin_menu_items() {
-    $remove_menu_items = array(__('Comments', 'Posts', 'CPT UI'));
-    global $menu;
-    end ($menu);
-    while (prev($menu)){
-        $item = explode(' ',$menu[key($menu)][0]);
-        if(in_array($item[0] != NULL?$item[0]:"" , $remove_menu_items)){
-            unset($menu[key($menu)]);}
-    }
-}
-
-add_action('admin_menu', 'remove_admin_menu_items');
-
 /*-----------------------------------------------------------------------------------*/
 /* Advanced Custom Fields
 /*-----------------------------------------------------------------------------------*/
@@ -153,7 +135,7 @@ function my_theme_register_required_plugins() {
 /*-----------------------------------------------------------------------------------*/
 
 
-if( function_exists('acf_add_options_page') ) {
+if ( function_exists('acf_add_options_page') ) {
     acf_add_options_page();
 }
 
@@ -167,3 +149,13 @@ function my_acf_google_map_api( $api ){
 }
 
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+/*
+ *  admin-fonts
+ */
+
+add_action('admin_head', 'my_custom_fonts');
+
+function my_custom_fonts() {
+    echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/admin/admin.css" type="text/css" media="all" />';
+}

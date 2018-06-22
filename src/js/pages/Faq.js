@@ -65,10 +65,18 @@ export default class Faq extends React.Component {
 	};
 
 	render() {
-		const { title, faqs } = this.props;
+		const { title, faqs, mobileBanner = {}, desktopBanner = {} } = this.props;
 		return (
 			<>
-				<Banner short titleContent={title.rendered} />
+				<Banner
+					xs={mobileBanner.url}
+					sm={mobileBanner.url}
+					md={desktopBanner.url}
+					lg={desktopBanner.url}
+					xl={desktopBanner.url}
+					short
+					titleContent={title.rendered}
+				/>
 				<main className={'faq'}>{faqs.map((faq, i) => <Accordion open={i === 0} {...faq} key={i} />)}</main>
 			</>
 		);

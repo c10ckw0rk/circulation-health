@@ -1,8 +1,4 @@
-//---------------------------------------
-//** Desc: Common styles across fydo.com.au
-//** Contributors: Daniel Peterson
-//** Created by Dax on 25 Jan 2016
-//---------------------------------------
+@import 'break-points';
 
 html,
 body {
@@ -88,6 +84,21 @@ main {
 	padding-right: baseline(2);
 	padding-left: baseline(2);
 
+	@include break-point(md) {
+		padding-right: baseline(5);
+		padding-left: baseline(5);
+	}
+
+	@include break-point(lg) {
+		padding-right: baseline(3);
+		padding-left: baseline(3);
+	}
+
+	@include break-point(xl) {
+		padding-right: baseline(2);
+		padding-left: baseline(2);
+	}
+
 	& > .container-fluid {
 		padding: 0;
 	}
@@ -96,6 +107,21 @@ main {
 .row {
 	margin-right: - baseline(2);
 	margin-left: - baseline(2);
+
+	@include break-point(md) {
+		margin-right: - baseline(5);
+		margin-left: - baseline(5);
+	}
+
+	@include break-point(lg) {
+		margin-right: - baseline(3);
+		margin-left: - baseline(3);
+	}
+
+	@include break-point(xl) {
+		margin-right: - baseline(2);
+		margin-left: - baseline(2);
+	}
 }
 
 textarea:focus,
@@ -107,4 +133,17 @@ button:focus {
 .container-fluid {
 	padding-right: baseline(2);
 	padding-left: baseline(2);
+
+	@include break-point(md) {
+		padding-right: baseline(5);
+		padding-left: baseline(5);
+	}
+	@include break-point(lg) {
+		padding-right: baseline(3);
+		padding-left: baseline(3);
+	}
+	@include break-point(xl) {
+		padding-right: baseline(2);
+		padding-left: baseline(2);
+	}
 }

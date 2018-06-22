@@ -5,6 +5,8 @@ import { themedir } from 'js/config';
 import Container from 'js/components/grid/Container';
 import cn from 'classnames';
 
+let once = true;
+
 export default class ProfileTile extends React.Component {
 	content = React.createRef();
 	img = React.createRef();
@@ -27,22 +29,26 @@ export default class ProfileTile extends React.Component {
 		const content = this.content.current;
 		const img = this.img.current;
 
-		if (!content || !img) {
+		if ((!content || !img) && once) {
 			setTimeout(this.resize, 100);
 			return;
 		}
 
-		const style = getComputedStyle(this.img.current);
-		let contentHeight = content.offsetHeight;
-		const imgHeight = content.offsetHeight;
+		once = false;
 
-		contentHeight -= parseInt(style.marginTop.replace('px', ''));
+		requestAnimationFrame(() => {
+			const style = getComputedStyle(this.img.current);
+			let contentHeight = content.offsetHeight;
+			const imgHeight = img.offsetHeight;
 
-		if (contentHeight > imgHeight && this.state.className === '') {
-			this.setState({ className: 'grey-bumper' });
-		} else if (contentHeight <= imgHeight && this.state.className !== '') {
-			this.setState({ className: '' });
-		}
+			contentHeight -= parseInt(style.marginTop.replace('px', ''));
+
+			if (contentHeight > imgHeight && this.state.className === '') {
+				this.setState({ className: 'grey-bumper' });
+			} else if (contentHeight <= imgHeight && this.state.className !== '') {
+				this.setState({ className: '' });
+			}
+		});
 	};
 
 	componentDidMount() {
@@ -52,6 +58,8 @@ export default class ProfileTile extends React.Component {
 
 	componentWillUnmount() {
 		removeEventListener('resize', this.resize);
+		this.content = undefined;
+		this.img = undefined;
 	}
 
 	render() {

@@ -5,7 +5,7 @@
 	background: $wedgewood;
 	position: fixed;
 	height: 100%;
-	z-index: 2;
+	z-index: 12;
 
 	.search {
 		height: 56px;
@@ -66,9 +66,19 @@
 
 	ul > li > ul {
 		margin-left: 16px;
+		margin-bottom: 8px;
 
 		a {
-			color: $alto;
+			color: $gallery;
+			padding: 8px 0;
+
+			&.active {
+				font-weight: $medium;
+			}
+
+			&.active:after {
+				box-shadow: 0 -2px 0 0 $gallery inset;
+			}
 		}
 	}
 
@@ -91,16 +101,17 @@
 		}
 
 		&.active {
-			font-weight: 900;
+			font-weight: $medium;
 		}
 
 		&.active:after {
-			box-shadow: 0 -2px 0 0 lighten(white, 20) inset;
+			box-shadow: 0 -2px 0 0 white inset;
 		}
 
 		&:hover {
+			color: white;
 			&:after {
-				box-shadow: 0 -2px 0 0 lighten(white, 20) inset;
+				box-shadow: 0 -2px 0 0 white inset;
 			}
 		}
 	}

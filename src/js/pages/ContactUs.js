@@ -13,7 +13,7 @@ class ContactUs extends React.Component {
 		title: {
 			rendered: 'Contact us'
 		},
-		buttonLabel: 'Submit enquiry',
+		submitButtonLabel: 'Submit enquiry',
 		types: [
 			{
 				type: 'tel',
@@ -44,7 +44,7 @@ class ContactUs extends React.Component {
 
 	static propTypes = {
 		title: PropTypes.object,
-		buttonLabel: PropTypes.string,
+		submitButtonLabel: PropTypes.string,
 		types: PropTypes.array,
 		firstNamePlaceholder: PropTypes.string,
 		lastNamePlaceholder: PropTypes.string,
@@ -58,7 +58,7 @@ class ContactUs extends React.Component {
 		const {
 			title,
 			types,
-			buttonLabel,
+			submitButtonLabel,
 			firstNamePlaceholder,
 			lastNamePlaceholder,
 			emailPlaceholder,
@@ -156,7 +156,7 @@ class ContactUs extends React.Component {
 											required
 										/>
 										<div className={'submit-wrapper'}>
-											<SubmitButton disabled={submitted}>{buttonLabel}</SubmitButton>
+											<SubmitButton disabled={submitted}>{submitButtonLabel}</SubmitButton>
 										</div>
 									</div>
 								</Container>

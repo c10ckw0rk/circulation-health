@@ -1,0 +1,62 @@
+#menu_order, .post-attributes-label, #post-preview, #contextual-help-link, #contextual-help-link-wrap, #parent_id, #commentsdiv {
+    display: none;
+}
+
+#adminmenuback, #adminmenuwrap, #wp-menu-name {
+    background: white;
+}
+
+.wp-menu-name {
+    color: #5e8ea8;
+    background: white;
+}
+
+.dashicons-before:before {
+    color: #d04a5d !important;
+}
+
+.wp-submenu-wrap, .wp-menu-separator, #collapse-button {
+    background: #f4f4f4;
+    margin-bottom: 0;
+}
+
+#adminmenu .wp-submenu li a {
+    color: #77a7c0;
+}
+
+#adminmenu .wp-submenu li.current a, .collapse-button-label, .collapse-button-icon {
+    color: #77a7c0;
+}
+
+#adminmenu .wp-has-current-submenu .wp-submenu {
+    background: #f4f4f4;
+}
+
+#adminmenu li.wp-menu-separator {
+    margin-bottom: 0;
+}
+
+.folded #adminmenu a.menu-top {
+    background: white
+}
+
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu {
+    background: #f4f4f4;
+}
+
+#adminmenu li.menu-top:hover {
+    background: #f4f4f4;
+}
+
+#adminmenu .wp-submenu, .folded #adminmenu .wp-has-current-submenu .wp-submenu, .folded #adminmenu a.wp-has-current-submenu:focus+.wp-submenu {
+    background: #f4f4f4;
+}
+
+#adminmenu .wp-has-current-submenu .wp-submenu, #adminmenu .wp-has-current-submenu .wp-submenu.sub-open, #adminmenu .wp-has-current-submenu.opensub .wp-submenu, #adminmenu a.wp-has-current-submenu:focus+.wp-submenu, .no-js li.wp-has-current-submenu:hover .wp-submenu {
+    background: #f4f4f4;
+}
+
+#adminmenu .opensub .wp-submenu li.current a, #adminmenu .wp-submenu li.current, #adminmenu .wp-submenu li.current a, #adminmenu .wp-submenu li.current a:focus, #adminmenu .wp-submenu li.current a:hover, #adminmenu a.wp-has-current-submenu:focus+.wp-submenu li.current a {
+    color: #4e829e;
+}
+

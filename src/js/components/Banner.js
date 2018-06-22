@@ -18,6 +18,11 @@ export default class Banner extends React.Component {
 	};
 
 	static propTypes = {
+		xs: PropTypes.string,
+		sm: PropTypes.string,
+		md: PropTypes.string,
+		lg: PropTypes.string,
+		xl: PropTypes.string,
 		backgroundImage: PropTypes.object,
 		titleContent: PropTypes.string,
 		short: PropTypes.bool
@@ -29,9 +34,7 @@ export default class Banner extends React.Component {
 	};
 
 	componentDidMount() {
-		const { xs, sm, md, lg, xl, short, overlap } = this.props;
-
-		if (short || overlap) return;
+		const { xs, sm, md, lg, xl } = this.props;
 
 		this.grid = new Grid();
 		this.grid.register('xs', 'on', () => {

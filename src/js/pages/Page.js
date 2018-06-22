@@ -45,12 +45,20 @@ export default class Page extends React.PureComponent {
 	};
 
 	render() {
-		const { title, content } = this.props;
+		const { title, content, desktopBanner = {}, mobileBanner = {} } = this.props;
 		const rightClasses = Object.keys(sizes).map(size => `col-${size}-${sizes[size].right}`);
 
 		return (
 			<>
-				<Banner short titleContent={title.rendered} />
+				<Banner
+					xs={mobileBanner.url}
+					sm={mobileBanner.url}
+					md={desktopBanner.url}
+					lg={desktopBanner.url}
+					xl={desktopBanner.url}
+					short
+					titleContent={title.rendered}
+				/>
 				<main className={'page'}>
 					<Container>
 						<div className={'container-fluid page-content'}>

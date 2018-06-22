@@ -20,6 +20,7 @@
 		font-weight: 400;
 		box-sizing: border-box;
 		padding: 24px 16px;
+		line-height: 22px;
 	}
 
 	ul {
@@ -38,9 +39,16 @@
 		padding: 24px 16px;
 		align-items: center;
 		box-sizing: border-box;
+		position: relative;
 
 		&:hover {
 			background: $wild-sand;
+		}
+
+		&.active {
+			box-shadow: 2px 0 0 0 $glacier inset;
+			background: white;
+			font-weight: $medium;
 		}
 	}
 
@@ -50,11 +58,12 @@
 			border-bottom: 1px solid $alto;
 			color: $horizon;
 			text-decoration: none;
+			line-height: 1.2;
 		}
 
 		ul li a {
 			padding-left: 48px;
-			font-weight: 200;
+			font-weight: $light;
 		}
 	}
 
@@ -70,8 +79,13 @@
 		-moz-appearance: none;
 		appearance: none;
 		width: 100%;
-		color: $glacier;
 		padding: 0;
+		border: none;
+		margin: 0;
+		color: $horizon;
+		@include break-point(md) {
+			text-align: left;
+		}
 	}
 
 	.icon-wrap {
@@ -85,6 +99,7 @@
 
 	.nav-wrapper {
 		display: none;
+
 		&.open {
 			display: block;
 		}
