@@ -20,7 +20,8 @@ class Map extends React.Component {
 			lng: -73.998672
 		},
 		zoom: 15,
-		style: { width: '100%', height: 200 }
+		style: { width: '100%', height: 200 },
+		map: {}
 	};
 
 	static propTypes = {
