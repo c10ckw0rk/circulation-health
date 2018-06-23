@@ -8,36 +8,7 @@ import Container from 'js/components/grid/Container';
 
 export default class PanelTile extends React.Component {
 	static defaultProps = {
-		links: [
-			{
-				title: 'Venous disease',
-				icon: {
-					url: themedir + '/img/clipboard.svg'
-				},
-				link: '#'
-			},
-			{
-				title: 'Arterial disease',
-				icon: {
-					url: themedir + '/img/heart.svg'
-				},
-				link: '#'
-			},
-			{
-				title: 'Vascular access',
-				icon: {
-					url: themedir + '/img/heart.svg'
-				},
-				link: '#'
-			},
-			{
-				title: 'Vascular Arterial access',
-				icon: {
-					url: themedir + '/img/heart.svg'
-				},
-				link: '#'
-			}
-		]
+		links: []
 	};
 
 	static propTypes = {
@@ -54,7 +25,7 @@ export default class PanelTile extends React.Component {
 							<Link to={link}>
 								<span className={'image-wrap'}>
 									<span className={'image'}>
-										<img src={icon.url} />
+										<img src={icon.url ? icon.url : undefined} />
 									</span>
 								</span>
 								<span className={'title'}>{title}</span>
