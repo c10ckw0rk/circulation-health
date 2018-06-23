@@ -5,8 +5,9 @@
 	"private": true,
 	"scripts": {
 		"docker:up": "docker-compose up",
+		"commit:build": "git add . && git commit -a -m \"releasing app\" && git push",
 		"build": "NODE_ENV=production webpack",
-		"prod": "yarn clean && yarn build && yarn manifest",
+		"prod": "yarn clean && yarn build && yarn commit:build && yarn manifest",
 		"clean": "rm -r -f ./theme/assets/*",
 		"manifest": "node ./build/manifest.js",
 		"dev": "NODE_ENV=development webpack"
