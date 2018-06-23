@@ -81,16 +81,17 @@ class ContactUs extends React.Component {
 							<div className={'col-xs-12 col-sm-12 col-md-4'}>
 								<div dangerouslySetInnerHTML={{ __html: introduction }} />
 								<ul className={'list'}>
-									{types.map(({ type, label, detail }, i) => {
-										return (
-											<li key={i} className={'item'}>
-												{label}:
-												<a className={'link'} href={`${type}:${detail}`}>
-													{detail}
-												</a>
-											</li>
-										);
-									})}
+									{types &&
+										types.map(({ type, label, detail }, i) => {
+											return (
+												<li key={i} className={'item'}>
+													{label}:
+													<a className={'link'} href={`${type}:${detail}`}>
+														{detail}
+													</a>
+												</li>
+											);
+										})}
 								</ul>
 							</div>
 							<form className={'col-xs-12 col-sm-12 col-md-8 form'} onSubmit={onSubmit}>

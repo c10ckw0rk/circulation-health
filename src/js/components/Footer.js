@@ -27,12 +27,13 @@ export default class Footer extends React.Component {
 			socialTitle,
 			contactTitle
 		} = this.props;
+
 		return (
 			<footer className={'footer'}>
 				<ThirdsContainer colClass={'footer-cols'}>
 					<Subscribe buttonText={subscribeButton} subscribePlaceholder={subscribePlaceholder} title={subscribeTitle} />
 					<Social title={socialTitle} icons={socialLinks} />
-					<ContactUs title={contactTitle} types={contactDetails} />
+					<ContactUs title={contactTitle} types={contactDetails || undefined} />
 				</ThirdsContainer>
 			</footer>
 		);

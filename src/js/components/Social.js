@@ -29,16 +29,17 @@ export default class Social extends React.Component {
 
 	render() {
 		const { title, icons } = this.props;
+
 		return (
 			<Container className={'social'}>
 				<h2>{title}</h2>
 				<ul className={'list'}>
-					{icons.length < 0 &&
-						icons.map(({ link, icon }, i) => {
+					{icons.length > 0 &&
+						icons.map(({ link, image }, i) => {
 							return (
 								<li key={i} className={'link'}>
 									<a href={link}>
-										<img src={icon.url} />
+										<img src={image} />
 									</a>
 								</li>
 							);

@@ -57,14 +57,15 @@ class App extends React.Component {
 
 	render() {
 		const { globalOptions, primaryNavigation } = this.props;
+
 		return (
 			<Router>
-				<Base {...globalOptions.acf} primaryNavigation={primaryNavigation}>
+				<Base {...globalOptions} primaryNavigation={primaryNavigation}>
 					<Switch>
 						{this.pageRoutes(this.props.pages)}
 						<Route
 							component={() => {
-								return <Search {...globalOptions.acf} />;
+								return <Search {...globalOptions} />;
 							}}
 							exact
 							path={'/search'}

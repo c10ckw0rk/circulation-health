@@ -65,23 +65,28 @@ export default class Subscribe extends React.Component {
 	render() {
 		const { title, buttonText, subscribePlaceholder } = this.props;
 		const { message, submitted } = this.state;
+
 		return (
 			<Container className={'subscribe'}>
 				<h2>{title}</h2>
 				{!submitted && (
 					<form onSubmit={this.onSubmit} className={'form'}>
-						<TypedInput
-							onChange={this.onChange}
-							placeholder={subscribePlaceholder}
-							id={'email'}
-							label={'email-address'}
-							type={'email'}
-							required
-							className={'text-input'}
-						/>
-						<Button type={'submit'} className={'button'}>
-							{buttonText}
-						</Button>
+						{subscribePlaceholder && (
+							<TypedInput
+								onChange={this.onChange}
+								placeholder={subscribePlaceholder}
+								id={'email'}
+								label={'email-address'}
+								type={'email'}
+								required
+								className={'text-input'}
+							/>
+						)}
+						{buttonText && (
+							<Button type={'submit'} className={'button'}>
+								{buttonText}
+							</Button>
+						)}
 					</form>
 				)}
 				{submitted && <p className={'h3'}>{message}</p>}

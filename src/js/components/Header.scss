@@ -5,11 +5,6 @@
 	position: relative;
 	background: white;
 
-	.container-fluid {
-		padding-right: 16px;
-		padding-left: 16px;
-	}
-
 	.inner-header {
 		display: flex;
 		height: 100%;
@@ -44,6 +39,10 @@
 			font-size: 9px;
 			color: $dove-gray;
 			letter-spacing: 1px;
+		}
+
+		a {
+			text-decoration: none;
 		}
 	}
 
@@ -285,10 +284,6 @@
 				vertical-align: top;
 				text-decoration: none;
 			}
-
-			a {
-				text-decoration: none;
-			}
 		}
 
 		.logo {
@@ -315,13 +310,25 @@
 			display: none;
 		}
 
-		.desktop-inner-head {
-			display: block;
-			width: auto;
-		}
-
 		.desktop-header {
 			display: block;
+		}
+	}
+
+	&:not(.desktop-mode) {
+		.container-fluid,
+		.col-xs-12,
+		.col-sm-12,
+		.col-md-12,
+		.col-lg-12,
+		.col-xl-12 {
+			padding-right: 16px;
+			padding-left: 16px;
+		}
+
+		.row {
+			margin-right: -16px;
+			margin-left: -16px;
 		}
 	}
 }

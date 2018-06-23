@@ -103,11 +103,12 @@ export default class Header extends React.PureComponent {
 							</p>
 						</div>
 						<div className={'make-enquiry'}>
-							{enquiryLink && (
-								<Link to={enquiryLink} className={'button'}>
-									{enquiryTitle}
-								</Link>
-							)}
+							{enquiryLink &&
+								enquiryTitle && (
+									<Link to={enquiryLink} className={'button'}>
+										{enquiryTitle}
+									</Link>
+								)}
 						</div>
 					</div>
 				</Container>

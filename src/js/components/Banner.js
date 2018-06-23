@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Banner.scss';
 import { themedir } from 'js/config';
 import Container from 'js/components/grid/Container';
 import Grid from 'js/util/Grid';
 import cn from 'classnames';
+
+import './Banner.scss';
 
 export default class Banner extends React.Component {
 	static defaultProps = {
@@ -73,9 +74,10 @@ export default class Banner extends React.Component {
 				{overlap && <div className={'overlap-banner'} style={style} />}
 				<Container>
 					<div className={'inner-banner'}>
-						<h2 className={'banner-title'}>
-							<span className={'inner-content'}>{titleContent}</span>
-						</h2>
+						<div className={'banner-title'}>
+							<span className={'inner-content'} dangerouslySetInnerHTML={{ __html: titleContent }} />
+						</div>
+
 						{this.props.children}
 					</div>
 				</Container>

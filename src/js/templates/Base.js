@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import DesktopHeader from 'js/components/Header';
+import Header from 'js/components/Header';
 import Footer from 'js/components/Footer';
 import MobileNav from 'js/components/MobileNav';
 import { withConsumer } from 'js/store/Store';
@@ -74,7 +74,7 @@ class Base extends React.Component {
 				)}
 				{this.state.mobileMenu &&
 					this.state.mobileMode && <MobileNav navItems={primaryNavigation} closeMenu={this.onClick} />}
-				<DesktopHeader
+				<Header
 					changedSize={this.changedSize}
 					title={CONFIG.SITE_NAME.toUpperCase().split(' ')}
 					phoneTitle={contactTitle}
@@ -87,7 +87,7 @@ class Base extends React.Component {
 				/>
 				<div className={'content-wrapper'}>{children}</div>
 				<Footer
-					contactDetails={contactDetails}
+					contactDetails={contactDetails || undefined}
 					socialLinks={socialLinks}
 					subscribeButton={subscribeButton}
 					subscribePlaceholder={subscribePlaceholder}
