@@ -10,12 +10,6 @@ const formPath = '/wp-json/contact-form-7/v1/contact-forms/87/feedback';
 const success = 'mail_sent';
 
 export default class Subscribe extends React.Component {
-	static defaultProps = {
-		title: 'Subscribe to our newsletter',
-		buttonText: 'Submit',
-		subscribePlaceholder: 'Your Email'
-	};
-
 	static propTypes = {
 		title: PropTypes.string,
 		buttonText: PropTypes.string,

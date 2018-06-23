@@ -47,21 +47,7 @@ class Base extends React.Component {
 	}
 
 	render() {
-		const {
-			children,
-			contactDetails,
-			socialLinks,
-			subscribeButton,
-			subscribePlaceholder,
-			subscribeTitle,
-			contactTitle,
-			socialTitle,
-			primaryNavigation,
-			headerPhoneNumber,
-			searchPlaceholder,
-			enquiryTitle,
-			enquiryLink
-		} = this.props;
+		const { children, primaryNavigation, header, footer } = this.props;
 		const { page } = this.state;
 
 		return (
@@ -77,24 +63,11 @@ class Base extends React.Component {
 				<Header
 					changedSize={this.changedSize}
 					title={CONFIG.SITE_NAME.toUpperCase().split(' ')}
-					phoneTitle={contactTitle}
-					phone={headerPhoneNumber}
-					enquiryTitle={enquiryTitle}
-					enquiryLink={enquiryLink}
-					navItems={primaryNavigation}
-					searchPlaceholder={searchPlaceholder}
 					showMobileMenu={this.onClick}
+					{...header}
 				/>
 				<div className={'content-wrapper'}>{children}</div>
-				<Footer
-					contactDetails={contactDetails || undefined}
-					socialLinks={socialLinks}
-					subscribeButton={subscribeButton}
-					subscribePlaceholder={subscribePlaceholder}
-					subscribeTitle={subscribeTitle}
-					contactTitle={contactTitle}
-					socialTitle={socialTitle}
-				/>
+				<Footer {...footer} />
 			</>
 		);
 	}

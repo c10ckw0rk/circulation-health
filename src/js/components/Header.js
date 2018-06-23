@@ -78,7 +78,7 @@ export default class Header extends React.PureComponent {
 	}
 
 	render() {
-		const { title, phone, phoneTitle, enquiryLink, enquiryTitle, searchPlaceholder } = this.props;
+		const { title, headerPhoneNumber, phoneTitle, enquiryLink, enquiryTitle, searchPlaceholder } = this.props;
 		const { navItems, sticky, mobileMode } = this.state;
 
 		return (
@@ -99,7 +99,7 @@ export default class Header extends React.PureComponent {
 						<MobileHeader className={'desktop-inner-head'} title={title} showMobileMenu={this.showMobileMenu} />
 						<div className={'enquiry'}>
 							<p>
-								{phoneTitle} <br /> <a href={`tel:${phone}`}>{phone}</a>
+								{phoneTitle} <br /> <a href={`tel:${headerPhoneNumber}`}>{headerPhoneNumber}</a>
 							</p>
 						</div>
 						<div className={'make-enquiry'}>

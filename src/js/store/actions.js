@@ -74,17 +74,13 @@ function formatNavigation(navItems) {
 	return navItems;
 }
 
-function falseToUndefined(array) {
-	if (array.map) {
-		return array.map(item => {
-			const { acf } = item;
-			if (acf) {
-				Object.keys(acf).forEach(field => {
-					acf[field] = !acf[field] ? undefined : acf[field];
-				});
-				item.acf = acf;
-			}
-			return item;
-		});
+function falseToUndefined(obj) {
+	for (let key in obj) {
+		if (obj.hasOwnProperty(key) && typeof obj[key] === 'object' && obj[key] !== null) falseToUndefined(obj[key]);
+		else {
+			obj[key] = obj[key] === false ? undefined : obj[key];
+		}
 	}
+
+	return obj;
 }
