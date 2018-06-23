@@ -16,13 +16,13 @@ Platform:
 npm manifest: 
   {
   	"name": "circulation-health",
-  	"version": "1.0.1",
+  	"version": "1.0.2",
   	"license": "UNLICENSED",
   	"private": true,
   	"scripts": {
   		"docker:up": "docker-compose up",
   		"commit:build": "git add . && git commit -a -m \"releasing app\" && git push",
-  		"commit:version": "git add . && git commit -a -m \"bumping-version\" && git push",
+  		"commit:version": "git add . && git commit -a -m \"bumping version\" && git push",
   		"bump:version": "npm version patch",
   		"build": "NODE_ENV=production webpack",
   		"prod": "yarn clean && yarn build && yarn commit:build && yarn bump:version && yarn manifest && commit:version",
@@ -6786,7 +6786,7 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 1
+  Exit code: 127
   Command: sh
   Arguments: -c yarn clean && yarn build && yarn commit:build && yarn bump:version && yarn manifest && commit:version
   Directory: /Users/daniel.peterson/Home/circulation-health
