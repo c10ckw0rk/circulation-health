@@ -25,7 +25,7 @@ export default class PanelTile extends React.Component {
 							<Link to={link}>
 								<span className={'image-wrap'}>
 									<span className={'image'}>
-										<img src={icon.url ? icon.url : undefined} />
+										<img src={icon ? icon.url : undefined} />
 									</span>
 								</span>
 								<span className={'title'}>{title}</span>
