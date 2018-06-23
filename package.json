@@ -6,7 +6,7 @@
 	"scripts": {
 		"docker:up": "docker-compose up",
 		"commit:build": "git add . && git commit -a -m \"releasing app\"",
-		"commit:version": "git add . && git commit -a -m \"bumping version\" && git push",
+		"commit:push": "git push",
 		"bump:version": "npm version patch",
 		"build": "NODE_ENV=production webpack",
 		"prod": "yarn clean && yarn build && yarn commit:build && yarn bump:version && yarn manifest && yarn commit:version",
