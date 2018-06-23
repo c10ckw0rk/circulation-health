@@ -5,7 +5,11 @@ import Link from 'js/components/Link';
 import cn from 'classnames';
 import SearchInput from 'js/components/SearchInput';
 
-export default class DesktopHeader extends React.Component {
+import './DesktopNav.scss';
+
+let first = true;
+
+export default class DesktopNav extends React.Component {
 	static defaultProps = {
 		navItems: [],
 		searchPlaceholder: '',
@@ -22,7 +26,7 @@ export default class DesktopHeader extends React.Component {
 
 	timeout;
 	width;
-	isBigger = false;
+	isBigger = true;
 
 	onRef = ref => {
 		if (!this.props.sticky) return;
@@ -40,18 +44,24 @@ export default class DesktopHeader extends React.Component {
 
 	checkWidth = () => {
 		requestAnimationFrame(() => {
-			if (this.width < window.innerWidth && this.isBigger) {
+			if (this.width < window.innerWidth && (this.isBigger || first)) {
 				this.isBigger = false;
 				this.props.changedSize(this.isBigger);
-			} else if (this.width > window.innerWidth && !this.isBigger) {
+			} else if (this.width > window.innerWidth && (!this.isBigger || first)) {
 				this.isBigger = true;
 				this.props.changedSize(this.isBigger);
 			}
+
+			first = false;
 		});
 	};
 
 	componentDidMount() {
-		window.addEventListener('resize', this.checkWidth);
+		addEventListener('resize', this.checkWidth);
+	}
+
+	componentWillUnmount() {
+		removeEventListener('resize', this.checkWidth);
 	}
 
 	render() {

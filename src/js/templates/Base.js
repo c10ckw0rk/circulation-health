@@ -58,8 +58,9 @@ class Base extends React.Component {
 						<meta name="description" content={stripHtmlTags(page.excerpt.rendered)} />
 					</Helmet>
 				)}
-				{this.state.mobileMenu &&
-					this.state.mobileMode && <MobileNav navItems={primaryNavigation} closeMenu={this.onClick} />}
+				{this.state.mobileMode && (
+					<MobileNav visible={this.state.mobileMenu} navItems={primaryNavigation} closeMenu={this.onClick} />
+				)}
 				<Header
 					changedSize={this.changedSize}
 					title={CONFIG.SITE_NAME.toUpperCase().split(' ')}

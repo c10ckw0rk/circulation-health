@@ -57,7 +57,9 @@ class Link extends React.Component {
 
 		return (
 			<>
-				<ReactLink className={cn(className, { active })} to={to} children={children} onClick={onClick} />
+				<ReactLink className={cn(className, { active })} to={to} onClick={onClick}>
+					{children}
+				</ReactLink>
 			</>
 		);
 	}

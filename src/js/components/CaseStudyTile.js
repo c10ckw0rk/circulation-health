@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Container from 'js/components/grid/Container';
 import { withConsumer } from 'js/store/Store';
 import stripHtmlTags from 'js/util/stripHtmlTags';
+import Link from 'js/components/Link';
+
 import './CaseStudyTile.scss';
 
 class CaseStudyTile extends React.Component {
@@ -48,21 +50,23 @@ class CaseStudyTile extends React.Component {
 				</Container>
 				<div className={'case-studies'}>
 					{caseStudyPages.length > 0 &&
-						max.map(({ content, title, acf }, i) => (
+						max.map(({ content, title, acf, link }, i) => (
 							<article className={'case-study'} key={i}>
-								<Container>
-									<img className={'img'} src={acf.pageImage.url} />
-								</Container>
-								<Container>
-									<h3>{title.rendered}</h3>
-								</Container>
-								<Container>
-									<p
-										dangerouslySetInnerHTML={{
-											__html: stripHtmlTags(content.rendered.substring(0, 100).trim() + '...')
-										}}
-									/>
-								</Container>
+								<Link to={link.replace(location.origin, '')}>
+									<Container>
+										<img className={'img'} src={acf.pageImage.url} />
+									</Container>
+									<Container>
+										<h3>{title.rendered}</h3>
+									</Container>
+									<Container>
+										<p
+											dangerouslySetInnerHTML={{
+												__html: stripHtmlTags(content.rendered.substring(0, 100).trim() + '...')
+											}}
+										/>
+									</Container>
+								</Link>
 							</article>
 						))}
 				</div>

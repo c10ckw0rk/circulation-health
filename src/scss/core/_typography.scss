@@ -1,8 +1,4 @@
-//------------------------------------------------------------------
-//** Desc: Typography (font sizes, baseline, @font-face, etc..)
-//** Contributors: Daniel Peterson
-//** Created by Dax on 25 Jan 2016
-//------------------------------------------------------------------
+@import '../imports';
 
 /*
 |--------------------------------------------------
@@ -29,6 +25,7 @@ $h5-mobile-font-size: 16px !default;
 
 @mixin font-style($font-size, $desktop-size) {
 	font-size: $font-size;
+	font-weight: $medium;
 	@include break-point(md) {
 		font-size: $desktop-size;
 	}
@@ -47,7 +44,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-size: baseline(2);
-	font-weight: 400;
+	font-weight: $medium;
 	color: $horizon;
 }
 
@@ -124,6 +121,19 @@ li ol {
 a {
 	color: $chestnut-rose;
 	text-decoration: underline;
+	transition: color, 0.3s;
+
+	&:hover {
+		color: $chestnut-rose-hover;
+	}
+}
+
+a.blue {
+	color: $glacier;
+
+	&:hover {
+		color: $horizon;
+	}
 }
 
 p,

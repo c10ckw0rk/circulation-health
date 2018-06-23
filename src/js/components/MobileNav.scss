@@ -6,6 +6,13 @@
 	position: fixed;
 	height: 100%;
 	z-index: 12;
+	transform: translateX(100%);
+	will-change: transform;
+	transition: transform 0.5s ease-out;
+
+	&.visible {
+		transform: translateX(0);
+	}
 
 	.container-fluid,
 	.col-xs-12,
@@ -113,6 +120,8 @@
 			display: block;
 			height: 4px;
 			transform: translateY(2px);
+			box-shadow: 0 0 0 0 transparent inset;
+			transition: box-shadow 0.3s;
 		}
 
 		&.active {
@@ -125,6 +134,7 @@
 
 		&:hover {
 			color: white;
+
 			&:after {
 				box-shadow: 0 -2px 0 0 white inset;
 			}

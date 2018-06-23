@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Container from 'js/components/grid/Container';
 import Link from 'js/components/Link';
-import DesktopHeader from 'js/components/DesktopHeader';
+import DesktopNav from 'js/components/DesktopNav';
 import MobileHeader from 'js/components/MobileHeader';
 import cn from 'classnames';
 
@@ -84,12 +84,7 @@ export default class Header extends React.PureComponent {
 		return (
 			<header className={cn('header', { 'desktop-mode': !mobileMode })}>
 				<div className={cn('sticky-header', { sticky: !sticky })}>
-					<DesktopHeader
-						sticky
-						changedSize={this.changedSize}
-						navItems={navItems}
-						searchPlaceholder={searchPlaceholder}
-					/>
+					<DesktopNav sticky changedSize={this.changedSize} navItems={navItems} searchPlaceholder={searchPlaceholder} />
 					{mobileMode && (
 						<MobileHeader className={'mobile-header'} title={title} showMobileMenu={this.showMobileMenu} />
 					)}
@@ -99,13 +94,16 @@ export default class Header extends React.PureComponent {
 						<MobileHeader className={'desktop-inner-head'} title={title} showMobileMenu={this.showMobileMenu} />
 						<div className={'enquiry'}>
 							<p>
-								{phoneTitle} <br /> <a href={`tel:${headerPhoneNumber}`}>{headerPhoneNumber}</a>
+								{phoneTitle} <br />{' '}
+								<a className={'blue'} href={`tel:${headerPhoneNumber}`}>
+									{headerPhoneNumber}
+								</a>
 							</p>
 						</div>
 						<div className={'make-enquiry'}>
 							{enquiryLink &&
 								enquiryTitle && (
-									<Link to={enquiryLink} className={'button'}>
+									<Link to={enquiryLink} className={'red-button'}>
 										{enquiryTitle}
 									</Link>
 								)}
@@ -114,7 +112,7 @@ export default class Header extends React.PureComponent {
 				</Container>
 				<div className={'desktop-header-wrapper'} ref={this.nav}>
 					{!mobileMode &&
-						mobileMode !== undefined && <DesktopHeader navItems={navItems} searchPlaceholder={searchPlaceholder} />}
+						mobileMode !== undefined && <DesktopNav navItems={navItems} searchPlaceholder={searchPlaceholder} />}
 				</div>
 			</header>
 		);

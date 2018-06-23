@@ -21,6 +21,13 @@ const templates = {
 };
 
 class App extends React.Component {
+	static propTypes = {
+		getPages: PropTypes.func,
+		getPrimaryNavigation: PropTypes.func,
+		getGlobalOptions: PropTypes.func,
+		getInit: PropTypes.func
+	};
+
 	static defaultProps = {
 		pages: [],
 		posts: [],
@@ -28,12 +35,16 @@ class App extends React.Component {
 		globalOptions: []
 	};
 
-	static propTypes = {
-		getPages: PropTypes.func,
-		getPrimaryNavigation: PropTypes.func,
-		getGlobalOptions: PropTypes.func,
-		getInit: PropTypes.func
+	state = {
+		mounted: false
 	};
+
+	static getDerivedStateFromProps(nextProps) {
+		if (nextProps.pages.length) {
+			return { mounted: true };
+		}
+		return {};
+	}
 
 	pageRoutes = pages => {
 		return pages.map((page, i) => {
@@ -58,20 +69,24 @@ class App extends React.Component {
 
 	render() {
 		const { globalOptions, primaryNavigation } = this.props;
+		const { mounted } = this.state;
+
 		return (
 			<Router>
-				<Base {...globalOptions} primaryNavigation={primaryNavigation}>
-					<Switch>
-						{this.pageRoutes(this.props.pages)}
-						<Route
-							component={() => {
-								return <Search {...globalOptions} />;
-							}}
-							exact
-							path={'/search'}
-						/>
-					</Switch>
-				</Base>
+				<div style={{ opacity: mounted ? '1' : '0', transition: 'opacity 0.5s' }}>
+					<Base {...globalOptions} primaryNavigation={primaryNavigation}>
+						<Switch>
+							{this.pageRoutes(this.props.pages)}
+							<Route
+								component={() => {
+									return <Search {...globalOptions} />;
+								}}
+								exact
+								path={'/search'}
+							/>
+						</Switch>
+					</Base>
+				</div>
 			</Router>
 		);
 	}

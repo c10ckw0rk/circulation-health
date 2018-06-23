@@ -57,9 +57,6 @@ export default class Banner extends React.Component {
 	}
 
 	componentWillUnmount() {
-		const { short, overlap } = this.props;
-		if (short || overlap) return;
-
 		this.grid.destroy();
 		this.grid = undefined;
 	}

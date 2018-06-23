@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'js/components/Link';
+import Container from 'js/components/grid/Container';
 
 import './PanelTile.scss';
-import { themedir } from 'js/config';
-import Container from 'js/components/grid/Container';
 
 export default class PanelTile extends React.Component {
 	static defaultProps = {
@@ -22,7 +21,7 @@ export default class PanelTile extends React.Component {
 				<ul>
 					{links.map(({ title, icon, link }) => (
 						<li className={'col-xs-12'} key={link + title}>
-							<Link to={link}>
+							<Link to={link} className={'link'}>
 								<span className={'image-wrap'}>
 									<span className={'image'}>
 										<img src={icon ? icon.url : undefined} />

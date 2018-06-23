@@ -1,0 +1,113 @@
+@import '~scss/imports';
+
+.desktop-header {
+	margin: baseline(2) 0 0;
+	height: baseline(4);
+
+	.col-xs-12 {
+		height: 32px;
+	}
+
+	& > .container-component {
+		height: baseline(4);
+	}
+
+	.nav {
+		margin: 0;
+		background: $horizon;
+		position: relative;
+		height: 64px;
+
+		ul {
+			height: 100%;
+			display: flex;
+			padding: 0 215px 0 0;
+			margin: 0;
+		}
+
+		& > ul > li:first-of-type {
+			a {
+				padding-left: baseline(4);
+			}
+		}
+
+		li {
+			margin: 0;
+			height: 100%;
+			position: relative;
+
+			li {
+				box-sizing: border-box;
+				width: calc(100% + 32px);
+				border-bottom: 1px solid $wedgewood;
+			}
+
+			ul {
+				background: $bismark;
+				height: auto;
+				padding: 0 32px 0 0;
+			}
+
+			& > ul {
+				position: absolute;
+				margin: 0;
+				opacity: 0;
+				top: -2000px;
+				transition: opacity 0.3s, transform 0.3s;
+				transform: translateY(8px);
+
+				a {
+					color: white;
+					padding: baseline(2);
+				}
+
+				ul {
+					left: 100%;
+					top: 0;
+				}
+			}
+
+			&:hover > ul {
+				top: auto;
+				opacity: 1;
+				display: block;
+				transform: translateY(0);
+			}
+		}
+
+		ul > li > ul > li > ul {
+			display: none !important;
+		}
+
+		a {
+			color: white;
+			text-decoration: none;
+			font-size: 14px;
+			font-weight: 400;
+			padding: baseline(2) baseline(4) 12px 0;
+			display: inline-block;
+			position: relative;
+			white-space: nowrap;
+			line-height: 32px;
+
+			&:after {
+				content: '';
+				display: block;
+				height: 4px;
+				transform: translateY(-2px);
+				box-shadow: 0 0 0 0 transparent inset;
+				transition: box-shadow 0.3s;
+			}
+
+			&.active:after {
+				box-shadow: 0 -2px 0 0 lighten(white, 20) inset;
+			}
+
+			&:hover {
+				&:after {
+					box-shadow: 0 -2px 0 0 lighten(white, 20) inset;
+				}
+			}
+		}
+	}
+}

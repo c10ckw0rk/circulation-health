@@ -11,7 +11,6 @@
 
 	@include break-point(md) {
 		background: none;
-		//margin: baseline(6) 0;
 	}
 
 	p {
@@ -58,12 +57,17 @@
 		}
 	}
 
+	.title {
+		transition: background 0.3s;
+	}
+
 	a {
 		padding: 16px 16px;
 		display: flex;
 		text-decoration: none;
 		color: $dove-gray;
 		align-items: center;
+		transition: box-shadow 0.3s;
 
 		@include break-point(sm) {
 			padding: 0;
@@ -73,6 +77,20 @@
 			flex-direction: column;
 			align-content: space-between;
 			color: $dove-gray;
+		}
+
+		&:hover {
+			.title {
+				background: $gallery;
+			}
+
+			.image {
+				background: $gallery;
+			}
+
+			.image-wrap {
+				background: white;
+			}
 		}
 	}
 
@@ -84,6 +102,7 @@
 			justify-content: center;
 			background: $gallery;
 			width: 100%;
+			transition: background 0.3s;
 		}
 	}
 
@@ -98,6 +117,7 @@
 		border-radius: 32px;
 		max-width: 128px;
 		max-height: 128px;
+		transition: background 0.3s;
 
 		@include break-point(sm) {
 			margin-right: 0;

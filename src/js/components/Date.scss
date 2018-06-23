@@ -10,6 +10,7 @@
 	padding: 16px;
 	box-sizing: border-box;
 	color: $chestnut-rose;
+	transition: background 0.3s, color 0.3s;
 
 	.day {
 		font-weight: 700;
