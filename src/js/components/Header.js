@@ -70,7 +70,7 @@ export default class Header extends React.PureComponent {
 		if (!this.nav.current) return;
 
 		this.bottom = getPosition(this.nav.current).top + this.nav.current.offsetHeight;
-		addEventListener('scroll', this.scrollEvent);
+		addEventListener('scroll', this.scrollEvent, { passive: true });
 	}
 
 	componentWillUnmount() {
@@ -113,7 +113,8 @@ export default class Header extends React.PureComponent {
 					</div>
 				</Container>
 				<div className={'desktop-header-wrapper'} ref={this.nav}>
-					{!mobileMode && <DesktopHeader navItems={navItems} searchPlaceholder={searchPlaceholder} />}
+					{!mobileMode &&
+						mobileMode !== undefined && <DesktopHeader navItems={navItems} searchPlaceholder={searchPlaceholder} />}
 				</div>
 			</header>
 		);

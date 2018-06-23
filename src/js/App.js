@@ -31,7 +31,8 @@ class App extends React.Component {
 	static propTypes = {
 		getPages: PropTypes.func,
 		getPrimaryNavigation: PropTypes.func,
-		getGlobalOptions: PropTypes.func
+		getGlobalOptions: PropTypes.func,
+		getInit: PropTypes.func
 	};
 
 	pageRoutes = pages => {
@@ -57,7 +58,6 @@ class App extends React.Component {
 
 	render() {
 		const { globalOptions, primaryNavigation } = this.props;
-		console.log(primaryNavigation);
 		return (
 			<Router>
 				<Base {...globalOptions} primaryNavigation={primaryNavigation}>
