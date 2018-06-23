@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/daniel.peterson/.nvm/versions/node/v9.5.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js docker:up
+  /Users/daniel.peterson/.nvm/versions/node/v9.5.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js prod
 
 PATH: 
   /Users/daniel.peterson/Downloads/google-cloud-sdk/bin:/Users/daniel.peterson/.nvm/versions/node/v9.5.0/bin:/Users/daniel.peterson/.composer/vendor/bin:usr/local/sbin:/Users/daniel.peterson/Downloads/android/:/Users/daniel.peterson/Library/Python/3.6/bin:/Users/daniel.peterson/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/daniel.peterson/go/bin
@@ -16,13 +16,16 @@ Platform:
 npm manifest: 
   {
   	"name": "circulation-health",
-  	"version": "1.0.0",
+  	"version": "1.0.1",
   	"license": "UNLICENSED",
   	"private": true,
   	"scripts": {
   		"docker:up": "docker-compose up",
+  		"commit:build": "git add . && git commit -a -m \"releasing app\" && git push",
+  		"commit:version": "git add . && git commit -a -m \"bumping-version\" && git push",
+  		"bump:version": "npm version patch",
   		"build": "NODE_ENV=production webpack",
-  		"prod": "yarn clean && yarn build && yarn manifest",
+  		"prod": "yarn clean && yarn build && yarn commit:build && yarn bump:version && yarn manifest && commit:version",
   		"clean": "rm -r -f ./theme/assets/*",
   		"manifest": "node ./build/manifest.js",
   		"dev": "NODE_ENV=development webpack"
@@ -6785,7 +6788,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c docker-compose up
+  Arguments: -c yarn clean && yarn build && yarn commit:build && yarn bump:version && yarn manifest && commit:version
   Directory: /Users/daniel.peterson/Home/circulation-health
   Output:
   
