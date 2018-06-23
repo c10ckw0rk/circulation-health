@@ -111,6 +111,7 @@
 	.desktop-header-wrapper {
 		height: baseline(4);
 		display: none;
+		overflow: visible;
 	}
 
 	.mobile-header {
@@ -130,6 +131,15 @@
 
 	.desktop-header {
 		margin: baseline(2) 0 0;
+		height: baseline(4);
+
+		.col-xs-12 {
+			height: 32px;
+		}
+
+		& > .container-component {
+			height: baseline(4);
+		}
 
 		.nav {
 			margin: 0;
@@ -242,6 +252,10 @@
 		.desktop-header {
 			margin-top: 0;
 			display: none;
+
+			.col-xs-12 {
+				height: 64px;
+			}
 		}
 	}
 }
@@ -313,6 +327,10 @@
 		.desktop-header {
 			display: block;
 		}
+	}
+
+	form.search {
+		height: 64px;
 	}
 
 	&:not(.desktop-mode) {
