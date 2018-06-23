@@ -5,7 +5,7 @@
 	"private": true,
 	"scripts": {
 		"docker:up": "docker-compose up",
-		"commit:build": "git add . && git commit -a -m \"releasing app\" && git push",
+		"commit:build": "git add . && git commit -a -m \"releasing app\"",
 		"commit:version": "git add . && git commit -a -m \"bumping version\" && git push",
 		"bump:version": "npm version patch",
 		"build": "NODE_ENV=production webpack",
