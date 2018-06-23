@@ -6,3 +6,4 @@ flow-typed
 /.DS_Store
 .DS_Store
 /theme/circulation-health.zip
+yarn-error.log
