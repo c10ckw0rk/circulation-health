@@ -64,6 +64,7 @@ class Base extends React.Component {
 					changedSize={this.changedSize}
 					title={CONFIG.SITE_NAME.toUpperCase().split(' ')}
 					showMobileMenu={this.onClick}
+					navItems={primaryNavigation}
 					{...header}
 				/>
 				<div className={'content-wrapper'}>{children}</div>

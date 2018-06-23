@@ -43,6 +43,8 @@ class Link extends React.Component {
 				parentItem
 			};
 		}
+
+		return {};
 	}
 
 	render() {

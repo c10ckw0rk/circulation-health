@@ -57,6 +57,7 @@ class App extends React.Component {
 
 	render() {
 		const { globalOptions, primaryNavigation } = this.props;
+		console.log(primaryNavigation);
 		return (
 			<Router>
 				<Base {...globalOptions} primaryNavigation={primaryNavigation}>

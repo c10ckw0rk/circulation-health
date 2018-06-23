@@ -78,7 +78,7 @@ function falseToUndefined(obj) {
 	for (let key in obj) {
 		if (obj.hasOwnProperty(key) && typeof obj[key] === 'object' && obj[key] !== null) falseToUndefined(obj[key]);
 		else {
-			obj[key] = obj[key] === false ? undefined : obj[key];
+			obj[key] = !obj[key] ? undefined : obj[key];
 		}
 	}
 

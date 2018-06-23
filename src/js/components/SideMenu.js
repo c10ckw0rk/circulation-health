@@ -77,7 +77,9 @@ class SideMenu extends React.Component {
 			<div className={cn(leftClasses, 'navigation')}>
 				<nav className={'side-menu'}>
 					<button className={'title-wrap'} onClick={this.onClick}>
-						<h2 className={'title'}>{menu.title}</h2>
+						<Link noParentMatch to={menu.url.replace(location.origin, '')}>
+							<h2 className={'title'}>{menu.title}</h2>
+						</Link>
 						<div className={'icon-wrap'}>
 							<ChevronDown className={'down-icon'} />
 						</div>

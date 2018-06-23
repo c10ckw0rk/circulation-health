@@ -56,9 +56,13 @@ class CaseStudyTile extends React.Component {
 								<Container>
 									<h3>{title.rendered}</h3>
 								</Container>
-								<Container
-									dangerouslySetInnerHTML={{ __html: stripHtmlTags(content.rendered.substring(0, 100).trim() + '...') }}
-								/>
+								<Container>
+									<p
+										dangerouslySetInnerHTML={{
+											__html: stripHtmlTags(content.rendered.substring(0, 100).trim() + '...')
+										}}
+									/>
+								</Container>
 							</article>
 						))}
 				</div>
