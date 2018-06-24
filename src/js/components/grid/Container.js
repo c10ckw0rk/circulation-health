@@ -23,11 +23,13 @@ export default class Container extends React.Component {
 	};
 
 	render() {
-		const { className, children, sizes, col, outerWrap, ...rest } = this.props;
+		const { className, children, sizes, col, outerWrap, section, ...rest } = this.props;
 		const colClasses = Object.keys(sizes).map(size => `col-${size}-${sizes[size]}`);
 
+		const component = section ? 'dev' : 'string';
+
 		return (
-			<div className={cn('container-fluid', 'container-component', className, { 'outer-wrap': outerWrap })}>
+			<component className={cn('container-fluid', 'container-component', className, { 'outer-wrap': outerWrap })}>
 				<div className={'row'}>
 					{col && (
 						<div className={cn(colClasses)} {...rest}>
@@ -36,7 +38,7 @@ export default class Container extends React.Component {
 					)}
 					{!col && children}
 				</div>
-			</div>
+			</component>
 		);
 	}
 }
