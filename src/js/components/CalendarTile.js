@@ -2,7 +2,6 @@ import React from 'react';
 import * as PropTypes from 'prop-types';
 import Link from 'js/components/Link';
 import './CalendarTile.scss';
-import Container from 'js/components/grid/Container';
 import Date from 'js/components/Date';
 import withNews from 'js/hoc/withNews';
 
@@ -35,31 +34,25 @@ class CalendarTile extends React.Component {
 		latest.length = 2;
 		return (
 			<div className={'calendar-tile'}>
-				<Container>
-					<h2>{title}</h2>
-				</Container>
+				<h2>{title}</h2>
 				<ul className={'calendar'}>
 					{latest.map(({ title, date }) => {
 						const parsedDate = date.split(',');
 						return (
 							<li key={(title + date).replace(/ /gi, '-')} className={'entry'}>
-								<Container>
-									<div>
-										<Link to={'/'} className={'link'}>
-											<Date day={parsedDate[2]} month={parsedDate[1]} />
-											<span className={'title'}>{title}</span>
-										</Link>
-									</div>
-								</Container>
+								<div>
+									<Link to={'/'} className={'link'}>
+										<Date day={parsedDate[2]} month={parsedDate[1]} />
+										<span className={'title'}>{title}</span>
+									</Link>
+								</div>
 							</li>
 						);
 					})}
 				</ul>
-				<Container>
-					<p>
-						<Link to={'/'}>{footerLink}</Link>
-					</p>
-				</Container>
+				<p>
+					<Link to={'/'}>{footerLink}</Link>
+				</p>
 			</div>
 		);
 	}

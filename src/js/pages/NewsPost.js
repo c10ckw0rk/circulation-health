@@ -61,7 +61,7 @@ export default class NewsPost extends React.Component {
 			<>
 				<Banner titleContent={''} overlap xs={mUrl} sm={mUrl} md={dUrl} lg={dUrl} xl={dUrl} />
 				<main className={'news-item'}>
-					<Container col={false}>
+					<Container col={false} outerWrap>
 						<div className={'col-xs-12 col-md-4'}>
 							<div className={'intro'}>
 								<p className={'date'}>
@@ -77,7 +77,7 @@ export default class NewsPost extends React.Component {
 							</div>
 						</div>
 					</Container>
-					<Container col={false} className={'description'}>
+					<Container col={false} className={'description'} outerWrap>
 						<div className={'col-xs-12 col-md-9'} dangerouslySetInnerHTML={{ __html: content.rendered }} />
 						<div className={'col-xs-12 col-md-3'}>
 							<div className={'caption'} dangerouslySetInnerHTML={{ __html: caption }} />

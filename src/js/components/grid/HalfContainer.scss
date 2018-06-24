@@ -1,0 +1,28 @@
+@import '~scss/imports';
+
+.half-container {
+	.half-container-row {
+		display: flex;
+		flex-direction: column;
+
+		@include break-point(md) {
+			flex-direction: row;
+		}
+
+		.section {
+			box-sizing: border-box;
+
+			@include break-point(md) {
+				width: 50%;
+
+				&:first-child {
+					padding-right: 8px;
+				}
+
+				&:nth-child(2) {
+					padding-left: 8px;
+				}
+			}
+		}
+	}
+}

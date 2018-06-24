@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
+import Container from 'js/components/grid/Container';
+
+import './HalfContainer.scss';
 
 export default class HalfContainer extends React.Component {
 	static defaultProps = {
@@ -19,16 +21,15 @@ export default class HalfContainer extends React.Component {
 	};
 
 	render() {
-		const { className, children, sizes } = this.props;
-		const colClasses = Object.keys(sizes).map(size => `col-${size}-${sizes[size]}`);
+		const { children } = this.props;
 
 		return (
-			<div className={cn('container-fluid', 'container-component', className)}>
-				<div className={'row'}>
-					<div className={cn(colClasses)}>{children[0]}</div>
-					<div className={cn(colClasses)}>{children[1]}</div>
+			<Container className={'half-container'} outerWrap>
+				<div className={'half-container-row'} style={{ display: 'flex' }}>
+					<div className={'section'}>{children[0]}</div>
+					<div className={'section'}>{children[1]}</div>
 				</div>
-			</div>
+			</Container>
 		);
 	}
 }

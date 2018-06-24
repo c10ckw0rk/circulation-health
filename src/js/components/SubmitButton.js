@@ -1,6 +1,7 @@
 import React from 'react';
-import './SubmitButton.scss';
 import cn from 'classnames';
+
+import './SubmitButton.scss';
 
 export default class SubmitButton extends React.Component {
 	render() {

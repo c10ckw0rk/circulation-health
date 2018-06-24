@@ -9,10 +9,16 @@
 	color: white;
 	font-size: 16px;
 	padding: 0 baseline(2);
+	transition: background 0.3s;
+	cursor: pointer;
 
 	&:disabled {
 		color: $dove-gray;
 		background: $alto !important;
 		cursor: not-allowed;
+	}
+
+	&:hover {
+		background: $chestnut-rose-hover;
 	}
 }

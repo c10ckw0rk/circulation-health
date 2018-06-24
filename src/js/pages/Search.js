@@ -83,7 +83,7 @@ class Search extends React.Component {
 		const { title, searchPlaceholder, buttonText } = this.props;
 
 		return (
-			<Container className={'search-page'}>
+			<Container className={'search-page'} outerWrap>
 				<h2 className={'h1'}>{title.rendered}</h2>
 				<form onSubmit={this.onSubmit} className={'form'}>
 					<TypedInput

@@ -6,4 +6,10 @@
 	color: $horizon;
 	font-size: 16px;
 	padding: 16px;
+	cursor: pointer;
+	transition: background 0.3s;
+
+	&:hover {
+		background: $wild-sand;
+	}
 }

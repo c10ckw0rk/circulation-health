@@ -71,9 +71,17 @@ class App extends React.Component {
 		const { globalOptions, primaryNavigation } = this.props;
 		const { mounted } = this.state;
 
+		const styles = {
+			display: 'flex',
+			flexDirection: 'column',
+			height: '100%',
+			opacity: mounted ? '1' : '0',
+			transition: 'opacity 0.5s'
+		};
+
 		return (
 			<Router>
-				<div style={{ opacity: mounted ? '1' : '0', transition: 'opacity 0.5s' }}>
+				<div style={styles}>
 					<Base {...globalOptions} primaryNavigation={primaryNavigation}>
 						<Switch>
 							{this.pageRoutes(this.props.pages)}

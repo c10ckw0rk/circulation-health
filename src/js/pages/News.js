@@ -22,7 +22,7 @@ class News extends React.Component {
 					overlap={!hasNews}
 					titleContent={title.rendered}
 				/>
-				<Container className={'news'}>
+				<Container className={'news'} outerWrap>
 					{news.map(({ title, date, link }, i) => {
 						const parsedDate = date.split(',');
 						return (

@@ -69,7 +69,7 @@ export default class DesktopNav extends React.Component {
 
 		return (
 			<nav className={cn('desktop-header')}>
-				<Container>
+				<Container outerWrap>
 					<div className={'nav'}>{this.renderMenu(navItems)}</div>
 					<SearchInput searchPlaceholder={searchPlaceholder} />
 				</Container>

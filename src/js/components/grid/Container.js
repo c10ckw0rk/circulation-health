@@ -18,15 +18,16 @@ export default class Container extends React.Component {
 	static propTypes = {
 		sizes: PropTypes.object,
 		className: PropTypes.string,
-		col: PropTypes.bool
+		col: PropTypes.bool,
+		outerWrap: PropTypes.bool
 	};
 
 	render() {
-		const { className, children, sizes, col, ...rest } = this.props;
+		const { className, children, sizes, col, outerWrap, ...rest } = this.props;
 		const colClasses = Object.keys(sizes).map(size => `col-${size}-${sizes[size]}`);
 
 		return (
-			<div className={cn('container-fluid', 'container-component', className)}>
+			<div className={cn('container-fluid', 'container-component', className, { 'outer-wrap': outerWrap })}>
 				<div className={'row'}>
 					{col && (
 						<div className={cn(colClasses)} {...rest}>

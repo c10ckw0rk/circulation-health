@@ -48,7 +48,7 @@ export default class Accordion extends React.Component {
 		const { open } = this.state;
 		return (
 			<div className={cn('accordion', { open })}>
-				<Container>
+				<Container outerWrap>
 					<button className={'title'} onClick={this.onClick}>
 						{title}
 					</button>

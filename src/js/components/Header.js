@@ -89,7 +89,7 @@ export default class Header extends React.PureComponent {
 						<MobileHeader className={'mobile-header'} title={title} showMobileMenu={this.showMobileMenu} />
 					)}
 				</div>
-				<Container>
+				<Container outerWrap>
 					<div className={'inner-header'}>
 						<MobileHeader className={'desktop-inner-head'} title={title} showMobileMenu={this.showMobileMenu} />
 						<div className={'enquiry'}>

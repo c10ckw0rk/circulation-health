@@ -1,8 +1,10 @@
 @import '~scss/imports';
 
 .case-study-tile {
-	margin-top: baseline(5);
-	margin-bottom: baseline(5);
+	@include break-point(md) {
+		margin-top: baseline(5);
+		margin-bottom: baseline(5);
+	}
 
 	.case-studies {
 		@include break-point(md) {
@@ -10,13 +12,40 @@
 		}
 	}
 
+	.col-xs-12 {
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+
+	.container-fluid {
+		padding: 0;
+		@include break-point(md) {
+			padding-right: 16px;
+			padding-left: 16px;
+		}
+	}
+
+	.row {
+		margin-right: -16px;
+		margin-left: -16px;
+	}
+
 	.case-study {
-		width: 50%;
+		margin-bottom: 40px;
+		@include break-point(md) {
+			width: 50%;
+			margin-bottom: 0;
+			margin-right: 8px;
+
+			&:nth-child(2) {
+				margin-left: 8px;
+				margin-right: 0;
+			}
+		}
 	}
 
 	h3 {
 		margin-bottom: baseline(2);
-		font-weight: $light;
 	}
 
 	.title {
@@ -24,9 +53,11 @@
 	}
 
 	.img {
-		max-height: 134px;
-		max-width: 100%;
 		margin-bottom: 16px;
+		max-width: 100%;
+		@include break-point(md) {
+			max-height: 134px;
+		}
 	}
 
 	.article-wrapper {
@@ -35,5 +66,6 @@
 
 	a {
 		color: $horizon;
+		text-decoration: none;
 	}
 }

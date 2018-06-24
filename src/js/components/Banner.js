@@ -69,7 +69,7 @@ export default class Banner extends React.Component {
 		return (
 			<section className={cn('banner', { short, overlap })} style={!overlap ? style : undefined}>
 				{overlap && <div className={'overlap-banner'} style={style} />}
-				<Container>
+				<Container outerWrap>
 					<div className={'inner-banner'}>
 						<div className={'banner-title'}>
 							<span className={'inner-content'} dangerouslySetInnerHTML={{ __html: titleContent }} />

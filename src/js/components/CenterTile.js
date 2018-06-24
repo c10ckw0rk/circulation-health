@@ -17,7 +17,7 @@ export default class CenterTile extends React.Component {
 		const { content } = this.props;
 		return (
 			<div className={'center-tile-wrapper'}>
-				<Container className={'center-tile'}>
+				<Container className={'center-tile'} outerWrap>
 					<div className={'content'} dangerouslySetInnerHTML={{ __html: content }} />
 				</Container>
 			</div>

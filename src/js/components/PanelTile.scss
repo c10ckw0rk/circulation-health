@@ -35,6 +35,7 @@
 		list-style: none;
 		margin-bottom: 0;
 		border-bottom: 1px solid $alto;
+		transition: background 0.3s;
 
 		@include break-point(sm) {
 			padding: baseline(2) 0;
@@ -54,6 +55,10 @@
 
 		&:last-of-type {
 			border-bottom: none;
+		}
+
+		&:hover {
+			background: white;
 		}
 	}
 
@@ -80,16 +85,18 @@
 		}
 
 		&:hover {
-			.title {
-				background: $gallery;
-			}
+			@include break-point(md) {
+				.title {
+					background: $gallery;
+				}
 
-			.image {
-				background: $gallery;
-			}
+				.image {
+					background: $gallery;
+				}
 
-			.image-wrap {
-				background: white;
+				.image-wrap {
+					background: white;
+				}
 			}
 		}
 	}

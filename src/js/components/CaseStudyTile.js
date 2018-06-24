@@ -45,27 +45,19 @@ class CaseStudyTile extends React.Component {
 
 		return (
 			<div className={'case-study-tile'}>
-				<Container>
-					<h2 className={'title'}>{title}</h2>
-				</Container>
+				<h2 className={'title'}>{title}</h2>
 				<div className={'case-studies'}>
 					{caseStudyPages.length > 0 &&
 						max.map(({ content, title, acf, link }, i) => (
 							<article className={'case-study'} key={i}>
 								<Link to={link.replace(location.origin, '')}>
-									<Container>
-										<img className={'img'} src={acf.pageImage.url} />
-									</Container>
-									<Container>
-										<h3>{title.rendered}</h3>
-									</Container>
-									<Container>
-										<p
-											dangerouslySetInnerHTML={{
-												__html: stripHtmlTags(content.rendered.substring(0, 100).trim() + '...')
-											}}
-										/>
-									</Container>
+									<img className={'img'} src={acf.pageImage.url} />
+									<h3>{title.rendered}</h3>
+									<p
+										dangerouslySetInnerHTML={{
+											__html: stripHtmlTags(content.rendered.substring(0, 100).trim() + '...')
+										}}
+									/>
 								</Link>
 							</article>
 						))}

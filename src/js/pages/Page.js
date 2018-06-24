@@ -60,7 +60,7 @@ export default class Page extends React.PureComponent {
 					titleContent={title.rendered}
 				/>
 				<main className={'page'}>
-					<Container>
+					<Container outerWrap>
 						<div className={'container-fluid page-content'}>
 							<div className={'row'}>
 								<SideMenu title={title.rendered} />
