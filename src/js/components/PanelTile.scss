@@ -58,12 +58,16 @@
 		}
 
 		&:hover {
-			background: white;
+			background: $alto-hover;
+
+			@include break-point(sm) {
+				background: transparent;
+			}
 		}
 	}
 
 	.title {
-		transition: background 0.3s;
+		transition: background 0.3s, color 0.3s;
 	}
 
 	a {
@@ -87,15 +91,16 @@
 		&:hover {
 			@include break-point(md) {
 				.title {
-					background: $gallery;
+					background: $alto-hover;
+					color: $glacier;
 				}
 
 				.image {
-					background: $gallery;
+					//background: $alto-hover;
 				}
 
 				.image-wrap {
-					background: white;
+					background: lighten($gallery, 2);
 				}
 			}
 		}

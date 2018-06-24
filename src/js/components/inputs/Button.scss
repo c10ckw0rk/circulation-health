@@ -11,6 +11,6 @@
 	border: 0;
 
 	&:hover {
-		background: lighten($alto, 5);
+		background: $alto-hover;
 	}
 }

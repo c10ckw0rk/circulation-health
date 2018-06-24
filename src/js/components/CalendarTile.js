@@ -1,9 +1,10 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
 import Link from 'js/components/Link';
-import './CalendarTile.scss';
 import Date from 'js/components/Date';
 import withNews from 'js/hoc/withNews';
+
+import './CalendarTile.scss';
 
 class CalendarTile extends React.Component {
 	static defaultProps = {

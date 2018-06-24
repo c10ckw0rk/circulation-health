@@ -22,5 +22,26 @@
 	a {
 		color: white;
 		text-decoration: none;
+		position: relative;
+
+		&:after {
+			content: '';
+			width: 100%;
+			display: inline-block;
+			height: 1px;
+			position: absolute;
+			left: 0;
+			bottom: -10px;
+			border-bottom: 1px solid transparent;
+			transition: border-bottom 0.3s;
+		}
+
+		&:hover {
+			color: white;
+
+			&:after {
+				border-bottom: 1px solid white;
+			}
+		}
 	}
 }

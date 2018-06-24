@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import Container from 'js/components/grid/Container';
 
 import './ListTile.scss';
-import Container from 'js/components/grid/Container';
 
 export default class ListTile extends React.Component {
 	static defaultProps = {
