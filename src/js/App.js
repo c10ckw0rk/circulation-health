@@ -10,6 +10,9 @@ import ContactUs from 'js/pages/ContactUs';
 import NewsPost from 'js/pages/NewsPost';
 import Base from 'js/templates/Base';
 import Search from 'js/pages/Search';
+import Container from 'js/components/grid/Container';
+import Banner from 'js/components/Banner';
+import Link from 'js/components/Link';
 
 const templates = {
 	'home.php': Home,
@@ -91,6 +94,20 @@ class App extends React.Component {
 								}}
 								exact
 								path={'/search'}
+							/>
+							<Route
+								path="*"
+								component={() => (
+									<>
+										<Banner titleContent={'<h2>Page Not Found...</h2>'} />
+										<Container>
+											<h3>
+												<br />
+												Sorry this page is not available. Click <Link to={'/'}>here</Link> to go back to the homepage.
+											</h3>
+										</Container>
+									</>
+								)}
 							/>
 						</Switch>
 					</Base>

@@ -16,7 +16,7 @@ body {
 }
 
 .outer-wrap {
-	@media (max-width: 1432px) {
+	@media (max-width: 1432px) and (min-width: 768px) {
 		padding-left: baseline(3) !important;
 		padding-right: baseline(3) !important;
 	}
@@ -92,21 +92,6 @@ main {
 	padding-right: baseline(2);
 	padding-left: baseline(2);
 
-	//@include break-point(md) {
-	//	padding-right: baseline(5);
-	//	padding-left: baseline(5);
-	//}
-	//
-	//@include break-point(lg) {
-	//	padding-right: baseline(3);
-	//	padding-left: baseline(3);
-	//}
-	//
-	//@include break-point(xl) {
-	//	padding-right: baseline(2);
-	//	padding-left: baseline(2);
-	//}
-
 	& > .container-fluid {
 		padding: 0;
 	}
@@ -115,21 +100,6 @@ main {
 .row {
 	margin-right: - baseline(2);
 	margin-left: - baseline(2);
-
-	//@include break-point(md) {
-	//	margin-right: - baseline(5);
-	//	margin-left: - baseline(5);
-	//}
-	//
-	//@include break-point(lg) {
-	//	margin-right: - baseline(3);
-	//	margin-left: - baseline(3);
-	//}
-	//
-	//@include break-point(xl) {
-	//	margin-right: - baseline(2);
-	//	margin-left: - baseline(2);
-	//}
 }
 
 textarea:focus,
@@ -141,19 +111,6 @@ button:focus {
 .container-fluid {
 	padding-right: baseline(2);
 	padding-left: baseline(2);
-
-	//@include break-point(md) {
-	//	padding-right: baseline(5);
-	//	padding-left: baseline(5);
-	//}
-	//@include break-point(lg) {
-	//	padding-right: baseline(3);
-	//	padding-left: baseline(3);
-	//}
-	//@include break-point(xl) {
-	//	padding-right: baseline(2);
-	//	padding-left: baseline(2);
-	//}
 }
 
 .red-button {
@@ -173,4 +130,12 @@ button:focus {
 		color: white;
 		background: $chestnut-rose-hover;
 	}
+}
+
+input:required {
+	box-shadow: none;
+}
+
+textarea:required {
+	box-shadow: none;
 }

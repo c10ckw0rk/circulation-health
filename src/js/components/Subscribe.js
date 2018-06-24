@@ -4,6 +4,7 @@ import Container from 'js/components/grid/Container';
 import TypedInput from 'js/components/inputs/TypedInput';
 import Button from 'js/components/inputs/Button';
 import axios from 'axios';
+
 import './Subscribe.scss';
 
 const formPath = '/wp-json/contact-form-7/v1/contact-forms/87/feedback';

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Container from 'js/components/grid/Container';
+
 import './ContactUs.scss';
 
 export default class ContactUs extends React.Component {
