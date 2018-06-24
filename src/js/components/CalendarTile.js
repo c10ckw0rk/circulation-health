@@ -36,12 +36,12 @@ class CalendarTile extends React.Component {
 			<div className={'calendar-tile'}>
 				<h2>{title}</h2>
 				<ul className={'calendar'}>
-					{latest.map(({ title, date }) => {
+					{latest.map(({ title, date, link }) => {
 						const parsedDate = date.split(',');
 						return (
 							<li key={(title + date).replace(/ /gi, '-')} className={'entry'}>
 								<div>
-									<Link to={'/'} className={'link'}>
+									<Link to={link.replace(location.origin, '')} className={'link'}>
 										<Date day={parsedDate[2]} month={parsedDate[1]} />
 										<span className={'title'}>{title}</span>
 									</Link>

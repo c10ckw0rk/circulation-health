@@ -38,6 +38,7 @@ class Base extends React.Component {
 			page = pages.find(page => page.link === location.href);
 		}
 		this.setState({ page, mobileMenu: false });
+		window.scrollTo(0, 0);
 	};
 
 	componentDidMount() {
