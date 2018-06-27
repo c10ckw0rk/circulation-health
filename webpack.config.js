@@ -100,7 +100,6 @@ module.exports = () => {
 		config.externals = {
 			react: 'React',
 			'react-dom': 'ReactDOM',
-			'react-router-dom': 'ReactRouterDOM',
 			classnames: 'classNames',
 			axios: 'axios'
 		};
