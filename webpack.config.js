@@ -101,7 +101,8 @@ module.exports = () => {
 			react: 'React',
 			'react-dom': 'ReactDOM',
 			classnames: 'classNames',
-			axios: 'axios'
+			axios: 'axios',
+			'prop-types': 'PropTypes'
 		};
 	}
 
