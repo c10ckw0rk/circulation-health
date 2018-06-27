@@ -9,7 +9,7 @@ const dev = !prod;
 module.exports = () => {
 	const config = {
 		mode: 'development',
-		entry: ['@babel/polyfill', path.resolve(__dirname, './src/main.js')],
+		entry: [path.resolve(__dirname, './src/main.js')],
 		output: {
 			library: 'circulation-health',
 			libraryTarget: 'umd',
@@ -100,9 +100,7 @@ module.exports = () => {
 		config.externals = {
 			react: 'React',
 			'react-dom': 'ReactDOM',
-			'react-router-dom': 'ReactRouterDOM',
-			'react-router': 'ReactRouter'
-			// 'prop-types': 'PropTypes'
+			'react-router-dom': 'ReactRouterDOM'
 		};
 	}
 
