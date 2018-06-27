@@ -1,18 +1,4 @@
 {
-	"presets": [
-		"@babel/preset-react",
-		[
-			"@babel/preset-env", {
-				"targets": {
-					"browsers": ["last 2 versions", "safari >= 7"]
-				}
-			}
-		]
-	],
-	"plugins": [
-		"@babel/plugin-proposal-class-properties",
-		"@babel/plugin-proposal-object-rest-spread"
-	],
 	"env": {
 		"production": {
 			"presets": [
@@ -29,6 +15,22 @@
 				"@babel/plugin-proposal-class-properties",
 				"@babel/plugin-proposal-object-rest-spread",
 				"transform-react-remove-prop-types"
+			]
+		},
+		"development": {
+			"presets": [
+				"@babel/preset-react",
+				[
+					"@babel/preset-env", {
+					"targets": {
+						"browsers": ["last 2 versions", "safari >= 7"]
+					}
+				}
+				]
+			],
+			"plugins": [
+				"@babel/plugin-proposal-class-properties",
+				"@babel/plugin-proposal-object-rest-spread"
 			]
 		}
 	}
