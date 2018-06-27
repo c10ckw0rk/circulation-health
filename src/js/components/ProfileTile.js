@@ -26,17 +26,17 @@ export default class ProfileTile extends React.Component {
 	};
 
 	resize = () => {
-		const content = this.content.current;
-		const img = this.img.current;
-
-		if ((!content || !img) && once) {
-			setTimeout(this.resize, 500);
-			return;
-		}
-
-		once = false;
-
 		requestAnimationFrame(() => {
+			const content = this.content.current;
+			const img = this.img.current;
+
+			if ((!content || !img) && once) {
+				setTimeout(this.resize, 500);
+				return;
+			}
+
+			once = false;
+
 			const style = getComputedStyle(this.img.current);
 			let contentHeight = content.offsetHeight;
 			const imgHeight = img.offsetHeight;
