@@ -28,6 +28,7 @@
 
 <div id="app"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeyiWxUHdOzxmEQGLBdI2BMYQAY7M0liw"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 <?php if ($PROD) { ?>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>

@@ -9,7 +9,7 @@ const dev = !prod;
 module.exports = () => {
 	const config = {
 		mode: 'development',
-		entry: ['@babel/polyfill', path.resolve(__dirname, './src/main.js')],
+		entry: [path.resolve(__dirname, './src/main.js')],
 		output: {
 			library: 'circulation-health',
 			libraryTarget: 'umd',
