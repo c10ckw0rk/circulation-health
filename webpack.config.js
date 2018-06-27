@@ -102,7 +102,8 @@ module.exports = () => {
 			'react-dom': 'ReactDOM',
 			classnames: 'classNames',
 			axios: 'axios',
-			'prop-types': 'PropTypes'
+			'prop-types': 'PropTypes',
+			'react-router-dom': 'ReactRouterDOM'
 		};
 	}
 
