@@ -1,1 +1,1 @@
-<?php $manifest = array("main.e0ae3d005dbb00a92f83.css?v=1.0.22","main.e0ae3d005dbb00a92f83.js?v=1.0.22");
+<?php $manifest = array("main.b83e8e94008e07298a5e.css?v=1.0.23","main.b83e8e94008e07298a5e.js?v=1.0.23");
