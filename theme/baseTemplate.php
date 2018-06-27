@@ -36,6 +36,7 @@
     <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-router/4.3.1/react-router.min.js"></script>
     <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/4.3.1/react-router-dom.min.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.2/prop-types.min.js"></script>
     <script crossorigin src="<?php echo get_template_directory_uri(); ?>/assets/<?php echo $manifest[1] ?>"></script>
 <?php } else { ?>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/main.js"></script>
