@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Container from 'js/components/grid/Container';
 import { withConsumer } from 'js/store/Store';
 import stripHtmlTags from 'js/util/stripHtmlTags';
 import Link from 'js/components/Link';
@@ -51,7 +50,7 @@ class CaseStudyTile extends React.Component {
 						max.map(({ content, title, acf, link }, i) => (
 							<article className={'case-study'} key={i}>
 								<Link to={link.replace(location.origin, '')}>
-									<img className={'img'} src={acf.pageImage.url} />
+									{acf.pageImage && <img className={'img'} src={acf.pageImage.url} />}
 									<h3>{title.rendered}</h3>
 									<p
 										dangerouslySetInnerHTML={{
