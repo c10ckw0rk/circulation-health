@@ -6,7 +6,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <title><?php wp_title(''); if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
     <meta name="description" content="<?php bloginfo('description'); ?>">
-    <?php if ($PROD) { ?><link href="<?php echo get_template_directory_uri(); ?>/assets/<?php echo $manifest[0] ?>?v=0.0.11" rel="stylesheet"> <?php } ?>
+    <?php if ($PROD) { ?><link href="<?php echo get_template_directory_uri(); ?>/assets/<?php echo $manifest[0] ?>" rel="stylesheet"> <?php } ?>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@
 <?php if ($PROD) { ?>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/<?php echo $manifest[1] ?>?v=0.0.11"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/assets/<?php echo $manifest[1] ?>"></script>
 <?php } else { ?>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/main.js"></script>
 <?php } ?>

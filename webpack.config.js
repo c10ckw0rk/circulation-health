@@ -97,11 +97,7 @@ module.exports = () => {
 			]
 		};
 		// config.devtool = 'eval-source-map'; // slightly slower rebuilds but gives line and column accuracy
-		config.externals = {
-			react: 'React',
-			'react-dom': 'ReactDOM'
-			// 'prop-types': 'PropTypes'
-		};
+		config.externals = ['react', 'react-dom', 'react-router-dom'];
 	}
 
 	if (dev) {
