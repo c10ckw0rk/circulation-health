@@ -1,6 +1,6 @@
 {
 	"name": "circulation-health",
-	"version": "1.0.37",
+	"version": "1.0.38",
 	"license": "UNLICENSED",
 	"private": true,
 	"scripts": {
