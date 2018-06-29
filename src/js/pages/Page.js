@@ -57,14 +57,17 @@ export default class Page extends React.PureComponent {
 					lg={desktopBanner.url}
 					xl={desktopBanner.url}
 					short
-					titleContent={title.rendered}
 				/>
 				<main className={'page'}>
 					<Container outerWrap>
 						<div className={'container-fluid page-content'}>
 							<div className={'row'}>
 								<SideMenu title={title.rendered} />
-								<div className={cn(rightClasses, 'content')} dangerouslySetInnerHTML={{ __html: content.rendered }} />
+
+								<div className={cn(rightClasses, 'content')}>
+									<h2>{title.rendered}</h2>
+									<div dangerouslySetInnerHTML={{ __html: content.rendered }} />
+								</div>
 							</div>
 						</div>
 					</Container>

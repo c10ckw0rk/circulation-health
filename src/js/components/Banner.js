@@ -14,7 +14,7 @@ export default class Banner extends React.Component {
 		md: themedir + '/img/banner.jpg',
 		lg: themedir + '/img/banner.jpg',
 		xl: themedir + '/img/banner.jpg',
-		titleContent: 'Comprehensive diagnosis and treatment of all arterial and venous disorders',
+		titleContent: '',
 		short: false
 	};
 
