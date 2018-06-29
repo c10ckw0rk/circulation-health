@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './TypedInput.scss';
 import cn from 'classnames';
+
+import './TypedInput.scss';
 
 export default class TypedInput extends React.Component {
 	static defaultProps = {

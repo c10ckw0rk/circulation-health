@@ -12,6 +12,7 @@
 		box-sizing: border-box;
 		color: $horizon;
 		width: 100%;
+		border-radius: 0;
 
 		&:disabled {
 			color: $dove-gray;
