@@ -6,6 +6,23 @@
 		margin-bottom: baseline(5);
 	}
 
+	.page-title {
+		font-size: 32px;
+		font-weight: 300;
+
+		span {
+			position: relative;
+			display: inline-block;
+		}
+
+		span:after {
+			content: '';
+			border-bottom: 1px solid #d04a5d;
+			padding-bottom: 16px;
+			display: block;
+		}
+	}
+
 	.navigation {
 		@include break-point(md) {
 			margin-top: baseline(5);

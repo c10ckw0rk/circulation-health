@@ -65,7 +65,9 @@ export default class Page extends React.PureComponent {
 								<SideMenu title={title.rendered} />
 
 								<div className={cn(rightClasses, 'content')}>
-									<h2>{title.rendered}</h2>
+									<h2 className={'page-title'}>
+										<span>{title.rendered}</span>
+									</h2>
 									<div dangerouslySetInnerHTML={{ __html: content.rendered }} />
 								</div>
 							</div>
