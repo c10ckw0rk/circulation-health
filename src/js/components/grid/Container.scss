@@ -1,4 +1,11 @@
 .container-component {
 	max-width: 1400px;
 	margin: 0 auto;
+
+	.outer-wrap {
+		@media (min-width: 768px) {
+			padding-left: baseline(6) !important;
+			padding-right: baseline(6) !important;
+		}
+	}
 }

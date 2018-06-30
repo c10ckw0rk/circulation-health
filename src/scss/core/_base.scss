@@ -15,13 +15,6 @@ body {
 	height: 100%;
 }
 
-.outer-wrap {
-	@media (min-width: 768px) {
-		padding-left: baseline(6) !important;
-		padding-right: baseline(6) !important;
-	}
-}
-
 .content-wrapper {
 	flex-grow: 2;
 }

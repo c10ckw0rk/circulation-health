@@ -63,7 +63,6 @@ export default class Page extends React.PureComponent {
 						<div className={'container-fluid page-content'}>
 							<div className={'row'}>
 								<SideMenu title={title.rendered} />
-
 								<div className={cn(rightClasses, 'content')}>
 									<h2 className={'page-title'}>
 										<span>{title.rendered}</span>
