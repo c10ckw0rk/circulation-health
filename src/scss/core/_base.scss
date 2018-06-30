@@ -16,7 +16,7 @@ body {
 }
 
 .outer-wrap {
-	@media (max-width: 1432px) and (min-width: 768px) {
+	@media (min-width: 768px) {
 		padding-left: baseline(6) !important;
 		padding-right: baseline(6) !important;
 	}
@@ -33,7 +33,7 @@ main {
 .max-wrapper {
 	margin: 0 auto;
 	padding: 0;
-	max-width: 1400px;
+	max-width: baseline(187);
 
 	@include break-point(sm) {
 		padding: 0 baseline(2);
