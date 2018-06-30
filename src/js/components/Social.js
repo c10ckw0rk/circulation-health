@@ -15,7 +15,6 @@ export default class Social extends React.Component {
 
 	render() {
 		const { title, icons } = this.props;
-		console.log(icons);
 		return (
 			<Container className={'social'}>
 				<h2>{title}</h2>
