@@ -27,21 +27,20 @@ export default class Accordion extends React.Component {
 		open: PropTypes.bool
 	};
 
+	constructor(props, ...rest) {
+		super(props, ...rest);
+		this.state = {
+			open: props.open
+		};
+	}
+
 	state = {
 		open: false
 	};
 
-	static getDerivedStateFromProps(nextProps, prevState) {
-		const newState = {};
-
-		if (nextProps.open !== prevState.open) newState.open = nextProps.open;
-
-		if (!Object.keys(newState).length) return null;
-
-		return newState;
-	}
-
-	onClick = () => this.setState(prevState => ({ open: !prevState.open }));
+	onClick = () => {
+		this.setState(prevState => ({ open: !prevState.open }));
+	};
 
 	render() {
 		const { content, title } = this.props;
@@ -49,7 +48,7 @@ export default class Accordion extends React.Component {
 		return (
 			<div className={cn('accordion', { open })}>
 				<Container outerWrap>
-					<button className={'title'} onClick={this.onClick}>
+					<button className={'title'} type={'button'} onClick={this.onClick}>
 						{title}
 					</button>
 					<div className={'content'} dangerouslySetInnerHTML={{ __html: content }} />

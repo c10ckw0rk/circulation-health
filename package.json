@@ -8,6 +8,7 @@
 		"commit:build": "git add . && git commit -a -m \"releasing app\"",
 		"bump:version": "npm version patch",
 		"build": "NODE_ENV=production webpack",
+		"make": "yarn clean && yarn build && yarn manifest",
 		"prod": "yarn clean && yarn build && yarn commit:build && yarn bump:version && yarn manifest && git push",
 		"clean": "rm -r -f ./theme/assets/*",
 		"manifest": "node ./build/manifest.js",
