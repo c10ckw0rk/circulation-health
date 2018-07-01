@@ -52,7 +52,7 @@ module.exports = () => {
 	if (prod) {
 		config.mode = 'production';
 		config.optimization = {
-			minimize: true
+			minimize: false
 		};
 		config.plugins = [
 			...config.plugins,
