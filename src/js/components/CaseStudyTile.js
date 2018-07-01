@@ -54,7 +54,7 @@ class CaseStudyTile extends React.Component {
 									<h3>{title.rendered}</h3>
 									<p
 										dangerouslySetInnerHTML={{
-											__html: stripHtmlTags(content.rendered && content.rendered.substring(0, 100).trim() + '...')
+											__html: stripHtmlTags(content.rendered ? content.rendered.substring(0, 100).trim() + '...' : '')
 										}}
 									/>
 								</Link>
