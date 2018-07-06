@@ -2,7 +2,6 @@
 
 .contact-us-page {
 	margin-top: - baseline(8);
-	background: white;
 	margin-bottom: baseline(8);
 
 	.title {
@@ -14,6 +13,8 @@
 	.contact-us-inner-wrapper {
 		padding: baseline(5) baseline(3);
 		overflow: hidden;
+		background: white;
+		margin: 0 baseline(2);
 	}
 
 	.list {
