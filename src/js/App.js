@@ -13,6 +13,7 @@ import Search from 'js/pages/Search';
 import Container from 'js/components/grid/Container';
 import Banner from 'js/components/Banner';
 import Link from 'js/components/Link';
+import cn from 'classnames';
 
 const templates = {
 	'home.php': Home,
@@ -39,7 +40,8 @@ class App extends React.Component {
 	};
 
 	state = {
-		mounted: false
+		mounted: false,
+		navOpen: false
 	};
 
 	static getDerivedStateFromProps(nextProps) {
@@ -66,26 +68,24 @@ class App extends React.Component {
 		});
 	};
 
+	mobileNavOpen = val => this.setState({ navOpen: val });
+
 	componentDidMount() {
 		this.props.getInit();
 	}
 
 	render() {
 		const { globalOptions, primaryNavigation } = this.props;
-		const { mounted } = this.state;
-
-		const styles = {
-			display: 'flex',
-			flexDirection: 'column',
-			height: '100%',
-			opacity: mounted ? '1' : '0',
-			transition: 'opacity 0.5s'
-		};
+		const { mounted, navOpen } = this.state;
 
 		return (
 			<Router>
-				<div style={styles}>
-					<Base {...globalOptions} primaryNavigation={primaryNavigation}>
+				<div
+					className={cn('root', { 'nav-open': navOpen })}
+					style={{
+						opacity: mounted ? '1' : '0'
+					}}>
+					<Base {...globalOptions} primaryNavigation={primaryNavigation} mobileNavOpen={this.mobileNavOpen}>
 						<Switch>
 							{this.pageRoutes(this.props.pages)}
 							<Route

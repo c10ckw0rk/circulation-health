@@ -34,7 +34,7 @@ class Map extends React.Component {
 	};
 
 	largeMap = () => {
-		this.setState({ style: { width: '100%', height: 600 }, zoom: 15 });
+		this.setState({ style: { width: '100%', height: 400 }, zoom: 15 });
 		google.maps.event.trigger(this.map, 'resize');
 	};
 

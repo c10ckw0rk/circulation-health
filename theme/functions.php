@@ -82,16 +82,16 @@ function my_theme_register_required_plugins() {
         ),
 
         array(
-            'name'      => 'Adminimize',
-            'slug'      => 'adminimize',
-            'required'  => false,
+            'name'      => 'Contact Form 7',
+            'slug'      => 'contact-form-7',
+            'required'  => true,
         ),
 
         array(
-            'name'      => 'Contact Form 7',
-            'slug'      => 'contact-form-7',
-            'required'  => false,
-        )
+            'name'      => 'Contact Form 7 Database Addon – CFDB7',
+            'slug'      => 'contact-form-7-cfdb7',
+            'required'  => true,
+        ),
 
         // <snip />
     );

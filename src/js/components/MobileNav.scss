@@ -12,6 +12,7 @@
 
 	&.visible {
 		transform: translateX(0);
+		overflow: auto;
 	}
 
 	.container-fluid,

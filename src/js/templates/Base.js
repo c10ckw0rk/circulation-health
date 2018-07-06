@@ -6,6 +6,8 @@ import Footer from 'js/components/Footer';
 import MobileNav from 'js/components/MobileNav';
 import { withConsumer } from 'js/store/Store';
 import stripHtmlTags from 'js/util/stripHtmlTags';
+import cn from 'classnames';
+import PropTypes from 'prop-types';
 
 const searchPage = {
 	title: {
@@ -17,13 +19,20 @@ const searchPage = {
 };
 
 class Base extends React.Component {
+	static propTypes = {
+		mobileNavOpen: PropTypes.func
+	};
+
 	state = {
 		mobileMenu: false,
 		page: undefined,
 		mobileMode: undefined
 	};
 
-	onClick = val => this.setState({ mobileMenu: val });
+	onClick = val => {
+		this.setState({ mobileMenu: val });
+		this.props.mobileNavOpen(val);
+	};
 
 	changedSize = val => {
 		this.setState({ mobileMode: val });
@@ -49,8 +58,7 @@ class Base extends React.Component {
 
 	render() {
 		const { children, primaryNavigation, header, footer } = this.props;
-		const { page } = this.state;
-
+		const { page, mobileMenu, mobileMode } = this.state;
 		return (
 			<>
 				{page && (
@@ -60,7 +68,7 @@ class Base extends React.Component {
 					</Helmet>
 				)}
 				{this.state.mobileMode && (
-					<MobileNav visible={this.state.mobileMenu} navItems={primaryNavigation} closeMenu={this.onClick} />
+					<MobileNav visible={mobileMenu} navItems={primaryNavigation} closeMenu={this.onClick} />
 				)}
 				<Header
 					changedSize={this.changedSize}
@@ -69,7 +77,7 @@ class Base extends React.Component {
 					navItems={primaryNavigation}
 					{...header}
 				/>
-				<div className={'content-wrapper'}>{children}</div>
+				<div className={cn('content-wrapper', { 'nav-open': mobileMenu && mobileMode })}>{children}</div>
 				<Footer {...footer} />
 			</>
 		);
