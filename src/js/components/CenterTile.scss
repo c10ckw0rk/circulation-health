@@ -1,13 +1,17 @@
 @import '~scss/imports';
 
 .center-tile-wrapper {
-	background: white;
+	background: #f2f2f2;
 }
 
 .center-tile {
 	padding-top: 24px;
 	padding-bottom: 24px;
 	text-align: center;
+
+	@include break-point(sm) {
+		padding-top: 32px;
+	}
 
 	p {
 		font-weight: 400;
