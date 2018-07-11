@@ -171,17 +171,3 @@ input,
 select {
 	vertical-align: middle;
 }
-
-textarea:focus,
-input:focus,
-button:focus {
-	outline: none;
-}
-
-input:required {
-	box-shadow: none;
-}
-
-textarea:required {
-	box-shadow: none;
-}

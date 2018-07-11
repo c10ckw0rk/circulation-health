@@ -1,3 +1,20 @@
+///*
+//* Bootstrap v3.3.6 (http://getbootstrap.com)
+//* Copyright 2011-2015 Twitter, Inc.
+//* Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+///*
+
+// Core variables and mixins
+@import 'vendor/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import 'vendor/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+
+// Core CSS
+@import 'vendor/bootstrap-sass/assets/stylesheets/bootstrap/grid';
+
+// Utility classes
+@import 'vendor/bootstrap-sass/assets/stylesheets/bootstrap/utilities';
+@import 'vendor/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities';
+
 // Imports
 @import 'core/colors';
 @import 'core/break-points';
