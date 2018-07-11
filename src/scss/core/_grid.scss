@@ -1,0 +1,11 @@
+@import '../imports';
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-column-gap: 1em;
+	grid-row-gap: 1em;
+	margin-right: baseline(2);
+	margin-left: baseline(2);
+	max-width: baseline(187);
+}
