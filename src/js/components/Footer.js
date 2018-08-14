@@ -5,6 +5,7 @@ import Social from 'js/components/Social';
 import ContactUs from 'js/components/ContactUs';
 import ThirdsContainer from 'js/components/grid/ThirdsContainer';
 import './Footer.scss';
+import { Link } from 'react-router-dom';
 
 export default class Footer extends React.Component {
 	static propTypes = {
@@ -14,7 +15,9 @@ export default class Footer extends React.Component {
 		subscribeButton: PropTypes.string,
 		socialLinks: PropTypes.array,
 		socialTitle: PropTypes.string,
-		contactTitle: PropTypes.string
+		contactTitle: PropTypes.string,
+		privacyLink: PropTypes.string,
+		privacyLinkText: PropTypes.string
 	};
 
 	render() {
@@ -25,7 +28,9 @@ export default class Footer extends React.Component {
 			subscribeButton,
 			socialLinks,
 			socialTitle,
-			contactTitle
+			contactTitle,
+			privacyLink,
+			privacyLinkText
 		} = this.props;
 
 		return (
@@ -34,6 +39,13 @@ export default class Footer extends React.Component {
 					<Subscribe buttonText={subscribeButton} subscribePlaceholder={subscribePlaceholder} title={subscribeTitle} />
 					<Social title={socialTitle} icons={socialLinks} />
 					<ContactUs title={contactTitle} types={contactDetails || undefined} />
+				</ThirdsContainer>
+				<ThirdsContainer>
+					<div className={'privacy'}>
+						<Link to={privacyLink || '/'}>{privacyLinkText || 'Disclaimer and Privacy Policy'}</Link>
+					</div>
+					<div />
+					<div />
 				</ThirdsContainer>
 			</footer>
 		);

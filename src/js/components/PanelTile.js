@@ -21,7 +21,7 @@ export default class PanelTile extends React.Component {
 				<ul>
 					{links.map(({ title, icon, link }) => (
 						<li className={'col-xs-12'} key={link + title}>
-							<Link to={link.replace(location.origin, '')} className={'link'}>
+							<Link to={(link || '').replace(location.origin, '')} className={'link'}>
 								<span className={'image-wrap'}>
 									<span className={'image'}>
 										<img src={icon ? icon.url : undefined} />

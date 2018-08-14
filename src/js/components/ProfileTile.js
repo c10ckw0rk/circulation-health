@@ -36,18 +36,19 @@ export default class ProfileTile extends React.Component {
 			}
 
 			once = false;
+			requestAnimationFrame(() => {
+				const style = getComputedStyle(this.img.current);
+				let contentHeight = content.offsetHeight;
+				const imgHeight = img.offsetHeight;
 
-			const style = getComputedStyle(this.img.current);
-			let contentHeight = content.offsetHeight;
-			const imgHeight = img.offsetHeight;
+				contentHeight -= parseInt(style.marginTop.replace('px', ''));
 
-			contentHeight -= parseInt(style.marginTop.replace('px', ''));
-
-			if (contentHeight > imgHeight && this.state.className === '') {
-				this.setState({ className: 'grey-bumper' });
-			} else if (contentHeight <= imgHeight && this.state.className !== '') {
-				this.setState({ className: '' });
-			}
+				if (contentHeight > imgHeight && this.state.className === '') {
+					this.setState({ className: 'grey-bumper' });
+				} else if (contentHeight <= imgHeight && this.state.className !== '') {
+					this.setState({ className: '' });
+				}
+			});
 		});
 	};
 
