@@ -42,7 +42,9 @@ export default class Footer extends React.Component {
 				<ThirdsContainer>
 					<div className={'privacy'}>
 						{smallFooterLink && (
-							<Link to={smallFooterLink.url || '/'}>{smallFooterLink.title || 'Disclaimer and Privacy Policy'}</Link>
+							<Link to={smallFooterLink.url.replace(location.origin, '') || '/'}>
+								{smallFooterLink.title || 'Disclaimer and Privacy Policy'}
+							</Link>
 						)}
 					</div>
 					<div />
