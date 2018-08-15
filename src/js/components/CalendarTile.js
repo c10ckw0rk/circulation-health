@@ -1,7 +1,7 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
 import Link from 'js/components/Link';
-import Date from 'js/components/Date';
+import DateComponent from 'js/components/Date';
 import withNews from 'js/hoc/withNews';
 
 import './CalendarTile.scss';
@@ -32,19 +32,24 @@ class CalendarTile extends React.Component {
 	render() {
 		const { title, news, footerLink } = this.props;
 		const latest = [...news];
+		latest.sort((a, b) => new Date(b.date) - new Date(a.date));
 		latest.length = 2;
+		console.log(latest);
 		return (
 			<div className={'calendar-tile'}>
 				<h2>{title}</h2>
 				<ul className={'calendar'}>
-					{latest.map(({ title, date, link }) => {
+					{latest.map(({ title, date, link, excerpt }) => {
 						const parsedDate = date.split(',');
 						return (
 							<li key={(title + date).replace(/ /gi, '-')} className={'entry'}>
 								<div>
 									<Link to={link.replace(location.origin, '')} className={'link'}>
-										<Date day={parsedDate[2]} month={parsedDate[1]} />
-										<span className={'title'}>{title}</span>
+										<DateComponent day={parsedDate[2]} month={parsedDate[1]} />
+										<div>
+											<p className={'title'}>{title}</p>
+											<p className={'excerpt'}>{excerpt.trim()}...</p>
+										</div>
 									</Link>
 								</div>
 							</li>

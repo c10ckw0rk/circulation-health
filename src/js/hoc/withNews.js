@@ -1,5 +1,6 @@
 import React from 'react';
 import { withConsumer } from 'js/store/Store';
+import stripHtmlTags from 'js/util/stripHtmlTags';
 
 const withNews = Component =>
 	withConsumer(
@@ -15,7 +16,8 @@ const withNews = Component =>
 						news.push({
 							title: page.title.rendered,
 							link: page.link,
-							date: page.acf.date
+							date: page.acf.date,
+							excerpt: stripHtmlTags(page.excerpt.rendered).substring(0, 50)
 						});
 					}
 				});

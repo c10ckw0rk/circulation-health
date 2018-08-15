@@ -114,6 +114,11 @@ button:focus {
 .container-fluid {
 	padding-right: baseline(2);
 	padding-left: baseline(2);
+
+	@include break-point(md) {
+		padding-right: baseline(7);
+		padding-left: baseline(7);
+	}
 }
 
 .red-button {

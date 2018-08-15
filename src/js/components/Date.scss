@@ -11,6 +11,7 @@
 	box-sizing: border-box;
 	color: $chestnut-rose;
 	transition: background 0.3s, color 0.3s;
+	align-self: flex-start;
 
 	.day {
 		font-weight: 700;

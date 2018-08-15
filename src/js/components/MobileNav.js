@@ -47,9 +47,12 @@ export default class MobileNav extends React.Component {
 				{navItems.map(({ url, title, ID: id, children }) => {
 					return (
 						<li key={id}>
-							<Link noParentMatch={true} to={url.replace(location.origin, '') || '/'} onClick={this.closeMenu}>
-								{title.toUpperCase()}
-							</Link>
+							{url !== 'http://undefined' && (
+								<Link noParentMatch={true} to={url.replace(location.origin, '') || '/'} onClick={this.closeMenu}>
+									{title.toUpperCase()}
+								</Link>
+							)}
+							{url === 'http://undefined' && <a>{title.toUpperCase()}</a>}
 							{children && this.renderMenu(children)}
 						</li>
 					);

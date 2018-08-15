@@ -29,8 +29,7 @@ export default class Footer extends React.Component {
 			socialLinks,
 			socialTitle,
 			contactTitle,
-			privacyLink,
-			privacyLinkText
+			smallFooterLink
 		} = this.props;
 
 		return (
@@ -42,7 +41,9 @@ export default class Footer extends React.Component {
 				</ThirdsContainer>
 				<ThirdsContainer>
 					<div className={'privacy'}>
-						<Link to={privacyLink || '/'}>{privacyLinkText || 'Disclaimer and Privacy Policy'}</Link>
+						{smallFooterLink && (
+							<Link to={smallFooterLink.url || '/'}>{smallFooterLink.title || 'Disclaimer and Privacy Policy'}</Link>
+						)}
 					</div>
 					<div />
 					<div />

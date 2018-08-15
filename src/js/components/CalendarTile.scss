@@ -37,6 +37,12 @@
 		color: $horizon;
 		margin-left: baseline(2);
 		transition: color 0.3s;
+		margin-bottom: 0;
+	}
+
+	.excerpt {
+		color: $horizon;
+		margin-left: baseline(2);
 	}
 
 	.link {

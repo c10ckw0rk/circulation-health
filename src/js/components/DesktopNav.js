@@ -83,7 +83,10 @@ export default class DesktopNav extends React.Component {
 				{navItems.map(({ url, title, ID: id, children }) => {
 					return (
 						<li ref={this.onRef} key={id}>
-							<Link to={url.replace(location.origin, '') || '/'}>{title.toUpperCase()}</Link>
+							{url !== 'http://undefined' && (
+								<Link to={url.replace(location.origin, '') || '/'}>{title.toUpperCase()}</Link>
+							)}
+							{url === 'http://undefined' && <a>{title.toUpperCase()}</a>}
 							{children && this.renderMenu(children)}
 						</li>
 					);
