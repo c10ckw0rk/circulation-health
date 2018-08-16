@@ -24,7 +24,6 @@ export default class ContactUs extends React.Component {
 				<ul className={'list'}>
 					{types &&
 						types.map(({ type, label, detail }, i) => {
-							console.log(type);
 							return (
 								<li key={i} className={'item'}>
 									{label}:{' '}

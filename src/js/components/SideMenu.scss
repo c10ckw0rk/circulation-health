@@ -21,6 +21,10 @@
 		box-sizing: border-box;
 		padding: 24px 0;
 		line-height: 22px;
+
+		&--no-link {
+			padding: 24px 16px;
+		}
 	}
 
 	ul {
