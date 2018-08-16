@@ -103,7 +103,7 @@ export default class Header extends React.PureComponent {
 						<div className={'make-enquiry'}>
 							{enquiryLink &&
 								enquiryTitle && (
-									<Link to={enquiryLink} className={'red-button'}>
+									<Link to={enquiryLink.replace(location.origin, '')} className={'red-button'}>
 										{enquiryTitle}
 									</Link>
 								)}

@@ -24,12 +24,16 @@ export default class ContactUs extends React.Component {
 				<ul className={'list'}>
 					{types &&
 						types.map(({ type, label, detail }, i) => {
+							console.log(type);
 							return (
 								<li key={i} className={'item'}>
 									{label}:{' '}
-									<a className={'link'} href={`${type}:${detail}`}>
-										{detail}
-									</a>
+									{type !== 'addr' && (
+										<a className={'link'} href={`${type}:${detail}`}>
+											{detail}
+										</a>
+									)}
+									{type === 'addr' && <p className={'link'}>{detail}</p>}
 								</li>
 							);
 						})}

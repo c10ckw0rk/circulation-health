@@ -34,7 +34,7 @@ class CalendarTile extends React.Component {
 		const latest = [...news];
 		latest.sort((a, b) => new Date(b.date) - new Date(a.date));
 		latest.length = 2;
-		console.log(latest);
+
 		return (
 			<div className={'calendar-tile'}>
 				<h2>{title}</h2>

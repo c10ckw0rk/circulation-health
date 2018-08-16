@@ -72,7 +72,7 @@ export default class Banner extends React.Component {
 				<Container outerWrap>
 					<div className={'inner-banner'}>
 						<div className={'banner-title'}>
-							<span className={'inner-content'} dangerouslySetInnerHTML={{ __html: titleContent }} />
+							<span className={'inner-content'} dangerouslySetInnerHTML={{ __html: `<h2>${titleContent}</h2>` }} />
 						</div>
 
 						{this.props.children}

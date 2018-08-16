@@ -4,6 +4,11 @@
 	background: $blue-zodiac;
 	padding-top: 32px;
 
+	.container-fluid {
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+
 	h2 {
 		font-size: 16px;
 		font-weight: bold;
