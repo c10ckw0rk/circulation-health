@@ -86,9 +86,12 @@ class ContactUs extends React.Component {
 											return (
 												<li key={i} className={'item'}>
 													{label}:
-													<a className={'link'} href={`${type}:${detail}`}>
-														{detail}
-													</a>
+													{type === 'addr' && <p className={'link'}>{detail}</p>}
+													{type !== 'addr' && (
+														<a className={'link'} href={`${type}:${detail}`}>
+															{detail}
+														</a>
+													)}
 												</li>
 											);
 										})}
