@@ -9,19 +9,21 @@ import './Map.scss';
 class Map extends React.Component {
 	grid;
 	map;
+	map2;
 	mapElement = React.createRef();
+	mapElement2 = React.createRef();
 	state = {
 		size: this.props.size
 	};
 
 	static defaultProps = {
-		center: {
-			lat: 40.714728,
-			lng: -73.998672
-		},
 		zoom: 15,
 		style: { width: '100%', height: 200 },
 		map: {
+			lat: 0,
+			lng: 0
+		},
+		map2: {
 			lat: 0,
 			lng: 0
 		}
@@ -36,14 +38,20 @@ class Map extends React.Component {
 	largeMap = () => {
 		this.setState({ style: { width: '100%', height: 400 }, zoom: 15 });
 		google.maps.event.trigger(this.map, 'resize');
+		google.maps.event.trigger(this.map2, 'resize');
 	};
 
 	componentDidMount() {
-		const { zoom, style, map: { lat, lng } } = this.props;
+		const { zoom, style, map, map2 } = this.props;
 
 		const center = {
-			lat: Number(lat),
-			lng: Number(lng)
+			lat: Number(map.lat),
+			lng: Number(map.lng)
+		};
+
+		const center2 = {
+			lat: Number(map2.lat),
+			lng: Number(map2.lng)
 		};
 
 		this.map = new google.maps.Map(this.mapElement.current, {
@@ -52,9 +60,22 @@ class Map extends React.Component {
 			zoom
 		});
 
+		this.map2 = new google.maps.Map(this.mapElement2.current, {
+			disableDefaultUI: true,
+			center: center2,
+			zoom
+		});
+
+		console.log(center, center2);
+
 		new google.maps.Marker({
 			position: center,
 			map: this.map
+		});
+
+		new google.maps.Marker({
+			position: center2,
+			map: this.map2
 		});
 
 		this.setState({ style });
@@ -62,12 +83,14 @@ class Map extends React.Component {
 		this.grid = new Grid();
 
 		this.grid.register('xs', 'on', () => {
-			this.setState({ style: { width: '100%', height: 200 } });
+			this.setState({ style: { width: '50%', height: 200 } });
 			google.maps.event.trigger(this.map, 'resize');
+			google.maps.event.trigger(this.map2, 'resize');
 		});
 		this.grid.register('sm', 'on', () => {
-			this.setState({ style: { width: '100%', height: 296 } });
+			this.setState({ style: { width: '50%', height: 296 } });
 			google.maps.event.trigger(this.map, 'resize');
+			google.maps.event.trigger(this.map2, 'resize');
 		});
 		this.grid.register('md', 'on', this.largeMap);
 		this.grid.register('lg', 'on', this.largeMap);
@@ -88,7 +111,8 @@ class Map extends React.Component {
 		return (
 			<div className={cn('map', className)}>
 				<div className={'block-interaction'} />
-				<div style={style} ref={this.mapElement} />
+				<div className={'map-element'} style={style} ref={this.mapElement} />
+				<div className={'map-element'} style={style} ref={this.mapElement2} />
 			</div>
 		);
 	}

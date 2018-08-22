@@ -30,8 +30,6 @@ export default class ProfileTile extends React.Component {
 			const content = this.content.current;
 			const img = this.img.current;
 
-			console.log(img, content);
-
 			if ((!content || !img) && once) {
 				setTimeout(this.resize, 500);
 				once = false;
