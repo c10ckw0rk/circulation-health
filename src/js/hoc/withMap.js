@@ -6,7 +6,6 @@ const withMap = Component =>
 		class extends React.Component {
 			render() {
 				const { globalOptions } = this.props;
-				console.log(this.props.globalOptions);
 				if (!globalOptions) return false;
 				return (
 					<Component

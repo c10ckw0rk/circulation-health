@@ -66,8 +66,6 @@ class Map extends React.Component {
 			zoom
 		});
 
-		console.log(center, center2);
-
 		new google.maps.Marker({
 			position: center,
 			map: this.map
