@@ -73,7 +73,7 @@ export default class ProfileTile extends React.Component {
 						<Container>
 							<div className={'wrapper'}>
 								<div className={'profile'}>
-									<img ref={this.img} className={'image'} src={profileImage} />
+									<img onLoad={this.resize} ref={this.img} className={'image'} src={profileImage} />
 								</div>
 								<div ref={this.content} className={'content'}>
 									<h2 className="h4">{title}</h2>
