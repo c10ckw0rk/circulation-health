@@ -90,7 +90,7 @@ class ContactUs extends React.Component {
                                     Object.keys(typeSections).map(key => {
                                         return (
                                             <div key={key}>
-                                                {key && <h3>{key}</h3>}
+                                                {key !== 'undefined' && <h3>{key}</h3>}
                                                 <ul className={'list'}>
                                                     {typeSections[key].map(({ type, label, detail }, i) => {
                                                         return (
