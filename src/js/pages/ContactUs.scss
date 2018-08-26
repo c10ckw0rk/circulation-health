@@ -1,70 +1,74 @@
 @import '~scss/imports';
 
 .contact-us-page {
-	margin-top: - baseline(8);
-	margin-bottom: baseline(8);
+    margin-top: - baseline(8);
+    margin-bottom: baseline(8);
 
-	.title {
-		font-size: 46px;
-		font-weight: 300;
-		margin-bottom: baseline(5);
-	}
+    .title {
+        font-size: 46px;
+        font-weight: 300;
+        margin-bottom: baseline(5);
+    }
 
-	.contact-us-inner-wrapper {
-		padding: baseline(5) baseline(3);
-		overflow: hidden;
-		background: white;
-		margin: 0 baseline(2);
-	}
+    .contact-us-inner-wrapper {
+        padding: baseline(5) baseline(3);
+        overflow: hidden;
+        background: white;
+        margin: 0 baseline(2);
+    }
 
-	.list {
-		margin-left: 0;
-		list-style: none;
+    .list {
+        margin-left: 0;
+        list-style: none;
 
-		.link {
-			margin-left: 6px;
-			display: inline-block;
-			margin-bottom: 0;
-		}
-	}
+        .link {
+            display: inline-block;
+            margin-bottom: 0;
+        }
 
-	.text-input {
-		margin-bottom: baseline(5);
-	}
+        .label {
+            margin-right: 6px;
+            font-weight: $strong;
+        }
+    }
 
-	.text-area {
-		height: baseline(26);
-	}
+    .text-input {
+        margin-bottom: baseline(5);
+    }
 
-	.submit {
-		margin-top: baseline(5);
-		-webkit-appearance: none;
-		height: baseline(6);
-		background: $chestnut-rose;
-		border: none;
-		color: white;
-		font-size: 16px;
-		padding: 0 baseline(2);
-	}
+    .text-area {
+        height: baseline(26);
+    }
 
-	.submit-wrapper {
-		text-align: right;
-	}
+    .submit {
+        margin-top: baseline(5);
+        -webkit-appearance: none;
+        height: baseline(6);
+        background: $chestnut-rose;
+        border: none;
+        color: white;
+        font-size: 16px;
+        padding: 0 baseline(2);
+    }
 
-	.h2 {
-		margin-top: baseline(3);
-		text-align: right;
-		margin-bottom: 0;
-	}
+    .submit-wrapper {
+        text-align: right;
+    }
+
+    .h2 {
+        margin-top: baseline(3);
+        text-align: right;
+        margin-bottom: 0;
+    }
 }
 
 .contact-us-map {
-	z-index: 0;
-	position: relative;
+    z-index: 0;
+    position: relative;
 }
 
 .contact-us-page-wrapper {
-	z-index: 1;
-	position: relative;
-	overflow: visible;
+    z-index: 1;
+    position: relative;
+    overflow: visible;
 }
