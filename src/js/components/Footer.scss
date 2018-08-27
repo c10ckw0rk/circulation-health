@@ -1,36 +1,41 @@
 @import '~scss/imports';
 
 .footer {
-	border-top: 1px solid $alto;
+    border-top: 1px solid $alto;
 
-	.footer-cols {
-		margin-top: baseline(5);
-		margin-bottom: baseline(2);
+    .footer-cols {
+        margin-top: baseline(5);
+        margin-bottom: baseline(3);
 
-		@include break-point(sm) {
-			float: none;
-		}
+        @include break-point(sm) {
+            float: none;
+        }
 
-		@include break-point(md) {
-			float: left;
-		}
-	}
+        @include break-point(md) {
+            float: left;
+            width: 100%;
+        }
+    }
 
-	.footer-content {
-		height: 64px;
-		padding: 16px 0;
-	}
+    .footer-content {
+        height: 64px;
+        padding: 16px 0;
+    }
 
-	.privacy {
-		font-size: 12px;
-		padding: 32px 0 48px;
+    .privacy {
+        font-size: 12px;
+        padding: 32px 0;
 
-		@include break-point(md) {
-			padding: 24px 0 24px;
-		}
+        @include break-point(md) {
+            padding: 24px 0 24px;
+        }
 
-		a {
-			color: $gray;
-		}
-	}
+        a {
+            color: $gray;
+        }
+    }
+
+    .privacy-container {
+        background: white;
+    }
 }

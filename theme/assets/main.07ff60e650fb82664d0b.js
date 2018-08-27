@@ -151,8 +151,9 @@ function (_React$Component) {
           sizes = _props.sizes,
           col = _props.col,
           outerWrap = _props.outerWrap,
+          padding = _props.padding,
           section = _props.section,
-          rest = _objectWithoutProperties(_props, ["className", "children", "sizes", "col", "outerWrap", "section"]);
+          rest = _objectWithoutProperties(_props, ["className", "children", "sizes", "col", "outerWrap", "padding", "section"]);
 
       var colClasses = Object.keys(sizes).map(function (size) {
         return "col-".concat(size, "-").concat(sizes[size]);
@@ -160,7 +161,8 @@ function (_React$Component) {
       var Component = section ? 'section' : 'div';
       return _react.default.createElement(Component, {
         className: (0, _classnames.default)('container-fluid', 'container-component', className, {
-          'outer-wrap': outerWrap
+          'outer-wrap': outerWrap,
+          padding: !padding
         })
       }, _react.default.createElement("div", {
         className: 'row'
@@ -186,7 +188,8 @@ Object.defineProperty(Container, "defaultProps", {
       lg: 12,
       xl: 12
     },
-    col: true
+    col: true,
+    padding: true
   }
 });
 Object.defineProperty(Container, "propTypes", {
@@ -197,7 +200,8 @@ Object.defineProperty(Container, "propTypes", {
     sizes: _propTypes.default.object,
     className: _propTypes.default.string,
     col: _propTypes.default.bool,
-    outerWrap: _propTypes.default.bool
+    outerWrap: _propTypes.default.bool,
+    padding: _propTypes.default.bool
   }
 });
 
@@ -2532,11 +2536,13 @@ function (_React$Component) {
       var _props = this.props,
           children = _props.children,
           sizes = _props.sizes,
-          colClass = _props.colClass;
+          colClass = _props.colClass,
+          className = _props.className;
       var colClasses = Object.keys(sizes).map(function (size) {
         return "col-".concat(size, "-").concat(sizes[size]);
       });
       return _react.default.createElement(_Container.default, {
+        className: className,
         outerWrap: true,
         col: false
       }, _react.default.createElement("div", {
@@ -2640,6 +2646,7 @@ function (_React$Component) {
           title = _props.title,
           types = _props.types;
       return _react.default.createElement(_Container.default, {
+        padding: false,
         className: 'contact-us'
       }, _react.default.createElement("h2", null, title), _react.default.createElement("ul", {
         className: 'list'
@@ -2745,7 +2752,8 @@ function (_React$Component) {
           title = _props.title,
           icons = _props.icons;
       return _react.default.createElement(_Container.default, {
-        className: 'social'
+        className: 'social',
+        col: false
       }, _react.default.createElement("h2", null, title), _react.default.createElement("ul", {
         className: 'list'
       }, icons.length > 0 && icons.map(function (_ref, i) {
@@ -2937,6 +2945,8 @@ function (_React$Component) {
           message = _state.message,
           submitted = _state.submitted;
       return _react.default.createElement(_Container.default, {
+        padding: false,
+        col: true,
         className: 'subscribe'
       }, _react.default.createElement("h2", null, title), !submitted && _react.default.createElement("form", {
         onSubmit: this.onSubmit,
@@ -3042,23 +3052,29 @@ function (_React$Component) {
           smallFooterLink = _props.smallFooterLink;
       return _react.default.createElement("footer", {
         className: 'footer'
-      }, _react.default.createElement(_ThirdsContainer.default, {
-        colClass: 'footer-cols'
+      }, _react.default.createElement(_ThirdsContainer.default, null, _react.default.createElement("div", {
+        className: 'footer-cols'
+      }, _react.default.createElement(_ContactUs.default, {
+        title: contactTitle,
+        types: contactDetails || undefined
+      })), (socialTitle || '').trim() && _react.default.createElement("div", {
+        className: 'footer-cols'
+      }, _react.default.createElement(_Social.default, {
+        title: socialTitle,
+        icons: socialLinks
+      })), (subscribeTitle || '').trim() && _react.default.createElement("div", {
+        className: 'footer-cols'
       }, _react.default.createElement(_Subscribe.default, {
         buttonText: subscribeButton,
         subscribePlaceholder: subscribePlaceholder,
         title: subscribeTitle
-      }), (socialTitle || '').trim() && _react.default.createElement(_Social.default, {
-        title: socialTitle,
-        icons: socialLinks
-      }), _react.default.createElement(_ContactUs.default, {
-        title: contactTitle,
-        types: contactDetails || undefined
-      })), _react.default.createElement(_ThirdsContainer.default, null, _react.default.createElement("div", {
+      }))), _react.default.createElement("div", {
+        className: 'privacy-container'
+      }, _react.default.createElement(_ThirdsContainer.default, null, _react.default.createElement("div", {
         className: 'privacy'
       }, smallFooterLink && _react.default.createElement(_reactRouterDom.Link, {
         to: smallFooterLink.url.replace(location.origin, '') || '/'
-      }, smallFooterLink.title || 'Disclaimer and Privacy Policy')), _react.default.createElement("div", null), _react.default.createElement("div", null)));
+      }, smallFooterLink.title || 'Disclaimer and Privacy Policy')), _react.default.createElement("div", null), _react.default.createElement("div", null))));
     }
   }]);
 
