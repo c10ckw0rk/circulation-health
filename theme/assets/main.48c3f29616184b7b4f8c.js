@@ -2930,7 +2930,7 @@ Date_defineProperty(Date_Date, "propTypes", {
 
 // CONCATENATED MODULE: ./src/js/util/stripHtmlTags.js
 function stripHtmlTags(str) {
-  if (!str) return false;else str = str.toString();
+  if (!str) return '';else str = str.toString();
   return str.replace(/<[^>]*>/g, '');
 }
 // CONCATENATED MODULE: ./src/js/hoc/withNews.js
@@ -2998,7 +2998,7 @@ var withNews_withNews = function withNews(Component) {
               title: page.title.rendered,
               link: page.link,
               date: page.acf.date,
-              excerpt: stripHtmlTags(page.excerpt.rendered || '').substring(0, 50)
+              excerpt: stripHtmlTags().substring(0, 50)
             });
           }
         });

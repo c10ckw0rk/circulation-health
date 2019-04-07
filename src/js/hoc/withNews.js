@@ -17,7 +17,7 @@ const withNews = Component =>
 							title: page.title.rendered,
 							link: page.link,
 							date: page.acf.date,
-							excerpt: stripHtmlTags((page.excerpt.rendered || '')).substring(0, 50)
+							excerpt: stripHtmlTags().substring(0, 50)
 						});
 					}
 				});
